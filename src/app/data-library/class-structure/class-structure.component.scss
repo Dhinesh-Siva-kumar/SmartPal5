@@ -1,0 +1,70 @@
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+
+.kendo-grid-table-outer{
+    padding: 40px 20px 20px;
+    border: 2px solid #D6D6D6;
+    border-radius: 10px;
+    margin: 8px;
+    position: relative;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  
+  .filter-tab-outer-table{
+    position: absolute;
+    top: -18px;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Move back by half of own width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px #d1d1d1be;
+  }
+  
+  .filter-tab-btn{
+    background-color: white; 
+    color: #444444;
+    border: 1px solid #D6D6D6;
+    border-radius: 0px;
+    font-family: Roboto;
+    padding: 8px;
+  }
+  
+  .filter-tab-btn-active{
+    background-color: #000080; 
+    color: white;
+    border: 1px solid #000080;
+    border-radius: 0px;
+    font-family: Roboto;
+    padding: 8px;
+  }
+  
+  .filter-tab-btn-start{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .filter-tab-btn-last{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .filter-tab-outer-dropdown{
+    background-color: white; 
+    color: #444444;
+    border: 1px solid #D6D6D6;
+    border-radius: 0px;
+    font-family: Roboto;
+    padding: 8.8px;
+    outline: none;
+    /* border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; */
+    width: 120px;
+  }
+  

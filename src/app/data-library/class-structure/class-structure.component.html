@@ -1,0 +1,41 @@
+<div>
+
+    <div class="header-section">
+        <div>
+            <h4>Data Libary</h4>
+            <p>Maintenance > Data Libary > Class Structure</p>
+            <!-- <div>
+                <kendo-breadcrumb [items]="items" (itemClick)="onItemClick($event)"></kendo-breadcrumb>
+             </div> -->
+        </div>
+        <div>
+            <button class="btn btn-primary">Update</button>
+            <button class="btn btn-primary">up</button>
+            <button class="btn btn-primary">down</button>
+            <button class="btn btn-primary">Map</button>
+        </div>
+    </div>
+
+    <div class="kendo-grid-table-outer my-5">
+
+        <div class="filter-tab-outer-table">
+        <ng-container *ngFor="let button of buttons; let i = index; let first = first ;let last = last;"> 
+            <a [href]="button.linkTo" kendoButton [class]="isActive(button.label) + (first ? ' filter-tab-btn-start' : '') " class="text-decoration-none" (click)="setActive(button.label)">
+            {{ button.label }}
+            </a>
+        </ng-container>
+        </div>
+
+         <!-- Conditionally display the component -->
+         <ng-container *ngIf="activeTab === 'Components'">
+            <app-component-equipment></app-component-equipment>
+        </ng-container>
+
+        <ng-container *ngIf="activeTab === 'Class Structure'">
+            <app-class-equipment></app-class-equipment>
+        </ng-container>
+        
+
+    </div>
+
+</div>

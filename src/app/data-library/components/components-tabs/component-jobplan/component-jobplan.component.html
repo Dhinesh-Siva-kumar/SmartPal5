@@ -1,0 +1,61 @@
+<div>
+
+    <kendo-grid 
+        [data]="gridData" 
+        [height]="370" 
+        [reorderable]="true"
+
+        [pageable]="true" 
+        [pageSize]="10"
+        [sortable]="true"
+        [resizable]="true"
+        [columnMenu]="{ filter: true }"  
+    >
+
+        <ng-template kendoGridToolbarTemplate style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              Round Found
+            </div>
+            
+            <kendo-grid-spacer></kendo-grid-spacer>
+            <kendo-textbox
+              [style.width.px]="165"
+              placeholder="Search"
+            ></kendo-textbox>
+           
+            <button kendoButton type="button">
+              <i class="bi bi-arrows-fullscreen"></i>
+            </button>
+            <button kendoButton kendoGridExcelCommand type="button">
+              <i class="bi bi-upload"></i>
+            </button>
+            <button kendoButton type="button">
+              <i class="bi bi-camera"></i>
+            </button>
+            <button kendoButton type="button">
+              <i class="bi bi-list"></i>
+            </button>
+          </ng-template>
+
+        <kendo-grid-column field="ProductID" title="ID" [width]="40" [headerStyle]="{ 'background-color': '#F2F4F7', 'font-weight' : 'inherit','text-wrap' : 'nowrap' }">
+        </kendo-grid-column>
+        <kendo-grid-column field="ProductName" title="Name" [width]="100" [headerStyle]="{ 'background-color': '#F2F4F7', 'font-weight' : 'inherit'}">
+        </kendo-grid-column>
+        <kendo-grid-column field="Category.CategoryName" title="Category" [width]="100" [headerStyle]="{ 'background-color': '#F2F4F7', 'font-weight' : 'inherit'}">
+        </kendo-grid-column>
+        <kendo-grid-column field="UnitPrice" title="Price" [width]="50" [headerStyle]="{ 'background-color': '#F2F4F7', 'font-weight' : 'inherit'}">
+        </kendo-grid-column>
+        <kendo-grid-column field="UnitsInStock" title="In stock" [width]="50" [headerStyle]="{ 'background-color': '#F2F4F7', 'font-weight' : 'inherit'}">
+        </kendo-grid-column>
+        <kendo-grid-column field="QuantityPerUnit" title="Quantity Per Unit" [width]="80" [headerStyle]="{ 'background-color': '#F2F4F7', 'font-weight' : 'inherit'}">
+        </kendo-grid-column>
+        <!-- <kendo-grid-column field="UnitsOnOrder" title="Units On Order" [width]="50" [headerStyle]="{ 'background-color': '#F2F4F7', 'font-weight' : 'inherit'}">
+        </kendo-grid-column> -->
+        <kendo-grid-column field="Discontinued" title="Discontinued" [width]="50" [headerStyle]="{ 'background-color': '#F2F4F7', 'font-weight' : 'inherit'}">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <input type="checkbox" [checked]="dataItem.Discontinued" disabled />
+          </ng-template>
+        </kendo-grid-column>
+      </kendo-grid>
+
+</div>
