@@ -59,7 +59,7 @@ export class ComponentsComponent {
 
 
 
-  
+
 
   public expandedKeys: any[] = ['0', '1'];
 
@@ -109,12 +109,12 @@ export class ComponentsComponent {
     ];
 
   tabs = [
-    { label: 'Equipment', content: 'equipment' },
-    { label: 'Job Plan', content: 'jobplan' },
-    { label: 'Mapped Vessel', content: 'jobplan' },
-    { label: 'Spare Parts', content: 'jobplan' },
-    { label: 'Service Letter', content: 'jobplan' },
-    { label: 'User Manual', content: 'jobplan' }
+    { label: 'Equipment', content: 'equipment', number: '00' },
+    { label: 'Job Plan', content: 'jobplan', number: '00' },
+    { label: 'Mapped Vessel', content: 'jobplan', number: '00' },
+    { label: 'Spare Parts', content: 'jobplan', number: '00' },
+    { label: 'Service Letter', content: 'jobplan', number: '00' },
+    { label: 'User Manual', content: 'jobplan', number: '00' }
   ];
 
   selectedTab: number | null = 0;

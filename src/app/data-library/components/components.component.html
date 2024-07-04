@@ -33,7 +33,7 @@
                             class="w-100"
                         >
                         </kendo-autocomplete>
-                        
+
 
                         <div class="border-box mt-2">
                           <div class="custom-treeview">
@@ -51,15 +51,15 @@
 
                     </ng-container>
                 </div>
-                
+
                 <div class="w-75 ps-2">
                     <div class="wrapper">
                         <div class="tablist-container">
                             <div class="tabs">
-                              <div class="tab" *ngFor="let tab of tabs; let i = index" 
-                                   [class.active]="selectedTab === i" 
+                              <div class="tab" *ngFor="let tab of tabs; let i = index"
+                                   [class.active]="selectedTab === i"
                                    (click)="selectTab(i)">
-                                {{ tab.label }}
+                             <p>  {{ tab.label }} </p> <span>{{tab.number}}</span>
                               </div>
                             </div>
                             <div class="">
@@ -77,16 +77,16 @@
                                 </div>
                               </ng-container>
                             </div>
-                          </div>          
+                          </div>
                       </div>
                 </div>
             </div>
-            
+
 
         <!-- <ng-container *ngIf="activeTab === 'Class Structure'">
             <app-class-equipment></app-class-equipment>
         </ng-container> -->
-        
+
 
     </div>
 
