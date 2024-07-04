@@ -9,10 +9,10 @@
              </div> -->
         </div>
         <div>
-            <button class="btn btn-primary">Update</button>
-            <button class="btn btn-primary mx-2">up</button>
-            <button class="btn btn-primary me-2">down</button>
-            <button class="btn btn-primary">Map</button>
+            <button class="btn-custom-outline">Update</button>
+            <button class="btn-custom-outline mx-2"><i class="bi bi-upload"></i></button>
+            <button class="btn-custom-outline me-2"><i class="bi bi-download"></i></button>
+            <button class="btn-custom">Map</button>
         </div>
     </div>
 
@@ -31,12 +31,13 @@
 
             <div class="d-flex">
                 <div class="w-25 pe-2">
-                    <input type="text" class="w-100" placeholder="Search box">
+                    <!-- <input type="text" class="w-100" placeholder="Search box"> -->
                     <ng-container>
 
                         <kendo-autocomplete
                             [data]="areaList"
-                            placeholder="Search"
+                            placeholder="Search Data"
+                            class="w-100"
                         >
                         </kendo-autocomplete>
                         
