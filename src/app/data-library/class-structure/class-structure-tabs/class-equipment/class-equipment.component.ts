@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
 import { FormFieldModule } from "@progress/kendo-angular-inputs";
@@ -25,7 +25,17 @@ import { DropDownsModule } from "@progress/kendo-angular-dropdowns";
 })
 
 
-export class ClassEquipmentComponent {
+export class ClassEquipmentComponent implements OnChanges {
+  @Input() nodeId: any;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['nodeId']) {
+      console.log('Received Node ID:', this.nodeId);
+    }
+
+    console.log('Received Node ID:', this.nodeId);
+  }
+
   public value: Date = new Date(2000, 2, 10);
   public areaList: Array<string> = [
     "Boston",

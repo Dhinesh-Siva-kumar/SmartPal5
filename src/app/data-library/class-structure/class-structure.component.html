@@ -3,7 +3,15 @@
     <div class="header-section">
         <div>
             <h4>Data Libary</h4>
-            <p>Maintenance > Data Libary > Class Structure</p>
+            <ul>
+                <li>
+                  <a href="">Maintenance</a>
+                </li>
+                <li>
+                  <a href="">Data Libary</a>
+                </li>
+                <li>Class Structure</li>
+              </ul>
             <!-- <div>
                 <kendo-breadcrumb [items]="items" (itemClick)="onItemClick($event)"></kendo-breadcrumb>
              </div> -->
@@ -44,6 +52,9 @@
                               childrenField="items"
                               kendoTreeViewExpandable
                               [expandedKeys]="expandedKeys"
+                              kendoTreeViewCheckable
+                              [(checkedKeys)]="checkedKeys"
+                              (nodeClick)="onNodeClick($event)"
                           >
                           </kendo-treeview>
                           </div>
@@ -66,13 +77,13 @@
                               <ng-container *ngIf="selectedTab !== null">
                                 <div [ngSwitch]="tabs[selectedTab].content">
                                   <div *ngSwitchCase="'equipment'">
-                                    <app-class-equipment></app-class-equipment>
+                                    <app-class-equipment [nodeId]="selectedNodeId"></app-class-equipment>
                                   </div>
-                                  <div *ngSwitchCase="'jobplan'">
-                                    <app-class-equipment></app-class-equipment>
+                                  <div *ngSwitchCase="'component'">
+                                    <app-class-component></app-class-component>
                                   </div>
                                   <div *ngSwitchDefault>
-                                    <app-class-equipment></app-class-equipment>
+                                    <app-class-equipment [nodeId]="selectedNodeId"></app-class-equipment>
                                   </div>
                                 </div>
                               </ng-container>

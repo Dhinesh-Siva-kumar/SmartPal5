@@ -1,0 +1,26 @@
+<div class="wrapper borderMainAll">
+    <div class="tablist-container">
+        <div class="tabs">
+          <div class="tab" *ngFor="let tab of tabs; let i = index" 
+               [class.active]="selectedTab === i" 
+               (click)="selectTab(i)">
+            {{ tab.label }}
+          </div>
+        </div>
+        <div class="">
+          <ng-container *ngIf="selectedTab !== null">
+            <div [ngSwitch]="tabs[selectedTab].content">
+              <div *ngSwitchCase="'equipment'">
+                <app-component-equipment></app-component-equipment>
+              </div>
+              <div *ngSwitchCase="'jobplan'">
+                <app-component-jobplan></app-component-jobplan>
+              </div>
+              <div *ngSwitchDefault>
+                <app-component-equipment></app-component-equipment>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>          
+  </div>

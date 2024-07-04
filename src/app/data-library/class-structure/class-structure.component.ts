@@ -9,6 +9,7 @@ import { SelectEvent } from "@progress/kendo-angular-layout";
 import { MainControlTabsComponent } from '../main-control-tabs/main-control-tabs.component';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
+import { ClassComponentComponent } from './class-structure-tabs/class-component/class-component.component';
 
 const defaultItems: BreadCrumbItem[] = [
   {
@@ -36,7 +37,8 @@ const defaultItems: BreadCrumbItem[] = [
     LayoutModule,
     MainControlTabsComponent,
     DropDownsModule,
-    TreeViewModule
+    TreeViewModule,
+    ClassComponentComponent
   ],
   templateUrl: './class-structure.component.html',
   styleUrl: './class-structure.component.scss'
@@ -54,6 +56,8 @@ export class ClassStructureComponent {
   public onTabSelect(e: SelectEvent): void {
     console.log(e);
   }
+
+  public selectedNodeId: any = "";
 
   public expandedKeys: any[] = ['0', '1'];
 
@@ -117,6 +121,11 @@ export class ClassStructureComponent {
 
   checkings(index: any): void {
     console.log("testing: ",index)
+  }
+
+  onNodeClick(event: any): void {
+    console.log('Clicked Node ID:', event.item.dataItem.text);
+    this.selectedNodeId = event.item.dataItem.text;
   }
 
   public areaList: Array<string> = [
