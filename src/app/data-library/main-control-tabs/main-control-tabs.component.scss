@@ -1,0 +1,54 @@
+.filter-tab-outer-table{
+    position: relative;
+    bottom: -19px;
+    z-index: 10;
+    ul{
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      max-width: 271px;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 0 auto;
+      border: 1px #ddd solid;
+
+      background: #fff;
+
+     li{
+        display: block;
+
+        padding: 6px 0px;
+        color: #333;
+        font-weight: 400;
+
+        &:first-child{
+border-right: 1px #ddd solid;
+        }
+        &:last-child{
+          border-left: 1px #ddd solid;
+        }
+
+        a{
+          color: #333;
+          font-weight: 400;
+          font-size: 14px;
+          padding: 6px 10px;
+        }
+      }
+    }
+
+
+  }
+
+
+
+  .filter-tab-btn-active{
+    background-color: #42b0d5 ;
+    color: white;
+    a{
+      color: white!important;
+
+  }
+
+}

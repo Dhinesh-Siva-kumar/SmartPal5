@@ -8,6 +8,7 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
 import { SelectEvent } from "@progress/kendo-angular-layout";
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { MainControlTabsComponent } from '../main-control-tabs/main-control-tabs.component';
 
 
 
@@ -38,31 +39,12 @@ const defaultItems: BreadCrumbItem[] = [
     TreeViewModule,
     ComponentJobplanComponent,
     DropDownsModule,
+    MainControlTabsComponent
   ],
   templateUrl: './components.component.html',
   styleUrl: './components.component.scss'
 })
 export class ComponentsComponent {
-  activeTab: string = 'Components';
-
-  buttons = [
-    { label: 'Components', linkTo: '/data-library'},
-    { label: 'Class Structure', linkTo: '/data-library/class-structure'},
-    { label: 'Vessel', linkTo: '/data-library/vessel'},
-  ];
-
-  isActive(tabName: string): string {
-    // if(this.activeTab === tabName){
-    //   console.log("tabName: ", tabName, "this.activeTab: ", this.activeTab)
-    // }
-    
-    return this.activeTab === tabName ? 'filter-tab-btn-active' : 'filter-tab-btn';
-  }
-
-  setActive(tabName: string): void {
-    this.activeTab = tabName;
-    // console.log(" this.activeTab = tabName;",  this.activeTab)
-  }
 
 
   public items: BreadCrumbItem[] = [...defaultItems];

@@ -186,6 +186,10 @@ export class ComponentJobplanComponent {
     return value + ' *';
   }  
 
+  constructor( ) {
+    console.log("Job plan")
+  }
+
   public gridData: unknown[] = products;
 
 }

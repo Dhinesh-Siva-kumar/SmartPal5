@@ -7,6 +7,13 @@ import {
 } from "@progress/kendo-angular-grid";
 import { InputsModule } from "@progress/kendo-angular-inputs";
 import { LabelModule } from '@progress/kendo-angular-label';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { DateInputModule } from '@progress/kendo-angular-dateinputs';
+import { FormFieldModule } from "@progress/kendo-angular-inputs";
+import { ButtonsModule } from "@progress/kendo-angular-buttons";
+import { IconsModule } from "@progress/kendo-angular-icons";
+import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
+import { FloatingLabelModule } from "@progress/kendo-angular-label";
 
 type InputSize = 'small' | 'medium' | 'large';
 
@@ -175,7 +182,14 @@ export const products = [
     ExcelModule,
     InputsModule,
     LabelModule,
-    CommonModule
+    CommonModule,
+    DropDownsModule,
+    DateInputModule,
+    FormFieldModule,
+    ButtonsModule,
+    IconsModule,
+    DateInputsModule,
+    FloatingLabelModule
   ],
   templateUrl: './component-equipment.component.html',
   styleUrl: './component-equipment.component.scss'
@@ -190,6 +204,24 @@ export class ComponentEquipmentComponent {
     return value + ' *';
   }  
 
+
+  constructor( ) {
+    console.log("equipment")
+  }
+
   public gridData: unknown[] = products;
+
+  public value: Date = new Date(2000, 2, 10);
+  public areaList: Array<string> = [
+    "Boston",
+    "Chicago",
+    "Houston",
+    "Los Angeles",
+    "Miami",
+    "New York",
+    "Philadelphia",
+    "San Francisco",
+    "Seattle",
+  ];
 
 }

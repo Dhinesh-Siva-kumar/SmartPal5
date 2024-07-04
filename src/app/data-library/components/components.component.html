@@ -16,20 +16,13 @@
         </div>
     </div>
 
-    <div class="kendo-grid-table-outer my-5">
+    <div class="kendo-grid-table-outer">
 
-        <div class="filter-tab-outer-table">
-        <ng-container *ngFor="let button of buttons; let i = index; let first = first ;let last = last;"> 
-            <a [href]="button.linkTo" kendoButton [class]="isActive(button.label) + (first ? ' filter-tab-btn-start' : '') " class="text-decoration-none" (click)="setActive(button.label)">
-            {{ button.label }}
-            </a>
-        </ng-container>
-        </div>
+        <app-main-control-tabs></app-main-control-tabs>
 
          <!-- Conditionally display the component -->
-         <ng-container *ngIf="activeTab === 'Components'">
 
-            <div class="d-flex">
+            <div class="d-flex borderMainAll">
                 <div class="w-25 pe-2">
                     <!-- <input type="text" class="w-100" placeholder="Search box"> -->
                     <ng-container>
@@ -43,6 +36,7 @@
                         
 
                         <div class="border-box mt-2">
+                          <div class="custom-treeview">
                             <kendo-treeview
                               [nodes]="data"
                               textField="text"
@@ -52,6 +46,7 @@
                               [expandedKeys]="expandedKeys"
                           >
                           </kendo-treeview>
+                          </div>
                         </div>
 
                     </ng-container>
@@ -67,7 +62,7 @@
                                 {{ tab.label }}
                               </div>
                             </div>
-                            <div class="tab-content">
+                            <div class="">
                               <ng-container *ngIf="selectedTab !== null">
                                 <div [ngSwitch]="tabs[selectedTab].content">
                                   <div *ngSwitchCase="'equipment'">
@@ -88,12 +83,9 @@
             </div>
             
 
-            
-        </ng-container>
-
-        <ng-container *ngIf="activeTab === 'Class Structure'">
+        <!-- <ng-container *ngIf="activeTab === 'Class Structure'">
             <app-class-equipment></app-class-equipment>
-        </ng-container>
+        </ng-container> -->
         
 
     </div>

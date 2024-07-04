@@ -6,6 +6,9 @@ import { NavigationModule } from "@progress/kendo-angular-navigation";
 import { BreadCrumbItem } from '@progress/kendo-angular-navigation';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { SelectEvent } from "@progress/kendo-angular-layout";
+import { MainControlTabsComponent } from '../main-control-tabs/main-control-tabs.component';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { TreeViewModule } from '@progress/kendo-angular-treeview';
 
 const defaultItems: BreadCrumbItem[] = [
   {
@@ -30,33 +33,17 @@ const defaultItems: BreadCrumbItem[] = [
     ComponentEquipmentComponent,
     ClassEquipmentComponent,
     NavigationModule,
-    LayoutModule
+    LayoutModule,
+    MainControlTabsComponent,
+    DropDownsModule,
+    TreeViewModule
   ],
   templateUrl: './class-structure.component.html',
   styleUrl: './class-structure.component.scss'
 })
 export class ClassStructureComponent {
 
-  activeTab: string = 'Class Structure';
-
-  buttons = [
-    { label: 'Components', linkTo: '/data-library'},
-    { label: 'Class Structure', linkTo: '/data-library/class-structure'},
-    { label: 'Vessel', linkTo: '/data-library/vessel'},
-  ];
-
-  isActive(tabName: string): string {
-    // if(this.activeTab === tabName){
-    //   console.log("tabName: ", tabName, "this.activeTab: ", this.activeTab)
-    // }
-    
-    return this.activeTab === tabName ? 'filter-tab-btn-active' : 'filter-tab-btn';
-  }
-
-  setActive(tabName: string): void {
-    this.activeTab = tabName;
-    // console.log(" this.activeTab = tabName;",  this.activeTab)
-  }
+  
 
   public items: BreadCrumbItem[] = [...defaultItems];
   public onItemClick(item: BreadCrumbItem): void {
@@ -68,4 +55,99 @@ export class ClassStructureComponent {
     console.log(e);
   }
 
+  public expandedKeys: any[] = ['0', '1'];
+
+    public checkedKeys: any[] = ['0_1'];
+
+    public data: any[] = [
+      {
+        text: "Conponents",
+        items: [
+          { text: "Data 1" },
+          { text: "Data 2" },
+          { text: "Data 3" },
+        ],
+      },
+      {
+        text: "Compressors",
+        items: [
+          { text: "Data 1" },
+          { text: "Data 2" },
+          { text: "Data 3" },
+        ],
+      },
+      {
+        text: "tanks",
+        items: [
+          { text: "Data 1" },
+          { text: "Data 2" },
+          { text: "Data 3" },
+        ],
+      },
+      {
+        text: "Diesel Engines",
+        items: [
+          { text: "Data 1" },
+          { text: "Data 2" },
+          { text: "Data 3" },
+        ],
+      },
+      {
+        text: "Purifiers",
+        items: [
+          { text: "Data 1" },
+          { text: "Data 2" },
+          { text: "Data 3" },
+        ],
+      },
+    ];
+
+  tabs = [
+    { label: 'Equipment', content: 'equipment' },
+    { label: 'Component', content: 'component' },
+    { label: 'Mapped Vessel', content: 'jobplan' },
+  ];
+
+  selectedTab: number | null = 0;
+
+  selectTab(index: number): void {
+    console.log("testing: ",index)
+    this.selectedTab = index;
+  }
+
+  checkings(index: any): void {
+    console.log("testing: ",index)
+  }
+
+  public areaList: Array<string> = [
+    "Amsterdam",
+    "Athens",
+    "Barcelona",
+    "Berlin",
+    "Brussels",
+    "Chicago",
+    "Copenhagen",
+    "Dublin",
+    "Helsinki",
+    "Houston",
+    "Lisbon",
+    "London",
+    "Los Angeles",
+    "Madrid",
+    "Miami",
+    "Montreal",
+    "New York",
+    "Paris",
+    "Philadelphia",
+    "Prague",
+    "Rome",
+    "Sao Paulo",
+    "Seattle",
+    "Stockholm",
+    "Toronto",
+    "Vancouver",
+    "Vienna",
+    "Vienna",
+    "Warsaw",
+  ];
 }

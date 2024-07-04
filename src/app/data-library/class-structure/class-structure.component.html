@@ -16,24 +16,80 @@
         </div>
     </div>
 
-    <div class="kendo-grid-table-outer my-5">
+    <div class="">
 
-        <div class="filter-tab-outer-table">
-        <ng-container *ngFor="let button of buttons; let i = index; let first = first ;let last = last;"> 
-            <a [href]="button.linkTo" kendoButton [class]="isActive(button.label) + (first ? ' filter-tab-btn-start' : '') " class="text-decoration-none" (click)="setActive(button.label)">
-            {{ button.label }}
-            </a>
-        </ng-container>
-        </div>
+        <app-main-control-tabs></app-main-control-tabs>
 
          <!-- Conditionally display the component -->
+
+            <div class="d-flex borderMainAll">
+                <div class="w-25 pe-2">
+                    <!-- <input type="text" class="w-100" placeholder="Search box"> -->
+                    <ng-container>
+
+                        <kendo-autocomplete
+                            [data]="areaList"
+                            placeholder="Search Data"
+                            class="w-100"
+                        >
+                        </kendo-autocomplete>
+                        
+
+                        <div class="border-box mt-2">
+                          <div class="custom-treeview">
+                            <kendo-treeview
+                              [nodes]="data"
+                              textField="text"
+                              kendoTreeViewHierarchyBinding
+                              childrenField="items"
+                              kendoTreeViewExpandable
+                              [expandedKeys]="expandedKeys"
+                          >
+                          </kendo-treeview>
+                          </div>
+                        </div>
+
+                    </ng-container>
+                </div>
+                
+                <div class="w-75 ps-2">
+                    <div class="wrapper">
+                        <div class="tablist-container">
+                            <div class="tabs">
+                              <div class="tab" *ngFor="let tab of tabs; let i = index" 
+                                   [class.active]="selectedTab === i" 
+                                   (click)="selectTab(i)">
+                                {{ tab.label }}
+                              </div>
+                            </div>
+                            <div class="">
+                              <ng-container *ngIf="selectedTab !== null">
+                                <div [ngSwitch]="tabs[selectedTab].content">
+                                  <div *ngSwitchCase="'equipment'">
+                                    <app-class-equipment></app-class-equipment>
+                                  </div>
+                                  <div *ngSwitchCase="'jobplan'">
+                                    <app-class-equipment></app-class-equipment>
+                                  </div>
+                                  <div *ngSwitchDefault>
+                                    <app-class-equipment></app-class-equipment>
+                                  </div>
+                                </div>
+                              </ng-container>
+                            </div>
+                          </div>          
+                      </div>
+                </div>
+            </div>
+
+<!-- 
          <ng-container *ngIf="activeTab === 'Components'">
             <app-component-equipment></app-component-equipment>
         </ng-container>
 
         <ng-container *ngIf="activeTab === 'Class Structure'">
             <app-class-equipment></app-class-equipment>
-        </ng-container>
+        </ng-container> -->
         
 
     </div>
