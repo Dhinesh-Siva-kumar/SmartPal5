@@ -5,6 +5,7 @@ import {
   ExcelModule,
 } from "@progress/kendo-angular-grid";
 import { InputsModule } from "@progress/kendo-angular-inputs";
+import { ColumnMenuSettings } from '@progress/kendo-angular-grid';
 
 
 type InputSize = 'small' | 'medium' | 'large';
@@ -181,6 +182,7 @@ export const products = [
 export class ComponentJobplanComponent {
 
   inputSize: InputSize = 'medium';
+  public sizes = [10, 15, 20];
 
   getPlaceholder(value: any): string {
     return value + ' *';
@@ -191,5 +193,11 @@ export class ComponentJobplanComponent {
   }
 
   public gridData: unknown[] = products;
+
+
+  public menuSettings: ColumnMenuSettings = {
+    autoSizeColumn: true,
+    autoSizeAllColumns: true,
+  };
 
 }

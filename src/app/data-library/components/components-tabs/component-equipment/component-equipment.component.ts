@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, NgModule, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   GridModule,
@@ -14,6 +14,7 @@ import { ButtonsModule } from "@progress/kendo-angular-buttons";
 import { IconsModule } from "@progress/kendo-angular-icons";
 import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
 import { FloatingLabelModule } from "@progress/kendo-angular-label";
+import { FormsModule } from '@angular/forms';
 
 type InputSize = 'small' | 'medium' | 'large';
 
@@ -189,14 +190,241 @@ export const products = [
     ButtonsModule,
     IconsModule,
     DateInputsModule,
-    FloatingLabelModule
+    FloatingLabelModule,
+    FormsModule,
   ],
   templateUrl: './component-equipment.component.html',
   styleUrl: './component-equipment.component.scss'
 })
 
 
-export class ComponentEquipmentComponent {
+export class ComponentEquipmentComponent implements OnChanges {
+
+  @Input() selectedID: any;
+
+  equipment: any = {}; // Initialize the equipment model
+
+  overallData = [
+    {
+      id: '1',
+      equipmentCode: '101.1',
+      equipmentName: 'Equipment-1',
+      parentEquipment: 'Equipment-1 parent',
+      model: '950',
+      marker: 'INDIA',
+      equipmentType: 'boston',
+      drawingNo: 'boston',
+      vesselClass: 'boston',
+      vesselName: 'vessel-1-eqp',
+      department: 'mariapps',
+      type: 'boston',
+      safetyLevel: 'boston',
+      maker: '',
+      models: '',
+      builder: 'boston',
+      partNumber: 'boston',
+      inheritRHrsFrom: '',
+      RHrsSeparately: '',
+      mountAllowed: '',
+      circulating: '',
+      legacyCode: '',
+      active: false,
+      lastModifiedUser: '',
+      lastModifiedDate: '',
+      preferredVendor: '',
+      installationDate: '3/10/2000', 
+      equipmentDimension: '',
+      equipmentMaterial: '',
+      maerskArtCode: '',
+      circulatingEquipment: 'boston',
+      remarks: '',
+    },
+    {
+      id: '2',
+      equipmentCode: '101.2',
+      equipmentName: 'Equipment-2',
+      parentEquipment: 'Equipment-2 parent',
+      model: '950',
+      marker: 'INDIA',
+      equipmentType: 'chicago',
+      drawingNo: 'chicago',
+      vesselClass: 'chicago',
+      vesselName: 'vessel-2-eqp',
+      department: 'mariapps',
+      type: 'chicago',
+      safetyLevel: 'chicago',
+      maker: '',
+      models: '',
+      builder: 'chicago',
+      partNumber: 'chicago',
+      inheritRHrsFrom: '',
+      RHrsSeparately: '',
+      mountAllowed: '',
+      circulating: '',
+      legacyCode: '',
+      active: false,
+      lastModifiedUser: '',
+      lastModifiedDate: '',
+      preferredVendor: '',
+      installationDate: '3/10/2000', 
+      equipmentDimension: '',
+      equipmentMaterial: '',
+      maerskArtCode: '',
+      circulatingEquipment: 'chicago',
+      remarks: '',
+    },
+    {
+      id: '3',
+      equipmentCode: '101.3',
+      equipmentName: 'Equipment-3',
+      parentEquipment: 'Equipment-3 parent',
+      model: '950',
+      marker: 'INDIA',
+      equipmentType: 'boston',
+      drawingNo: 'boston',
+      vesselClass: 'boston',
+      vesselName: 'vessel-3-eqp',
+      department: 'mariapps',
+      type: 'boston',
+      safetyLevel: 'boston',
+      maker: '',
+      models: '',
+      builder: 'boston',
+      partNumber: 'boston',
+      inheritRHrsFrom: '',
+      RHrsSeparately: '',
+      mountAllowed: '',
+      circulating: '',
+      legacyCode: '',
+      active: true,
+      lastModifiedUser: '',
+      lastModifiedDate: '',
+      preferredVendor: '',
+      installationDate: '3/10/2000', 
+      equipmentDimension: '',
+      equipmentMaterial: '',
+      maerskArtCode: '',
+      circulatingEquipment: 'boston',
+      remarks: '',
+    },
+    {
+      id: '4',
+      equipmentCode: '201.1',
+      equipmentName: 'Equipment-2-1',
+      parentEquipment: 'Equipment-2-1 parent',
+      model: '950',
+      marker: 'INDIA',
+      equipmentType: 'boston',
+      drawingNo: 'boston',
+      vesselClass: 'boston',
+      vesselName: 'vessel-2-1-eqp',
+      department: 'mariapps',
+      type: 'boston',
+      safetyLevel: 'boston',
+      maker: '',
+      models: '',
+      builder: 'boston',
+      partNumber: 'boston',
+      inheritRHrsFrom: '',
+      RHrsSeparately: '',
+      mountAllowed: '',
+      circulating: '',
+      legacyCode: '',
+      active: true,
+      lastModifiedUser: '',
+      lastModifiedDate: '',
+      preferredVendor: '',
+      installationDate: '3/10/2000', 
+      equipmentDimension: '',
+      equipmentMaterial: '',
+      maerskArtCode: '',
+      circulatingEquipment: 'boston',
+      remarks: '',
+    },
+    {
+      id: '5',
+      equipmentCode: '201.2',
+      equipmentName: 'Equipment-2',
+      parentEquipment: 'Equipment-2 parent',
+      model: '950',
+      marker: 'INDIA',
+      equipmentType: 'boston',
+      drawingNo: 'boston',
+      vesselClass: 'boston',
+      vesselName: 'vessel-2.3-eqp',
+      department: 'mariapps',
+      type: 'boston',
+      safetyLevel: 'boston',
+      maker: '',
+      models: '',
+      builder: 'boston',
+      partNumber: 'boston',
+      inheritRHrsFrom: '',
+      RHrsSeparately: '',
+      mountAllowed: '',
+      circulating: '',
+      legacyCode: '',
+      active: false,
+      lastModifiedUser: '',
+      lastModifiedDate: '',
+      preferredVendor: '',
+      installationDate: '3/10/2000', 
+      equipmentDimension: '',
+      equipmentMaterial: '',
+      maerskArtCode: '',
+      circulatingEquipment: 'boston',
+      remarks: '',
+    },
+    {
+      id: '6',
+      equipmentCode: '201.3',
+      equipmentName: 'Equipment-2-3',
+      parentEquipment: 'Equipment-2-3 parent',
+      model: '950',
+      marker: 'INDIA',
+      equipmentType: 'boston',
+      drawingNo: 'boston',
+      vesselClass: 'boston',
+      vesselName: 'vessel-2-3-eqp',
+      department: 'mariapps',
+      type: 'boston',
+      safetyLevel: 'boston',
+      maker: '',
+      models: '',
+      builder: 'boston',
+      partNumber: 'boston',
+      inheritRHrsFrom: '',
+      RHrsSeparately: '',
+      mountAllowed: '',
+      circulating: '',
+      legacyCode: '',
+      active: false,
+      lastModifiedUser: '',
+      lastModifiedDate: '',
+      preferredVendor: '',
+      installationDate: '3/10/2000', 
+      equipmentDimension: '',
+      equipmentMaterial: '',
+      maerskArtCode: '',
+      circulatingEquipment: 'boston',
+      remarks: '',
+    },
+  ];
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['selectedID']) {
+      console.log('Received Node ID:', this.selectedID);
+
+      const matchedObject = this.overallData.find(equipment => equipment.id === this.selectedID);
+      if (matchedObject) {
+        console.log('Matched Equipment:', matchedObject);
+        this.equipment = matchedObject
+      } else {
+        console.log('No matching equipment found for ID:', this.selectedID);
+      }
+
+    }
+  }
 
   inputSize: InputSize = 'medium';
 

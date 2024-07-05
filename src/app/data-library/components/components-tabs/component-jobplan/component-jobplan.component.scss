@@ -1,0 +1,137 @@
+/* custom grid */
+
+::ng-deep .headerCustomClass{
+    background-color: lightgray;
+    color: black;
+    padding: 5px 10px; 
+    font-weight: bold;
+    text-wrap: balance;
+    border-left: 1px solid #D6D6D6 !important;
+    border-bottom: 1px solid #D6D6D6 !important;
+}
+
+::ng-deep .cellCustomClass {
+    border: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #D6D6D6 !important;
+}
+
+::ng-deep .cellCustomClass:focus {
+    border: 2px solid rgb(200, 230, 240) !important;
+}
+
+::ng-deep .custom-grid .k-table-row.k-selected > .k-table-td {
+    background-color: inherit;
+}
+
+::ng-deep .custom-grid .k-master-row.k-table-row:hover, ::ng-deep .custom-grid .k-master-row.k-alt.k-table-alt-row:hover {
+    background-color: rgb(200, 230, 240) !important;
+}
+
+::ng-deep .custom-grid .k-master-row.k-table-row{
+    background-color: #F8FAFC;
+    border: 1px solid #D6D6D6;
+}
+
+::ng-deep .custom-grid .k-master-row.k-alt.k-table-alt-row{
+    background-color: #ffffff;
+    border: 1px solid #D6D6D6;
+}
+
+/* grid toolbar starting element */
+
+::ng-deep .custom-grid .k-grid-toolbar {
+    display: flex;
+    border-radius: inherit;
+}
+
+
+/* grid toolbar starting element end */
+
+::ng-deep .custom-grid.k-grid{
+    border: 1px solid #D6D6D6;
+    border-radius: 4px 4px 0px 1px;
+}
+
+/* grid pager styles */
+
+.filter-details{
+    background: #EEF2F6;
+    border-radius: 3px;
+    padding: 7px 14px;
+    color: #4B4B4B;
+}
+
+::ng-deep .custom-grid .k-pager-sizes .k-picker-solid { 
+    border: 1px solid #CDD5DF;
+    color: #666666;
+    background-color: #ffffff;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.02));
+}
+
+::ng-deep .custom-grid .k-pager-sizes .k-dropdown .k-input-button .k-button-icon.k-svg-i-caret-alt-down svg{ 
+    display: none;
+}
+
+::ng-deep .custom-grid .k-pager-sizes .k-dropdown .k-input-button .k-button-icon.k-svg-i-caret-alt-down{ 
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%234B5565' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    min-width: 20.0000000004px;
+    min-height: 20.0000000004px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+::ng-deep .custom-grid .k-pager-input .k-input-solid{
+    border: 1px solid #CDD5DF;
+    border-radius: 4px;
+}
+
+::ng-deep .custom-grid .k-input-inner.k-pager-nav {
+    padding-block: 2px !important;
+}
+
+::ng-deep .custom-grid .k-pager-nav.k-pager-first,
+::ng-deep .custom-grid .k-pager-nav.k-pager-last{
+    display: none;
+}
+
+::ng-deep .custom-grid .k-pager-nav.k-button .k-button-icon.k-svg-i-caret-alt-left svg,
+::ng-deep .custom-grid .k-pager-nav.k-button .k-button-icon.k-svg-i-caret-alt-right svg{
+    display: none;
+}
+
+::ng-deep .custom-grid .k-pager-nav.k-button .k-button-icon.k-svg-i-caret-alt-left {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12' fill='none'%3E%3Cpath d='M6 11L1 6L6 1' stroke='%234B5565' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    min-width: 20.0000000004px;
+    min-height: 20.0000000004px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #CDD5DF !important;
+    border-radius: 4px;
+    padding: 7px, 10px;
+}
+
+::ng-deep .custom-grid .k-pager-nav.k-button .k-button-icon.k-svg-i-caret-alt-right {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='12' viewBox='0 0 7 12' fill='none'%3E%3Cpath d='M1 11L6 6L1 1' stroke='%234B5565' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    min-width: 20.0000000004px;
+    min-height: 20.0000000004px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #CDD5DF !important;
+    border-radius: 4px;
+    padding: 7px, 10px;
+}

@@ -69,17 +69,17 @@ export class ComponentsComponent {
       {
         text: "Conponents",
         items: [
-          { text: "Data 1" },
-          { text: "Data 2" },
-          { text: "Data 3" },
+          { text: "Equipment 1", id: '1' },
+          { text: "Equipment 2", id: '2' },
+          { text: "Equipment 3", id: '3' },
         ],
       },
       {
         text: "Compressors",
         items: [
-          { text: "Data 1" },
-          { text: "Data 2" },
-          { text: "Data 3" },
+          { text: "Equipment 1", id: '4' },
+          { text: "Equipment 2", id: '5' },
+          { text: "Equipment 3", id: '6' },
         ],
       },
       {
@@ -159,4 +159,11 @@ export class ComponentsComponent {
     "Vienna",
     "Warsaw",
   ];
+
+  public selectedNodeId: any = "";
+
+  onNodeClick(event: any): void {
+    console.log('Clicked Node ID:', event.item.dataItem.id);
+    this.selectedNodeId = event.item.dataItem.id;
+  }
 }

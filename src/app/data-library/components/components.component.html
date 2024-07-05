@@ -53,6 +53,7 @@
                               childrenField="items"
                               kendoTreeViewExpandable
                               [expandedKeys]="expandedKeys"
+                              (nodeClick)="onNodeClick($event)"
                           >
                           </kendo-treeview>
                           </div>
@@ -75,7 +76,7 @@
                               <ng-container *ngIf="selectedTab !== null">
                                 <div [ngSwitch]="tabs[selectedTab].content">
                                   <div *ngSwitchCase="'equipment'">
-                                    <app-component-equipment></app-component-equipment>
+                                    <app-component-equipment [selectedID]="selectedNodeId"></app-component-equipment>
                                   </div>
                                   <div *ngSwitchCase="'jobplan'">
                                     <app-component-jobplan></app-component-jobplan>
