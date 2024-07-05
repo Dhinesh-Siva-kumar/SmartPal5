@@ -174,6 +174,42 @@ export const products = [
   }
 ];
 
+export interface Equipment {
+  id: string;
+  equipmentCode: string;
+  equipmentName: string;
+  parentEquipment: string;
+  model: string;
+  marker: string;
+  equipmentType: any[];
+  drawingNo: any[];
+  vesselClass: any[];
+  vesselName: string;
+  department: string;
+  type: any[];
+  safetyLevel: any[];
+  maker: string;
+  models: string;
+  builder: any[];
+  partNumber: string;
+  inheritRHrsFrom: string;
+  RHrsSeparately: string;
+  mountAllowed: string;
+  circulating: string;
+  legacyCode: string;
+  active: string;
+  lastModifiedUser: string;
+  lastModifiedDate: string;
+  preferredVendor: string;
+  installationDate: string;
+  equipmentDimension: string;
+  equipmentMaterial: string;
+  maerskArtCode: string;
+  circulatingEquipment: any[];
+  remarks: string;
+}
+
+
 @Component({
   selector: 'app-component-equipment',
   standalone: true,
@@ -202,227 +238,27 @@ export class ComponentEquipmentComponent implements OnChanges {
 
   @Input() selectedID: any;
 
-  equipment: any = {}; // Initialize the equipment model
+  equipment: any = {} as Equipment; // Initialize the equipment model
 
-  overallData = [
-    {
-      id: '1',
-      equipmentCode: '101.1',
-      equipmentName: 'Equipment-1',
-      parentEquipment: 'Equipment-1 parent',
-      model: '950',
-      marker: 'INDIA',
-      equipmentType: 'boston',
-      drawingNo: 'boston',
-      vesselClass: 'boston',
-      vesselName: 'vessel-1-eqp',
-      department: 'mariapps',
-      type: 'boston',
-      safetyLevel: 'boston',
-      maker: '',
-      models: '',
-      builder: 'boston',
-      partNumber: 'boston',
-      inheritRHrsFrom: '',
-      RHrsSeparately: '',
-      mountAllowed: '',
-      circulating: '',
-      legacyCode: '',
-      active: false,
-      lastModifiedUser: '',
-      lastModifiedDate: '',
-      preferredVendor: '',
-      installationDate: '3/10/2000', 
-      equipmentDimension: '',
-      equipmentMaterial: '',
-      maerskArtCode: '',
-      circulatingEquipment: 'boston',
-      remarks: '',
-    },
-    {
-      id: '2',
-      equipmentCode: '101.2',
-      equipmentName: 'Equipment-2',
-      parentEquipment: 'Equipment-2 parent',
-      model: '950',
-      marker: 'INDIA',
-      equipmentType: 'chicago',
-      drawingNo: 'chicago',
-      vesselClass: 'chicago',
-      vesselName: 'vessel-2-eqp',
-      department: 'mariapps',
-      type: 'chicago',
-      safetyLevel: 'chicago',
-      maker: '',
-      models: '',
-      builder: 'chicago',
-      partNumber: 'chicago',
-      inheritRHrsFrom: '',
-      RHrsSeparately: '',
-      mountAllowed: '',
-      circulating: '',
-      legacyCode: '',
-      active: false,
-      lastModifiedUser: '',
-      lastModifiedDate: '',
-      preferredVendor: '',
-      installationDate: '3/10/2000', 
-      equipmentDimension: '',
-      equipmentMaterial: '',
-      maerskArtCode: '',
-      circulatingEquipment: 'chicago',
-      remarks: '',
-    },
-    {
-      id: '3',
-      equipmentCode: '101.3',
-      equipmentName: 'Equipment-3',
-      parentEquipment: 'Equipment-3 parent',
-      model: '950',
-      marker: 'INDIA',
-      equipmentType: 'boston',
-      drawingNo: 'boston',
-      vesselClass: 'boston',
-      vesselName: 'vessel-3-eqp',
-      department: 'mariapps',
-      type: 'boston',
-      safetyLevel: 'boston',
-      maker: '',
-      models: '',
-      builder: 'boston',
-      partNumber: 'boston',
-      inheritRHrsFrom: '',
-      RHrsSeparately: '',
-      mountAllowed: '',
-      circulating: '',
-      legacyCode: '',
-      active: true,
-      lastModifiedUser: '',
-      lastModifiedDate: '',
-      preferredVendor: '',
-      installationDate: '3/10/2000', 
-      equipmentDimension: '',
-      equipmentMaterial: '',
-      maerskArtCode: '',
-      circulatingEquipment: 'boston',
-      remarks: '',
-    },
-    {
-      id: '4',
-      equipmentCode: '201.1',
-      equipmentName: 'Equipment-2-1',
-      parentEquipment: 'Equipment-2-1 parent',
-      model: '950',
-      marker: 'INDIA',
-      equipmentType: 'boston',
-      drawingNo: 'boston',
-      vesselClass: 'boston',
-      vesselName: 'vessel-2-1-eqp',
-      department: 'mariapps',
-      type: 'boston',
-      safetyLevel: 'boston',
-      maker: '',
-      models: '',
-      builder: 'boston',
-      partNumber: 'boston',
-      inheritRHrsFrom: '',
-      RHrsSeparately: '',
-      mountAllowed: '',
-      circulating: '',
-      legacyCode: '',
-      active: true,
-      lastModifiedUser: '',
-      lastModifiedDate: '',
-      preferredVendor: '',
-      installationDate: '3/10/2000', 
-      equipmentDimension: '',
-      equipmentMaterial: '',
-      maerskArtCode: '',
-      circulatingEquipment: 'boston',
-      remarks: '',
-    },
-    {
-      id: '5',
-      equipmentCode: '201.2',
-      equipmentName: 'Equipment-2',
-      parentEquipment: 'Equipment-2 parent',
-      model: '950',
-      marker: 'INDIA',
-      equipmentType: 'boston',
-      drawingNo: 'boston',
-      vesselClass: 'boston',
-      vesselName: 'vessel-2.3-eqp',
-      department: 'mariapps',
-      type: 'boston',
-      safetyLevel: 'boston',
-      maker: '',
-      models: '',
-      builder: 'boston',
-      partNumber: 'boston',
-      inheritRHrsFrom: '',
-      RHrsSeparately: '',
-      mountAllowed: '',
-      circulating: '',
-      legacyCode: '',
-      active: false,
-      lastModifiedUser: '',
-      lastModifiedDate: '',
-      preferredVendor: '',
-      installationDate: '3/10/2000', 
-      equipmentDimension: '',
-      equipmentMaterial: '',
-      maerskArtCode: '',
-      circulatingEquipment: 'boston',
-      remarks: '',
-    },
-    {
-      id: '6',
-      equipmentCode: '201.3',
-      equipmentName: 'Equipment-2-3',
-      parentEquipment: 'Equipment-2-3 parent',
-      model: '950',
-      marker: 'INDIA',
-      equipmentType: 'boston',
-      drawingNo: 'boston',
-      vesselClass: 'boston',
-      vesselName: 'vessel-2-3-eqp',
-      department: 'mariapps',
-      type: 'boston',
-      safetyLevel: 'boston',
-      maker: '',
-      models: '',
-      builder: 'boston',
-      partNumber: 'boston',
-      inheritRHrsFrom: '',
-      RHrsSeparately: '',
-      mountAllowed: '',
-      circulating: '',
-      legacyCode: '',
-      active: false,
-      lastModifiedUser: '',
-      lastModifiedDate: '',
-      preferredVendor: '',
-      installationDate: '3/10/2000', 
-      equipmentDimension: '',
-      equipmentMaterial: '',
-      maerskArtCode: '',
-      circulatingEquipment: 'boston',
-      remarks: '',
-    },
-  ];
+  overallData: any = [];
+
+  constructor() {
+    const data = localStorage.getItem('overallData');
+    if (data) {
+      this.overallData = JSON.parse(data) as Equipment[];
+    }
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['selectedID']) {
-      console.log('Received Node ID:', this.selectedID);
-
-      const matchedObject = this.overallData.find(equipment => equipment.id === this.selectedID);
+    if (changes['selectedID'] && changes['selectedID'].currentValue) {
+      const matchedObject = this.overallData.find((equipment: Equipment) => equipment.id === this.selectedID);
       if (matchedObject) {
         console.log('Matched Equipment:', matchedObject);
-        this.equipment = matchedObject
+        this.equipment = matchedObject;
       } else {
-        console.log('No matching equipment found for ID:', this.selectedID);
+        console.log('No matching equipment for ID:', this.selectedID);
+        this.equipment = {};
       }
-
     }
   }
 
@@ -432,10 +268,6 @@ export class ComponentEquipmentComponent implements OnChanges {
     return value + ' *';
   }  
 
-
-  constructor( ) {
-    console.log("equipment")
-  }
 
   public gridData: unknown[] = products;
 
@@ -452,4 +284,11 @@ export class ComponentEquipmentComponent implements OnChanges {
     "Seattle",
   ];
 
+  public childUpdateFunc(): void {
+    const index = this.overallData.findIndex((e: Equipment) => e.id === this.equipment.id);
+    if (index !== -1) {
+      this.overallData[index] = this.equipment;
+      localStorage.setItem('overallData', JSON.stringify(this.overallData));
+    }
+  }
 }

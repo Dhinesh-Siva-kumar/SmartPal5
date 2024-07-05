@@ -28,6 +28,8 @@ export class MainControlTabsComponent implements OnInit {
     return this.activeTab === tabName ? 'filter-tab-btn-active' : 'filter-tab-btn';
   }
 
+  // need to re-work on this logic
+
   setActive(url: string): void {
     const lastSegment = url.split('/').filter(segment => segment).pop();  // Getting the last segment of the URL
     console.log('Current URL:', url);

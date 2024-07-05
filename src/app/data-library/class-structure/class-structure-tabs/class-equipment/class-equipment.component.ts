@@ -49,10 +49,6 @@ export class ClassEquipmentComponent implements OnChanges {
     "Seattle",
   ];
 
-  public expandedKeys: any[] = ["0", "1"];
-
-  public checkedKeys: any[] = ["0_1"];
-
   public data: any[] = [
     {
       text: "Furniture",

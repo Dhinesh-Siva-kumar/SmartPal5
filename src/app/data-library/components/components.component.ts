@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentEquipmentComponent } from './components-tabs/component-equipment/component-equipment.component';
 import { ComponentJobplanComponent } from './components-tabs/component-jobplan/component-jobplan.component';
@@ -9,8 +9,6 @@ import { SelectEvent } from "@progress/kendo-angular-layout";
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { MainControlTabsComponent } from '../main-control-tabs/main-control-tabs.component';
-
-
 
 const defaultItems: BreadCrumbItem[] = [
   {
@@ -44,46 +42,68 @@ const defaultItems: BreadCrumbItem[] = [
   templateUrl: './components.component.html',
   styleUrl: './components.component.scss'
 })
-export class ComponentsComponent {
 
+export class ComponentsComponent implements OnInit{
 
-  public items: BreadCrumbItem[] = [...defaultItems];
-  public onItemClick(item: BreadCrumbItem): void {
-    const index = this.items.findIndex((e) => e.text === item.text);
-    this.items = this.items.slice(0, index + 1);
+  @ViewChild(ComponentEquipmentComponent) equipmentTab!: ComponentEquipmentComponent;
+  
+
+  treeViewitems: { text: string, id: string }[] = [];
+
+  public expandedKeys: any[] = [];
+
+  public checkedKeys: any[] = [];
+
+  public data: any[] = [];
+
+  public searchTreeViewList: Array<string> = [];
+  
+
+  ngOnInit() {
+    this.loadData();
   }
 
-  public onTabSelect(e: SelectEvent): void {
-    console.log(e);
+  // Load data from localStorage or set default
+  loadData() {
+    const data = localStorage.getItem('overallData');
+    if (data) {
+      const overallData = JSON.parse(data);
+      this.treeViewitems = overallData.map((equipment: any) => ({
+        text: equipment.equipmentName,
+        id: equipment.id
+      }));
+    } else {
+      const hardCodeItems = [
+        { text: "Equipment 1", id: '1' },
+        { text: "Equipment 2", id: '2' },
+        { text: "Equipment 3", id: '3' },
+        { text: "Equipment 4", id: '4' },
+        { text: "Equipment 5", id: '5' },
+        { text: "Equipment 6", id: '6' },
+      ];
+      this.treeViewitems = hardCodeItems;
+    }
+    this.updateTreeViewData();
+    this.searchTreeViewList = this.data
   }
 
-
-
-
-
-  public expandedKeys: any[] = ['0', '1'];
-
-    public checkedKeys: any[] = ['0_1'];
-
-    public data: any[] = [
+  // Update the data structure for the tree view
+  updateTreeViewData() {
+    this.data = [
       {
-        text: "Conponents",
-        items: [
-          { text: "Equipment 1", id: '1' },
-          { text: "Equipment 2", id: '2' },
-          { text: "Equipment 3", id: '3' },
-        ],
+        text: "Components",
+        items: this.treeViewitems
       },
       {
         text: "Compressors",
         items: [
-          { text: "Equipment 1", id: '4' },
-          { text: "Equipment 2", id: '5' },
-          { text: "Equipment 3", id: '6' },
+          { text: "data 1" },
+          { text: "data 2" },
+          { text: "data 3" },
         ],
       },
       {
-        text: "tanks",
+        text: "Tanks",
         items: [
           { text: "Data 1" },
           { text: "Data 2" },
@@ -107,7 +127,16 @@ export class ComponentsComponent {
         ],
       },
     ];
+  }
 
+  public items: BreadCrumbItem[] = [...defaultItems];
+  public onItemClick(item: BreadCrumbItem): void {
+    const index = this.items.findIndex((e) => e.text === item.text);
+    this.items = this.items.slice(0, index + 1);
+  }
+
+
+  // tabs codes start
   tabs = [
     { label: 'Equipment', content: 'equipment', number: '00' },
     { label: 'Job Plan', content: 'jobplan', number: '00' },
@@ -117,53 +146,25 @@ export class ComponentsComponent {
     { label: 'User Manual', content: 'jobplan', number: '00' }
   ];
 
-  selectedTab: number | null = 0;
+  selectedTab: number = 0;
 
   selectTab(index: number): void {
-    console.log("testing: ",index)
     this.selectedTab = index;
   }
+  // tab code end
 
-  checkings(index: any): void {
-    console.log("testing: ",index)
-  }
-
-  public areaList: Array<string> = [
-    "Amsterdam",
-    "Athens",
-    "Barcelona",
-    "Berlin",
-    "Brussels",
-    "Chicago",
-    "Copenhagen",
-    "Dublin",
-    "Helsinki",
-    "Houston",
-    "Lisbon",
-    "London",
-    "Los Angeles",
-    "Madrid",
-    "Miami",
-    "Montreal",
-    "New York",
-    "Paris",
-    "Philadelphia",
-    "Prague",
-    "Rome",
-    "Sao Paulo",
-    "Seattle",
-    "Stockholm",
-    "Toronto",
-    "Vancouver",
-    "Vienna",
-    "Vienna",
-    "Warsaw",
-  ];
 
   public selectedNodeId: any = "";
 
   onNodeClick(event: any): void {
     console.log('Clicked Node ID:', event.item.dataItem.id);
     this.selectedNodeId = event.item.dataItem.id;
+  }
+
+  callUpdateFunc(): void {
+    if (this.equipmentTab && this.tabs[this.selectedTab].content === 'equipment') {
+      this.equipmentTab.childUpdateFunc();
+      this.loadData();
+    }
   }
 }
