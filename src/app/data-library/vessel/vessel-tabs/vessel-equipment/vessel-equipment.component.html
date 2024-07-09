@@ -1,0 +1,169 @@
+<div class="floatDivMain2">
+    <div class="row rowMainAllSpace">
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="equipment-code">Equipment Code</label>
+        <input class="normalInputField" id="equipment-code" type="text" name="equipmentCode">
+      </div>
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="equipment-name">Equipment Name</label>
+        <input class="normalInputField" id="equipment-name" type="text" name="equipmentName">
+      </div>
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="parent-equipment">Parent Equipment</label>
+        <input class="normalInputField" id="parent-equipment" type="text" name="parentEquipment">
+      </div>
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="model-equipment">Model</label>
+        <input class="normalInputField" id="model-equipment" type="text" name="model">
+      </div>
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="marker-equipment">Marker</label>
+        <input class="normalInputField" id="marker-equipment" type="text" name="marker">
+      </div>
+  
+  
+      <div class="col-sm-3">
+        <kendo-label text="Equipment Type ">
+          <kendo-dropdownlist [data]="areaList" name="equipmentType"></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+      <div class="col-sm-3">
+        <kendo-label text="Drawing No. ">
+          <kendo-dropdownlist [data]="areaList" name="drawingNo"></kendo-dropdownlist>
+        </kendo-label>
+  
+      </div>
+  
+      <div class="col-sm-3">
+        <kendo-label text="Vessel Class ">
+          <kendo-dropdownlist [data]="areaList" name="vesselClass"></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+  
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="vessel-name">Vessel Name</label>
+        <input class="normalInputField" id="vessel-name" type="text" placeholder="" name="vesselName">
+      </div>
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="department">Department</label>
+        <input class="normalInputField" id="department" type="text" placeholder="" name="department">
+      </div>
+  
+      <div class="col-sm-3">
+        <kendo-label text="Type">
+          <kendo-dropdownlist [data]="areaList" name="type"></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+  
+      <div class="col-sm-3">
+        <kendo-label text="Safety Level ">
+          <kendo-dropdownlist [data]="areaList" name="safetyLevel"></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="maker">Maker</label>
+        <input class="normalInputField" id="maker" type="text" placeholder="" name="maker">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="model">Model</label>
+        <input class="normalInputField" id="model" type="text" placeholder="" name="models">
+      </div>
+  
+      <div class="col-sm-3">
+        <kendo-label text="Builder">
+          <kendo-dropdownlist [data]="areaList" name="builder"></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+  
+      <div class="col-sm-3">
+        <kendo-label text="Part Number">
+          <kendo-dropdownlist [data]="areaList" name="partNumber"></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+  
+      <div class="col-sm-3">
+  
+        <label class="labelNormalTxt" for="inheritRHrsFrom">Inherit RHrs From</label>
+        <input class="normalInputField" id="inheritRHrsFrom" type="text" placeholder="" name="inheritRHrsFrom">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="RHrsSeparately">RHrs Separately</label>
+        <input class="normalInputField" id="RHrsSeparately" type="text" placeholder="" name="RHrsSeparately">
+      </div>
+  
+      <div class="col-sm-3">
+  
+        <label class="labelNormalTxt" for="mount-allowed">Mount Allowed</label>
+        <input class="normalInputField" id="mount-allowed" type="text" placeholder="" name="mountAllowed">
+  
+      </div>
+  
+      <div class="col-sm-3 ">
+        <label class="labelNormalTxt" for="circulating">Circulating</label>
+        <input class="normalInputField" id="circulating" type="text" placeholder="" name="circulating">
+      </div>
+  
+      <div class="col-sm-5">
+        <label class="labelNormalTxt" for="legacy-code">Legacy Code</label>
+        <input class="normalInputField" id="legacy-code" type="text" placeholder="" name="legacyCode">
+      </div>
+  
+      <div class="col-sm-1 switchingClass">
+        <h2>Active</h2>
+        <kendo-switch name="active"></kendo-switch>
+  
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="Last-Modified-User">Last Modified User</label>
+        <input class="normalInputField" id="Last-Modified-User" type="text" placeholder="" name="lastModifiedUser">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="Last-Modified-Date">Last Modified Date</label>
+        <input class="normalInputField" id="Last-Modified-Date" type="text" placeholder="" name="lastModifiedDate">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="preferred-vendor">Preferred Vendor</label>
+        <input class="normalInputField" id="preferred-vendor" type="text" placeholder="" name="preferredVendor">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt">Installation Date</label>
+        <kendo-datepicker calendarType="infinite" [value]="value" name="installationDate"></kendo-datepicker>
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="equipment-dimension">Equipment Dimension</label>
+        <input class="normalInputField" id="equipment-dimension" type="text" placeholder="" name="equipmentDimension">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="equipment-material">Equipment Material</label>
+        <input class="normalInputField" id="equipment-material" type="text" placeholder="" name="equipmentMaterial">
+      </div>
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="maersk-art-code">Maersk Art Code</label>
+        <input class="normalInputField" id="maersk-art-code" type="text" placeholder="" name="maerskArtCode">
+      </div>
+      <div class="col-sm-3">
+        <kendo-label text="Circulating Equipment Group ">
+          <kendo-dropdownlist [data]="areaList" name="circulatingEquipment"></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+  
+      <div class="col-sm-6">
+        <label class="labelNormalTxt" for="remarks">Remarks</label>
+        <input class="normalInputField" id="remarks" type="text" placeholder="" name="remarks">
+      </div>
+  
+  
+    </div>
+  
+  
+  </div>

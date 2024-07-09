@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   GridModule,
   PDFModule,
@@ -6,6 +7,16 @@ import {
 } from "@progress/kendo-angular-grid";
 import { InputsModule } from "@progress/kendo-angular-inputs";
 import { ColumnMenuSettings } from '@progress/kendo-angular-grid';
+import { BasicDetailsComponentComponent } from '../../components-subtabs/basic-details-component/basic-details-component.component';
+import { AttachmentsComponentComponent } from '../../components-subtabs/attachments-component/attachments-component.component';
+import { ExcelFormsComponentComponent } from '../../components-subtabs/excel-forms-component/excel-forms-component.component';
+import { QdmsComponentComponent } from '../../components-subtabs/qdms-component/qdms-component.component';
+import { ResourcesComponentComponent } from '../../components-subtabs/resources-component/resources-component.component';
+import { SparesComponentComponent } from '../../components-subtabs/spares-component/spares-component.component'; 
+import { TaskComponentComponent } from '../../components-subtabs/task-component/task-component.component';
+import { TechFormsComponentComponent } from '../../components-subtabs/tech-forms-component/tech-forms-component.component';
+import { UserManualComponentComponent } from '../../components-subtabs/user-manual-component/user-manual-component.component';
+
 
 
 type InputSize = 'small' | 'medium' | 'large';
@@ -175,6 +186,16 @@ export const products = [
     PDFModule,
     ExcelModule,
     InputsModule,
+    CommonModule,
+    BasicDetailsComponentComponent,
+    AttachmentsComponentComponent,
+    ExcelFormsComponentComponent,
+    QdmsComponentComponent,
+    ResourcesComponentComponent,
+    SparesComponentComponent,
+    TaskComponentComponent,
+    TechFormsComponentComponent,
+    UserManualComponentComponent
   ],
   templateUrl: './component-jobplan.component.html',
   styleUrl: './component-jobplan.component.scss'
@@ -199,5 +220,25 @@ export class ComponentJobplanComponent {
     autoSizeColumn: true,
     autoSizeAllColumns: true,
   };
+
+  // tabs codes start
+  tabs = [
+    { label: 'Basic Details', content: 'basicDetails', number: '00' },
+    { label: 'Spares', content: 'spares', number: '00' },
+    { label: 'Excel Forms', content: 'excelForms', number: '00' },
+    { label: 'Attachments', content: 'attachments', number: '00' },
+    { label: 'Task', content: 'task', number: '00' },
+    { label: 'Tech Forms', content: 'techForms', number: '00' },
+    { label: 'Resources', content: 'resources', number: '00' },
+    { label: 'User Manual', content: 'userManual', number: '00' },
+    { label: 'QDMS', content: 'qdms', number: '00' },
+  ];
+
+  selectedTab: number = 0;
+
+  selectTab(index: number): void {
+    this.selectedTab = index;
+  }
+  // tab code end
 
 }

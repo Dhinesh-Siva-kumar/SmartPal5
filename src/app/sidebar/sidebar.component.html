@@ -12,7 +12,7 @@
     <div>
         <ul class="sidebarList">
             <li *ngFor="let item of navList">
-                <a [href]="item.linkto" class="text-decoration-none text-dark">
+                <a [routerLink]="item.linkto" class="text-decoration-none text-dark">
                     <i class="bi bi-chevron-right"></i> <i [ngClass]="item.icon" class="mx-2"></i> {{item.name}}
                 </a>
             </li>

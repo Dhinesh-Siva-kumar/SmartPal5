@@ -1,0 +1,96 @@
+<div>
+
+    <div class="header-section">
+        <div>
+            <h4>Data Libary</h4>
+
+            <ul>
+              <li>
+                <a href="">Maintenance</a>
+              </li>
+              <li>
+                <a href="">Data Libary</a>
+              </li>
+              <li>Vessel</li>
+            </ul>
+             <!-- <div>
+                <kendo-breadcrumb [items]="items" (itemClick)="onItemClick($event)"></kendo-breadcrumb>
+             </div> -->
+        </div>
+        <div>
+            <button class="btn-custom-outline" >Update</button>
+            <button class="btn-custom-outline mx-2"><i class="bi bi-upload"></i></button>
+            <button class="btn-custom-outline me-2"><i class="bi bi-download"></i></button>
+            <button class="btn-custom">Map</button>
+        </div>
+    </div>
+
+    <div class="">
+
+        <app-main-control-tabs></app-main-control-tabs>
+
+         <!-- Conditionally display the component -->
+
+            <div class="d-flex borderMainAll">
+                <div class="w-25 pe-2">
+                    <!-- <input type="text" class="w-100" placeholder="Search box"> -->
+                    <ng-container>
+
+                        <kendo-autocomplete
+                            [data]="areaList"
+                            valueField="text"
+                            placeholder="Search Data"
+                            class="w-100"
+                        >
+                        </kendo-autocomplete>
+
+
+                        <div class="border-box mt-2">
+                          <div class="custom-treeview">
+                            <kendo-treeview
+                              [nodes]="data"
+                              textField="text"
+                              kendoTreeViewHierarchyBinding
+                              childrenField="items"
+                              kendoTreeViewExpandable
+                          >
+                          </kendo-treeview>
+                          </div>
+                        </div>
+
+                    </ng-container>
+                </div>
+
+                <div class="w-75 ps-2">
+                    <div class="wrapper">
+                        <div class="tablist-container">
+                            <div class="tabs">
+                              <div class="tab" *ngFor="let tab of tabs; let i = index"
+                                   [class.active]="selectedTab === i"
+                                   (click)="selectTab(i)">
+                             <p>  {{ tab.label }} </p> 
+                              </div>
+                            </div>
+                            <div class="">
+                              <ng-container *ngIf="selectedTab !== null">
+                                <div [ngSwitch]="tabs[selectedTab].content">
+                                  <div *ngSwitchCase="'equipment'">
+                                    <app-vessel-equipment></app-vessel-equipment>
+                                  </div>
+                                  <div *ngSwitchCase="'jobplan'">
+                                    <app-vessel-equipment></app-vessel-equipment>
+                                  </div>
+                                  <div *ngSwitchDefault>
+                                    <app-vessel-equipment></app-vessel-equipment>
+                                  </div>
+                                </div>
+                              </ng-container>
+                            </div>
+                          </div>
+                      </div>
+                </div>
+            </div>
+
+    </div>
+
+</div>

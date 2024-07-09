@@ -95,15 +95,13 @@
       <input class="normalInputField" id="parent-equipment" type="text" [(ngModel)]="equipment.parentEquipment" name="parentEquipment">
     </div>
     <div class="col-sm-3">
-      <label class="labelNormalTxt" for="model-equipment">Model</label>
-      <input class="normalInputField" id="model-equipment" type="text" [(ngModel)]="equipment.model" name="model">
-    </div>
-    <div class="col-sm-3">
       <label class="labelNormalTxt" for="marker-equipment">Marker</label>
       <input class="normalInputField" id="marker-equipment" type="text" [(ngModel)]="equipment.marker" name="marker">
     </div>
-
-
+    <div class="col-sm-3">
+      <label class="labelNormalTxt" for="model-equipment">Model</label>
+      <input class="normalInputField" id="model-equipment" type="text" [(ngModel)]="equipment.model" name="model">
+    </div>
     <div class="col-sm-3">
       <kendo-label text="Equipment Type ">
         <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.equipmentType" name="equipmentType"></kendo-dropdownlist>
