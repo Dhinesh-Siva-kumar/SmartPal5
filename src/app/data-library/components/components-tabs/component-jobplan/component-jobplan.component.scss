@@ -209,6 +209,7 @@
     display: flex;
     cursor: pointer;
     margin-bottom: 10px;
+    flex-wrap: wrap;
   }
 
   .tab {
@@ -273,42 +274,3 @@
   .kendo-treeview {
     width: 250px;
   }
-.positionRelativeTable{
-  position: relative;
-}
-
-::ng-deep{
-  .k-virtual-content{
-    scrollbar-width: thin!important;
-    scrollbar-color:#ddd transparent;
-
-  }
-  .k-grid-header{
-    padding: 0px!important;
-  }
-
-    .k-grid-content::-webkit-scrollbar {
-      width: 10px!important;
-    }
-
-    /* Track */
-    .k-grid-content::-webkit-scrollbar-track {
-
-      border-radius: 10px!important;
-      padding-right:10px!important;
-    }
-
-    /* Handle */
-    .k-grid-content::-webkit-scrollbar-thumb {
-      background: #ccc!important;
-      border-radius: 10px!important;
-    }
-
-    /* Handle on hover */
-    .k-grid-content::-webkit-scrollbar-thumb:hover {
-      background: #b30000!important;
-    }
-
-
-
-}
