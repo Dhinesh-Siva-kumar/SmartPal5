@@ -3,7 +3,7 @@
 ::ng-deep .headerCustomClass{
     background-color: lightgray;
     color: black;
-    padding: 2px 10px; 
+    padding: 2px 10px;
     font-weight: bold;
     text-wrap: balance;
     border-left: 1px solid #D6D6D6 !important;
@@ -118,18 +118,18 @@
     color: #4B4B4B;
 }
 
-::ng-deep .custom-grid .k-pager-sizes .k-picker-solid { 
+::ng-deep .custom-grid .k-pager-sizes .k-picker-solid {
     border: 1px solid #CDD5DF;
     color: #666666;
     background-color: #ffffff;
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.02));
 }
 
-::ng-deep .custom-grid .k-pager-sizes .k-dropdown .k-input-button .k-button-icon.k-svg-i-caret-alt-down svg{ 
+::ng-deep .custom-grid .k-pager-sizes .k-dropdown .k-input-button .k-button-icon.k-svg-i-caret-alt-down svg{
     display: none;
 }
 
-::ng-deep .custom-grid .k-pager-sizes .k-dropdown .k-input-button .k-button-icon.k-svg-i-caret-alt-down{ 
+::ng-deep .custom-grid .k-pager-sizes .k-dropdown .k-input-button .k-button-icon.k-svg-i-caret-alt-down{
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%234B5565' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center;
@@ -273,3 +273,188 @@
   .kendo-treeview {
     width: 250px;
   }
+
+  .borderMainall{
+    border: 1px #ddd solid;
+    border-radius: 5px;
+    padding: 0px 10px 10px;
+    margin-bottom: 10px;
+  }
+  .labelNormalTxt{
+    margin: 0;
+  background: #fff;
+  font-size: 14px;
+  position: relative;
+  left: 7px;
+  top: 15px;
+  z-index: 10;
+  padding: 0 7px;
+  white-space: nowrap;
+  max-width: 155px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
+  .normalInputField{
+    border: 1px #ddd solid;
+  padding: 4px 13px;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+  border-radius: 5px;
+  }
+
+  .switchingClass{
+    margin-top: 9px;
+    h2{
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 1px;
+    }
+          }
+          ::ng-deep{
+            .k-switch-on:focus .k-switch-track{
+              outline: none!important;
+            }
+            .k-switch-md{
+              width: auto!important;
+              height: auto!important;
+            }
+            .k-picker-solid{
+              background: transparent!important;
+              border: 1px #ddd solid;
+            }
+            .k-switch-on{
+              .k-switch-track{
+                background: #42b0d5!important;
+              }
+
+            }
+            .k-switch-track{
+              background: #9b9b9b!important;
+              border: none!important;
+              width: 54px!important;
+              height: 21px!important;
+            }
+            .k-switch-thumb{
+              width: 14px!important;
+              height: 14px!important;
+              transform: translate(-50%, -50%);
+            }
+            .k-switch-label-off{
+              display: none!important;
+            }
+            .k-switch-label-on{
+              display: none!important;
+            }
+            .k-input-value-text{
+              padding: 6px 13px 2px;
+            }
+            .k-button-md.k-icon-button{
+              padding: 0px;
+              background: transparent;
+              border: none;
+              position: absolute;
+              right: 0;
+              top: 4px;
+            }
+            .k-svg-i-caret-alt-down{
+
+              svg{
+                display: none;
+              }
+              padding: 0px;
+              background-size: 13px;
+              background-repeat: no-repeat;
+              background-position: center center;
+              background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z'/%3E%3C/svg%3E");
+            }
+            .k-picker-solid:focus{
+              box-shadow: none;
+            }
+            .k-input-solid{
+              border: 1px #ddd solid;
+              padding: 4px 13px;
+              border-radius: 5px;
+
+            }
+            .k-input-solid.k-focus{
+              box-shadow: none;
+            }
+            .k-label{
+              margin: 0;
+              background: #fff;
+              font-size: 14px;
+              position: relative;
+              left: 7px;
+              top: 15px;
+              z-index: 10;
+              padding: 0 7px;
+              white-space: nowrap;
+              max-width: 155px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+            .k-input-inner{
+              padding: 0px!important;
+            }
+
+            // dropdown popup style
+            .k-popup {
+                margin-top: 3px;
+            }
+
+            .k-list-container {
+                border: 1px solid #CDD5DF;
+                border-radius: 6px;
+            }
+
+            .k-list {
+                border-radius: 6px;
+            }
+
+            .k-list-item {
+                border-bottom: 1px solid #CDD5DF;
+
+                &:hover{
+                    background:  #f0f0f0;
+                }
+            }
+
+            .k-list-item.k-focus{
+                box-shadow: none;
+            }
+
+            .k-list-item.k-focus.k-selected{
+                background: #E1EEF8;
+                color: #525252;
+            }
+
+            .k-checkbox:checked{
+                border-color: #000080;
+                color: white;
+                background-color: #000080;
+            }
+
+            // dropdown popup style end
+
+          }
+
+
+          .displayMainFlex{
+
+            display: flex;
+            gap:10px;
+
+          }
+
+          .rowMainAllSpace{
+            margin: 0 -5px;
+            .col-sm-6{
+              padding: 0 5px;
+
+            }
+          }
+
+          .paddingMainLeft{
+            padding-left: 10px!important;
+          }

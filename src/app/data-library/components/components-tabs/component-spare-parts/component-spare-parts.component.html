@@ -1,32 +1,63 @@
 <div>
-
-    <kendo-grid 
-      [data]="gridData" 
-      [height]="370" 
-      [reorderable]="true" 
-      [rowReorderable]="true" 
+  <div class="borderMainall">
+<div class="row rowMainAllSpace ">
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-6">
+        <label class="labelNormalTxt" for="equipment-name">Equipment Code</label>
+        <input class="normalInputField"  type="text" >
+      </div>
+      <div class="col-sm-6">
+        <label class="labelNormalTxt" for="equipment-name">Equipment Name</label>
+        <input class="normalInputField"  type="text" >
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 paddingMainLeft">
+    <div class="displayMainFlex">
+    <div class="switchingClass">
+      <h2>Show spares of sub level equipment</h2>
+      <kendo-switch name="active"></kendo-switch>
+    </div>
+    <div class="switchingClass">
+      <h2>Show critical only</h2>
+      <kendo-switch name="active"></kendo-switch>
+    </div>
+    <div class="switchingClass">
+      <h2>Active</h2>
+      <kendo-switch name="active"></kendo-switch>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+    <kendo-grid
+      [data]="gridData"
+      [height]="370"
+      [reorderable]="true"
+      [rowReorderable]="true"
       [pageable]="{
         info: false,
         type: 'input',
         pageSizes: true,
       }"
-      [pageSize]="10" 
-      [sortable]="true" 
-      [groupable]="true" 
+      [pageSize]="10"
+      [sortable]="true"
+      [groupable]="true"
       [resizable]="true"
-      [filterable]="true" 
-      [navigable]="true" 
-      [columnMenu]="menuSettings" 
+      [filterable]="true"
+      [navigable]="true"
+      [columnMenu]="menuSettings"
       class="custom-grid"
       >
-  
+
       <ng-template kendoGridToolbarTemplate>
         <div>
           Round Found
         </div>
-  
+
         <kendo-grid-spacer></kendo-grid-spacer>
-  
+
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <rect width="24" height="24" rx="12" fill="url(#paint0_linear_1306_110944)" />
@@ -41,9 +72,9 @@
               </linearGradient>
             </defs>
           </svg>
-  
+
           <kendo-textbox class="mx-2" [style.width.px]="165" placeholder="Search"></kendo-textbox>
-  
+
           <div class="group-btn">
             <button class="group-btn-active" kendoButton type="button">
               <i class="bi bi-arrows-fullscreen"></i>
@@ -58,11 +89,11 @@
               <i class="bi bi-three-dots-vertical"></i>
             </button>
           </div>
-  
+
         </div>
-  
+
       </ng-template>
-  
+
       <kendo-grid-column field="ProductID" title="ID" [width]="40" [headerClass]="'headerCustomClass'"
         [class]="'cellCustomClass'">
       </kendo-grid-column>
@@ -89,7 +120,7 @@
           <input type="checkbox" [checked]="dataItem.Discontinued" disabled />
         </ng-template>
       </kendo-grid-column>
-  
+
       <ng-template kendoPagerTemplate let-totalPages="totalPages" let-currentPage="currentPage">
         <span style="color: #444444;">Show row per page</span><kendo-pager-page-sizes [pageSizes]="sizes"
           aria-label="false"></kendo-pager-page-sizes>
@@ -98,13 +129,13 @@
         <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
         <kendo-pager-next-buttons></kendo-pager-next-buttons>
       </ng-template>
-  
+
       <kendo-grid-messages groupPanelEmpty="Drag column header here to group" noRecords="There are no items to display."
         pagerLabel="You are currently on page {currentPage} of {totalPages}" filterMenuTitle="Filter for {columnName}"
         pagerPage="Page" pagerItemsPerPage="">
       </kendo-grid-messages>
-  
+
     </kendo-grid>
-  
+
 
   </div>
