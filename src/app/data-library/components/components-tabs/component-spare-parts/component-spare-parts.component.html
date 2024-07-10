@@ -1,0 +1,110 @@
+<div>
+
+    <kendo-grid 
+      [data]="gridData" 
+      [height]="370" 
+      [reorderable]="true" 
+      [rowReorderable]="true" 
+      [pageable]="{
+        info: false,
+        type: 'input',
+        pageSizes: true,
+      }"
+      [pageSize]="10" 
+      [sortable]="true" 
+      [groupable]="true" 
+      [resizable]="true"
+      [filterable]="true" 
+      [navigable]="true" 
+      [columnMenu]="menuSettings" 
+      class="custom-grid"
+      >
+  
+      <ng-template kendoGridToolbarTemplate>
+        <div>
+          Round Found
+        </div>
+  
+        <kendo-grid-spacer></kendo-grid-spacer>
+  
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect width="24" height="24" rx="12" fill="url(#paint0_linear_1306_110944)" />
+            <path
+              d="M16.7855 10.6V12C16.7855 14.7062 14.6426 16.9 11.9992 16.9M7.21289 10.6V12C7.21289 14.7062 9.3558 16.9 11.9992 16.9M11.9992 16.9V19M9.26417 19H14.7343M11.9992 14.1C10.8663 14.1 9.94793 13.1598 9.94793 12V7.1C9.94793 5.9402 10.8663 5 11.9992 5C13.1321 5 14.0505 5.9402 14.0505 7.1V12C14.0505 13.1598 13.1321 14.1 11.9992 14.1Z"
+              stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+            <defs>
+              <linearGradient id="paint0_linear_1306_110944" x1="0" y1="12" x2="24" y2="12"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#4568DC" />
+                <stop offset="1" stop-color="#B06AB3" />
+              </linearGradient>
+            </defs>
+          </svg>
+  
+          <kendo-textbox class="mx-2" [style.width.px]="165" placeholder="Search"></kendo-textbox>
+  
+          <div class="group-btn">
+            <button class="group-btn-active" kendoButton type="button">
+              <i class="bi bi-arrows-fullscreen"></i>
+            </button>
+            <button kendoButton class="" type="button">
+              <i class="bi bi-upload"></i>
+            </button>
+            <button kendoButton class="" type="button">
+              <i class="bi bi-list"></i>
+            </button>
+            <button kendoButton class="" type="button">
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+          </div>
+  
+        </div>
+  
+      </ng-template>
+  
+      <kendo-grid-column field="ProductID" title="ID" [width]="40" [headerClass]="'headerCustomClass'"
+        [class]="'cellCustomClass'">
+      </kendo-grid-column>
+      <kendo-grid-column field="ProductName" title="Name" [width]="100" [headerClass]="'headerCustomClass'"
+        [class]="'cellCustomClass'">
+      </kendo-grid-column>
+      <kendo-grid-column field="Category.CategoryName" title="Category" [width]="100" [headerClass]="'headerCustomClass'"
+        [class]="'cellCustomClass'">
+      </kendo-grid-column>
+      <kendo-grid-column field="UnitPrice" title="Price" [width]="50" [headerClass]="'headerCustomClass'"
+        [class]="'cellCustomClass'">
+      </kendo-grid-column>
+      <kendo-grid-column field="UnitsInStock" title="In stock" [width]="50" [headerClass]="'headerCustomClass'"
+        [class]="'cellCustomClass'">
+      </kendo-grid-column>
+      <kendo-grid-column field="QuantityPerUnit" title="Quantity Per Unit" [width]="80"
+        [headerClass]="'headerCustomClass'" [class]="'cellCustomClass'">
+      </kendo-grid-column>
+      <!-- <kendo-grid-column field="UnitsOnOrder" title="Units On Order" [width]="50" [headerClass]="'headerCustomClass'" [class]="'cellCustomClass'">
+          </kendo-grid-column> -->
+      <kendo-grid-column field="Discontinued" title="Discontinued" [width]="50" [headerClass]="'headerCustomClass'"
+        [class]="'cellCustomClass'">
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <input type="checkbox" [checked]="dataItem.Discontinued" disabled />
+        </ng-template>
+      </kendo-grid-column>
+  
+      <ng-template kendoPagerTemplate let-totalPages="totalPages" let-currentPage="currentPage">
+        <span style="color: #444444;">Show row per page</span><kendo-pager-page-sizes [pageSizes]="sizes"
+          aria-label="false"></kendo-pager-page-sizes>
+        <kendo-grid-spacer></kendo-grid-spacer>
+        <kendo-pager-input></kendo-pager-input>
+        <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+        <kendo-pager-next-buttons></kendo-pager-next-buttons>
+      </ng-template>
+  
+      <kendo-grid-messages groupPanelEmpty="Drag column header here to group" noRecords="There are no items to display."
+        pagerLabel="You are currently on page {currentPage} of {totalPages}" filterMenuTitle="Filter for {columnName}"
+        pagerPage="Page" pagerItemsPerPage="">
+      </kendo-grid-messages>
+  
+    </kendo-grid>
+  
+
+  </div>

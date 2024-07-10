@@ -16,6 +16,9 @@ import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
 import { FloatingLabelModule } from "@progress/kendo-angular-label";
 import { FormsModule } from '@angular/forms';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 type InputSize = 'small' | 'medium' | 'large';
 
 export const products = [
@@ -182,14 +185,16 @@ export interface Equipment {
   model: string;
   marker: string;
   equipmentType: any[];
+  builderLicense: any[];
   drawingNo: any[];
   vesselClass: any[];
   vesselName: string;
   department: string;
   type: any[];
   safetyLevel: any[];
+  applicableVessel: string;
   maker: string;
-  models: string;
+  mariAppsRef: string;
   builder: any[];
   partNumber: string;
   inheritRHrsFrom: string;
@@ -228,6 +233,8 @@ export interface Equipment {
     DateInputsModule,
     FloatingLabelModule,
     FormsModule,
+    ReactiveFormsModule,
+    
   ],
   templateUrl: './component-equipment.component.html',
   styleUrl: './component-equipment.component.scss'
@@ -240,9 +247,12 @@ export class ComponentEquipmentComponent implements OnChanges {
 
   equipment: any = {} as Equipment; // Initialize the equipment model
 
+  equipmentForm!: FormGroup;
+
+
   overallData: any = [];
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
     const data = localStorage.getItem('overallData');
     if (data) {
       this.overallData = JSON.parse(data) as Equipment[];
@@ -289,6 +299,56 @@ export class ComponentEquipmentComponent implements OnChanges {
     if (index !== -1) {
       this.overallData[index] = this.equipment;
       localStorage.setItem('overallData', JSON.stringify(this.overallData));
+    }
+  }
+
+  
+
+
+  ngOnInit() {
+    this.equipmentForm = this.fb.group({
+      equipmentCode: ['', Validators.required],
+      equipmentName: ['', Validators.required],
+      parentEquipment: [''],
+      marker: [''],
+      model: [''],
+      equipmentType: [''],
+      builderLicense: [''],
+      department: [''],
+      drawingNo: [''],
+      vesselClass: [''],
+      vesselName: [''],
+      type: [''],
+      safetyLevel: [''],
+      applicableVessel: [''],
+      inheritRHrsFrom: [''],
+      RHrsSeparately: [''],
+      mountAllowed: [''],
+      circulating: [''],
+      active: [false],
+      legacyCode: [''],
+      lastModifiedUser: [''],
+      lastModifiedDate: [''],
+      preferredVendor: [''],
+      installationDate: [''],
+      equipmentDimension: [''],
+      equipmentMaterial: [''],
+      maerskArtCode: [''],
+      mariAppsRef: [''],
+      circulatingEquipment: [''],
+      remarks: [''],
+      partNumber: ['']
+    });
+  }
+
+  // convenience getter for easy access to form fields
+  get f() { return this.equipmentForm.controls; }
+
+  onSubmit() {
+    if (this.equipmentForm.valid) {
+      console.log(this.equipmentForm.value);
+    } else {
+      console.log('Form is invalid');
     }
   }
 }

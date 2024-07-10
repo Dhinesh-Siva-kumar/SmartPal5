@@ -108,10 +108,17 @@
       </kendo-label>
     </div>
     <div class="col-sm-3">
-      <kendo-label text="Drawing No. ">
+      <label class="labelNormalTxt" for="builderLicense-equipment">Builder/License</label>
+      <input class="normalInputField" id="builderLicense-equipment" type="text" [(ngModel)]="equipment.builderLicense" name="builderLicense">
+    </div>
+    <div class="col-sm-3">
+      <label class="labelNormalTxt" for="department">Department</label>
+      <input class="normalInputField" id="department" type="text" placeholder="" [(ngModel)]="equipment.department" name="department">
+    </div>
+    <div class="col-sm-3">
+      <kendo-label text="Drawing Number">
         <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.drawingNo" name="drawingNo"></kendo-dropdownlist>
       </kendo-label>
-
     </div>
 
     <div class="col-sm-3">
@@ -125,10 +132,7 @@
       <label class="labelNormalTxt" for="vessel-name">Vessel Name</label>
       <input class="normalInputField" id="vessel-name" type="text" placeholder="" [(ngModel)]="equipment.vesselName" name="vesselName">
     </div>
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="department">Department</label>
-      <input class="normalInputField" id="department" type="text" placeholder="" [(ngModel)]="equipment.department" name="department">
-    </div>
+   
 
     <div class="col-sm-3">
       <kendo-label text="Type">
@@ -143,29 +147,11 @@
     </div>
 
     <div class="col-sm-3">
-      <label class="labelNormalTxt" for="maker">Maker</label>
-      <input class="normalInputField" id="maker" type="text" placeholder="" [(ngModel)]="equipment.maker" name="maker">
+      <label class="labelNormalTxt" for="applicableVessel">Applicable Vessel</label>
+      <input class="normalInputField" id="applicableVessel" type="text" placeholder="" [(ngModel)]="equipment.applicableVessel" name="applicableVessel">
     </div>
 
     <div class="col-sm-3">
-      <label class="labelNormalTxt" for="model">Model</label>
-      <input class="normalInputField" id="model" type="text" placeholder="" [(ngModel)]="equipment.models" name="models">
-    </div>
-
-    <div class="col-sm-3">
-      <kendo-label text="Builder">
-        <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.builder" name="builder"></kendo-dropdownlist>
-      </kendo-label>
-    </div>
-
-    <div class="col-sm-3">
-      <kendo-label text="Part Number">
-        <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.partNumber" name="partNumber"></kendo-dropdownlist>
-      </kendo-label>
-    </div>
-
-    <div class="col-sm-3">
-
       <label class="labelNormalTxt" for="inheritRHrsFrom">Inherit RHrs From</label>
       <input class="normalInputField" id="inheritRHrsFrom" type="text" placeholder="" [(ngModel)]="equipment.inheritRHrsFrom" name="inheritRHrsFrom">
     </div>
@@ -187,15 +173,15 @@
       <input class="normalInputField" id="circulating" type="text" placeholder="" [(ngModel)]="equipment.circulating" name="circulating">
     </div>
 
-    <div class="col-sm-5">
-      <label class="labelNormalTxt" for="legacy-code">Legacy Code</label>
-      <input class="normalInputField" id="legacy-code" type="text" placeholder="" [(ngModel)]="equipment.legacyCode" name="legacyCode">
-    </div>
-
     <div class="col-sm-1 switchingClass">
       <h2>Active</h2>
       <kendo-switch [(ngModel)]="equipment.active" name="active"></kendo-switch>
 
+    </div>
+
+    <div class="col-sm-5">
+      <label class="labelNormalTxt" for="legacy-code">Legacy Code</label>
+      <input class="normalInputField" id="legacy-code" type="text" placeholder="" [(ngModel)]="equipment.legacyCode" name="legacyCode">
     </div>
 
     <div class="col-sm-3">
@@ -231,6 +217,12 @@
       <label class="labelNormalTxt" for="maersk-art-code">Maersk Art Code</label>
       <input class="normalInputField" id="maersk-art-code" type="text" placeholder="" [(ngModel)]="equipment.maerskArtCode" name="maerskArtCode">
     </div>
+
+    <div class="col-sm-3">
+      <label class="labelNormalTxt" for="model">MariApps Ref</label>
+      <input class="normalInputField" id="mariAppsRef" type="text" placeholder="" [(ngModel)]="equipment.mariAppsRef" name="mariAppsRef">
+    </div>
+
     <div class="col-sm-3">
       <kendo-label text="Circulating Equipment Group ">
         <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.circulatingEquipment" name="circulatingEquipment"></kendo-dropdownlist>
@@ -240,6 +232,17 @@
     <div class="col-sm-6">
       <label class="labelNormalTxt" for="remarks">Remarks</label>
       <input class="normalInputField" id="remarks" type="text" placeholder="" [(ngModel)]="equipment.remarks" name="remarks">
+    </div>
+
+    <div class="col-sm-3">
+      <label class="labelNormalTxt" for="equipmentCode">Equipment Code </label>
+      <input class="normalInputField" id="equipmentCode" type="text" placeholder="" [(ngModel)]="equipment.equipmentCode" name="equipmentCode">
+    </div>
+
+    <div class="col-sm-12">
+      <kendo-label text="Part Number">
+        <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.partNumber" name="partNumber"></kendo-dropdownlist>
+      </kendo-label>
     </div>
 
 

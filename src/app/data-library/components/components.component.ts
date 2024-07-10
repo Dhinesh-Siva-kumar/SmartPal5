@@ -9,6 +9,7 @@ import { SelectEvent } from "@progress/kendo-angular-layout";
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { MainControlTabsComponent } from '../main-control-tabs/main-control-tabs.component';
+import { ComponentSparePartsComponent } from './components-tabs/component-spare-parts/component-spare-parts.component';
 
 const defaultItems: BreadCrumbItem[] = [
   {
@@ -37,7 +38,8 @@ const defaultItems: BreadCrumbItem[] = [
     TreeViewModule,
     ComponentJobplanComponent,
     DropDownsModule,
-    MainControlTabsComponent
+    MainControlTabsComponent,
+    ComponentSparePartsComponent
   ],
   templateUrl: './components.component.html',
   styleUrl: './components.component.scss'
@@ -141,7 +143,7 @@ export class ComponentsComponent implements OnInit{
     { label: 'Equipment', content: 'equipment', number: '00' },
     { label: 'Job Plan', content: 'jobplan', number: '00' },
     { label: 'Mapped Vessel', content: 'jobplan', number: '00' },
-    { label: 'Spare Parts', content: 'jobplan', number: '00' },
+    { label: 'Spare Parts', content: 'spareParts', number: '00' },
     { label: 'Service Letter', content: 'jobplan', number: '00' },
     { label: 'User Manual', content: 'jobplan', number: '00' }
   ];
