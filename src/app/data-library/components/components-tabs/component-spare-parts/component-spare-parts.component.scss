@@ -444,8 +444,9 @@
 
             display: flex;
             gap:10px;
-
+            align-items: end;
           }
+
 
           .rowMainAllSpace{
             margin: 0 -5px;
@@ -458,3 +459,44 @@
           .paddingMainLeft{
             padding-left: 10px!important;
           }
+
+
+          .btn-custom-outline{
+            border: 1px solid #42b0d5;
+            padding: 5px 10px;
+            background-color: white;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #42b0d5;
+            transition: 0.4s;
+        
+            &:hover{
+              border: 1px solid black;
+              color: black;
+            }
+        
+            &:active{
+              background-color: rgb(63, 207, 255, 0.6);
+            }
+          }
+        
+          .btn-custom{
+            border: 1px solid #42b0d5;
+            padding: 5px 10px;
+            background-color: #42b0d5;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 400;
+            color: white;
+            transition: 0.4s;
+        
+            &:hover{
+              border: 1px solid rgb(63, 207, 255, 0.6);
+            }
+        
+            &:active{
+              background-color: rgb(63, 207, 255, 0.6);
+            }
+          }
+        

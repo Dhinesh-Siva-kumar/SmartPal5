@@ -1,7 +1,7 @@
 <div>
   <div class="borderMainall">
 <div class="row rowMainAllSpace ">
-  <div class="col-sm-6">
+  <div class="col-sm-5">
     <div class="row">
       <div class="col-sm-6">
         <label class="labelNormalTxt" for="equipment-name">Equipment Code</label>
@@ -13,24 +13,39 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-6 paddingMainLeft">
+  <div class="col-sm-7 paddingMainLeft">
     <div class="displayMainFlex">
-    <div class="switchingClass">
-      <h2>Show spares of sub level equipment</h2>
-      <kendo-switch name="active"></kendo-switch>
-    </div>
-    <div class="switchingClass">
-      <h2>Show critical only</h2>
-      <kendo-switch name="active"></kendo-switch>
-    </div>
-    <div class="switchingClass">
-      <h2>Active</h2>
-      <kendo-switch name="active"></kendo-switch>
-    </div>
+      <div class="switchingClass">
+        <h2 style="max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Show spares of sub
+          level equipment</h2>
+        <kendo-switch name="active"></kendo-switch>
+      </div>
+      <div class="switchingClass">
+        <h2 style="max-width: 100px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Show critical only
+        </h2>
+        <kendo-switch name="active"></kendo-switch>
+      </div>
+      <div class="switchingClass">
+        <h2>Active</h2>
+        <kendo-switch name="active"></kendo-switch>
+      </div>
+      <div>
+        <button kendoButton class="btn-custom mx-2">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+      <div>
+        <button kendoButton class="btn-custom-outline me-2" (click)="shareComponent.toggleSidebar()">
+          <i class="bi bi-funnel"></i>
+        </button>
+      </div>
     </div>
   </div>
-</div>
-</div>
+  </div>
+  
+  </div>
+
+
     <kendo-grid
       [data]="gridData"
       [height]="370"
@@ -138,4 +153,25 @@
     </kendo-grid>
 
 
+    <ng-template #childTemplate>
+      <div class="input-fields">
+        <div class="">
+          <label class="labelNormalTxt" for="equipment-name">Equipment Code</label>
+          <input class="normalInputField"  type="text" >
+        </div>
+        <div class="">
+          <label class="labelNormalTxt" for="equipment-name">Equipment Name</label>
+          <input class="normalInputField"  type="text" >
+        </div>
+        <div class="">
+          <label class="labelNormalTxt" for="equipment-name">Equipment Name</label>
+          <input class="normalInputField"  type="text" >
+        </div>
+        <div class="">
+          <label class="labelNormalTxt" for="equipment-name">Equipment Name</label>
+          <input class="normalInputField"  type="text" >
+        </div>
+      </div>
+    </ng-template>
+    
   </div>

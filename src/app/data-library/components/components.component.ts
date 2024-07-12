@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentEquipmentComponent } from './components-tabs/component-equipment/component-equipment.component';
 import { ComponentJobplanComponent } from './components-tabs/component-jobplan/component-jobplan.component';
@@ -10,6 +10,7 @@ import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { MainControlTabsComponent } from '../main-control-tabs/main-control-tabs.component';
 import { ComponentSparePartsComponent } from './components-tabs/component-spare-parts/component-spare-parts.component';
+import { SharedService } from './shared.service';
 
 const defaultItems: BreadCrumbItem[] = [
   {
@@ -48,6 +49,7 @@ const defaultItems: BreadCrumbItem[] = [
 export class ComponentsComponent implements OnInit{
 
   @ViewChild(ComponentEquipmentComponent) equipmentTab!: ComponentEquipmentComponent;
+  @Input() childTemplate!: TemplateRef<any>;
   
 
   treeViewitems: { text: string, id: string }[] = [];
@@ -59,6 +61,10 @@ export class ComponentsComponent implements OnInit{
   public data: any[] = [];
 
   public searchTreeViewList: Array<string> = [];
+
+  constructor(public shareComponent: SharedService){
+
+  }
   
 
   ngOnInit() {
@@ -165,8 +171,12 @@ export class ComponentsComponent implements OnInit{
 
   callUpdateFunc(): void {
     if (this.equipmentTab && this.tabs[this.selectedTab].content === 'equipment') {
-      this.equipmentTab.childUpdateFunc();
-      this.loadData();
+      if (this.equipmentTab.validateForm()) {
+        this.equipmentTab.childUpdateFunc();
+        this.loadData();
+      } else {
+        this.equipmentTab.equipmentForm.ngSubmit.emit(); 
+      }
     }
   }
 }

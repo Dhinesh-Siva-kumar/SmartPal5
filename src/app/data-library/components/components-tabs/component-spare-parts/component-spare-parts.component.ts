@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   GridModule,
@@ -16,7 +16,8 @@ import { SparesComponentComponent } from '../../components-subtabs/spares-compon
 import { TaskComponentComponent } from '../../components-subtabs/task-component/task-component.component';
 import { TechFormsComponentComponent } from '../../components-subtabs/tech-forms-component/tech-forms-component.component';
 import { UserManualComponentComponent } from '../../components-subtabs/user-manual-component/user-manual-component.component';
-
+import { SharedService } from '../../shared.service';
+import { ComponentsComponent } from '../../components.component';
 
 
 type InputSize = 'small' | 'medium' | 'large';
@@ -195,12 +196,19 @@ export const products = [
     SparesComponentComponent,
     TaskComponentComponent,
     TechFormsComponentComponent,
-    UserManualComponentComponent
+    UserManualComponentComponent,
+    ComponentsComponent
   ],
    templateUrl: './component-spare-parts.component.html',
   styleUrl: './component-spare-parts.component.scss'
 })
 export class ComponentSparePartsComponent {
+
+  @ViewChild('childTemplate') template!: TemplateRef<any>;
+
+  ngAfterViewInit() {
+    this.parent.childTemplate = this.template;
+  }
 
   inputSize: InputSize = 'medium';
   public sizes = [10, 15, 20];
@@ -209,7 +217,7 @@ export class ComponentSparePartsComponent {
     return value + ' *';
   }  
 
-  constructor( ) {
+  constructor(public shareComponent: SharedService, private parent: ComponentsComponent) {
     console.log("Job plan")
   }
 

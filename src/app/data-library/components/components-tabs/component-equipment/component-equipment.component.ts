@@ -1,5 +1,6 @@
-import { Component, Input, NgModule, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, NgModule, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgForm } from '@angular/forms';
 import {
   GridModule,
   PDFModule,
@@ -230,7 +231,6 @@ export interface Equipment {
     DateInputsModule,
     FloatingLabelModule,
     FormsModule,
-    
   ],
   templateUrl: './component-equipment.component.html',
   styleUrl: './component-equipment.component.scss'
@@ -239,7 +239,9 @@ export interface Equipment {
 
 export class ComponentEquipmentComponent implements OnChanges {
 
+  
   @Input() selectedID: any;
+  @ViewChild('equipmentForm', { static: true }) equipmentForm!: NgForm;
 
   equipment: any = {} as Equipment; // Initialize the equipment model
 
@@ -295,7 +297,12 @@ export class ComponentEquipmentComponent implements OnChanges {
     }
   }
 
-  
+  submitted = false;
+
+  validateForm() {
+    this.submitted = true;
+    return this.equipmentForm.valid;
+  }
 
   
 }

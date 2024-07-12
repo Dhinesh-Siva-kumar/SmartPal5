@@ -1,24 +1,28 @@
 <div class="floatDivMain2">
+  <form #equipmentForm="ngForm">
   <div class="row rowMainAllSpace">
     <div class="col-sm-3">
       <label class="labelNormalTxt" for="equipment-code">Equipment Code</label>
-      <input class="normalInputField" id="equipment-code" type="text" [(ngModel)]="equipment.equipmentCode" name="equipmentCode">
+      <input class="normalInputField" id="equipment-code" type="text" [(ngModel)]="equipment.equipmentCode" name="equipmentCode" required>
+      <div *ngIf="submitted && !equipment.equipmentCode" class="error">Equipment Code is required</div>
     </div>
     <div class="col-sm-3">
       <label class="labelNormalTxt" for="equipment-name">Equipment Name</label>
-      <input class="normalInputField" id="equipment-name" type="text" [(ngModel)]="equipment.equipmentName" name="equipmentName">
+      <input class="normalInputField" id="equipment-name" type="text" [(ngModel)]="equipment.equipmentName" name="equipmentName" required>
+      <div *ngIf="submitted && !equipment.equipmentName" class="error">Equipment Name is required</div>
     </div>
     <div class="col-sm-3">
       <label class="labelNormalTxt" for="parent-equipment">Parent Equipment</label>
-      <input class="normalInputField" id="parent-equipment" type="text" [(ngModel)]="equipment.parentEquipment" name="parentEquipment">
+      <input class="normalInputField" id="parent-equipment" type="text" [(ngModel)]="equipment.parentEquipment" name="parentEquipment" required>
+      <div *ngIf="submitted && !equipment.parentEquipment" class="error">Parent Equipment is required</div>
     </div>
     <div class="col-sm-3">
       <label class="labelNormalTxt" for="marker-equipment">Marker</label>
-      <input class="normalInputField" id="marker-equipment" type="text" [(ngModel)]="equipment.marker" name="marker">
+      <input class="normalInputField" id="marker-equipment" type="text" [(ngModel)]="equipment.marker" name="marker" required>
     </div>
     <div class="col-sm-3">
       <label class="labelNormalTxt" for="model-equipment">Model</label>
-      <input class="normalInputField" id="model-equipment" type="text" [(ngModel)]="equipment.model" name="model">
+      <input class="normalInputField" id="model-equipment" type="text" [(ngModel)]="equipment.model" name="model" required>
     </div>
     <div class="col-sm-3">
       <kendo-label text="Equipment Type ">
@@ -27,11 +31,11 @@
     </div>
     <div class="col-sm-3">
       <label class="labelNormalTxt" for="builderLicense-equipment">Builder/License</label>
-      <input class="normalInputField" id="builderLicense-equipment" type="text" [(ngModel)]="equipment.builderLicense" name="builderLicense">
+      <input class="normalInputField" id="builderLicense-equipment" type="text" [(ngModel)]="equipment.builderLicense" name="builderLicense" required>
     </div>
     <div class="col-sm-3">
       <label class="labelNormalTxt" for="department">Department</label>
-      <input class="normalInputField" id="department" type="text" placeholder="" [(ngModel)]="equipment.department" name="department">
+      <input class="normalInputField" id="department" type="text" placeholder="" [(ngModel)]="equipment.department" name="department" required>
     </div>
     <div class="col-sm-3">
       <kendo-label text="Drawing Number">
@@ -165,5 +169,5 @@
 
 
   </div>
-
+  </form>
 </div>

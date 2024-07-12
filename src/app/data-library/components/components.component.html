@@ -1,4 +1,4 @@
-<div>
+<div [style.margin-right]="shareComponent.isPinSidebar ? '260px' : '0'">
 
     <div class="header-section">
         <div>
@@ -103,6 +103,20 @@
         </ng-container> -->
 
 
+    </div>
+
+    <div class="sidebar" [class.active]="shareComponent.isActive">
+      <div class="sidebar-header">
+        <h4>Filter</h4>
+        
+        <div class="d-flex">
+        <button class="btn btn-none" (click)="shareComponent.pinSidebar()"> <i class="bi bi-pin"></i> </button>
+        <button class="btn btn-none" (click)="shareComponent.toggleSidebar()"><i class="bi bi-x-circle"></i></button>
+        </div>
+      </div>
+      <div>
+        <ng-container *ngTemplateOutlet="childTemplate"></ng-container>
+      </div>
     </div>
 
 </div>
