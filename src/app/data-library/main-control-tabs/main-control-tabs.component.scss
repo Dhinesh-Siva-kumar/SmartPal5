@@ -21,6 +21,8 @@
         padding: 6px 0px;
         color: #333;
         font-weight: 400;
+        white-space: nowrap;
+        overflow: hidden;
 
         &:first-child{
 border-right: 1px #ddd solid;

@@ -1,4 +1,4 @@
-<div [style.margin-right]="shareComponent.isPinSidebar ? '260px' : '0'">
+<div [style.margin-right]="isPinSidebar ? '260px' : '0'">
 
     <div class="header-section">
         <div>
@@ -77,13 +77,13 @@
                               <ng-container *ngIf="selectedTab !== null">
                                 <div [ngSwitch]="tabs[selectedTab].content">
                                   <div *ngSwitchCase="'equipment'">
-                                    <app-component-equipment [selectedID]="selectedNodeId"></app-component-equipment>
+                                    <app-component-equipment [selectedID]="selectedNodeId" ></app-component-equipment>
                                   </div>
                                   <div *ngSwitchCase="'jobplan'">
                                     <app-component-jobplan></app-component-jobplan>
                                   </div>
                                   <div *ngSwitchCase="'spareParts'">
-                                    <app-component-spare-parts></app-component-spare-parts>
+                                    <app-component-spare-parts (filterBar)="handleChildEvent($event)"></app-component-spare-parts>
                                   </div>
                                   
                                   <div *ngSwitchDefault>
@@ -105,13 +105,13 @@
 
     </div>
 
-    <div class="sidebar" [class.active]="shareComponent.isActive">
+    <div class="sidebar" [class.active]="filterBoolan">
       <div class="sidebar-header">
         <h4>Filter</h4>
         
         <div class="d-flex">
-        <button class="btn btn-none" (click)="shareComponent.pinSidebar()"> <i class="bi bi-pin"></i> </button>
-        <button class="btn btn-none" (click)="shareComponent.toggleSidebar()"><i class="bi bi-x-circle"></i></button>
+        <button class="btn btn-none" (click)="pinSidebar()"> <i class="bi bi-pin"></i> </button>
+        <button class="btn btn-none" (click)="toggleSidebar()"><i class="bi bi-x-circle"></i></button>
         </div>
       </div>
       <div>

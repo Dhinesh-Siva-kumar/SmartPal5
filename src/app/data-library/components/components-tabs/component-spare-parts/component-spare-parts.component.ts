@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, TemplateRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef, AfterViewInit, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   GridModule,
@@ -18,6 +18,11 @@ import { TechFormsComponentComponent } from '../../components-subtabs/tech-forms
 import { UserManualComponentComponent } from '../../components-subtabs/user-manual-component/user-manual-component.component';
 import { SharedService } from '../../shared.service';
 import { ComponentsComponent } from '../../components.component';
+
+import { LabelModule } from '@progress/kendo-angular-label';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { IconsModule } from "@progress/kendo-angular-icons";
+import { FloatingLabelModule } from "@progress/kendo-angular-label";
 
 
 type InputSize = 'small' | 'medium' | 'large';
@@ -197,7 +202,11 @@ export const products = [
     TaskComponentComponent,
     TechFormsComponentComponent,
     UserManualComponentComponent,
-    ComponentsComponent
+    ComponentsComponent,
+    LabelModule,
+    DropDownsModule,
+    IconsModule,
+    FloatingLabelModule
   ],
    templateUrl: './component-spare-parts.component.html',
   styleUrl: './component-spare-parts.component.scss'
@@ -205,6 +214,11 @@ export const products = [
 export class ComponentSparePartsComponent {
 
   @ViewChild('childTemplate') template!: TemplateRef<any>;
+  @Output() filterBar: EventEmitter<any> = new EventEmitter();
+
+  filtercallfunc() {
+    this.filterBar.emit(true);
+  }
 
   ngAfterViewInit() {
     this.parent.childTemplate = this.template;
@@ -229,6 +243,18 @@ export class ComponentSparePartsComponent {
     autoSizeAllColumns: true,
   };
 
+  public areaList: Array<string> = [
+    "Boston",
+    "Chicago",
+    "Houston",
+    "Los Angeles",
+    "Miami",
+    "New York",
+    "Philadelphia",
+    "San Francisco",
+    "Seattle",
+  ];
+  
   // tabs codes start
   tabs = [
     { label: 'Basic Details', content: 'basicDetails', number: '00' },

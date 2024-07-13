@@ -50,7 +50,7 @@ export class ComponentsComponent implements OnInit{
 
   @ViewChild(ComponentEquipmentComponent) equipmentTab!: ComponentEquipmentComponent;
   @Input() childTemplate!: TemplateRef<any>;
-  
+
 
   treeViewitems: { text: string, id: string }[] = [];
 
@@ -158,6 +158,7 @@ export class ComponentsComponent implements OnInit{
 
   selectTab(index: number): void {
     this.selectedTab = index;
+    this.toggleSidebar();
   }
   // tab code end
 
@@ -178,5 +179,27 @@ export class ComponentsComponent implements OnInit{
         this.equipmentTab.equipmentForm.ngSubmit.emit(); 
       }
     }
+  }
+
+  isPinSidebar: boolean = false;
+  filterBoolan: boolean = false;
+
+  pinSidebar() {
+    this.isPinSidebar = !this.isPinSidebar;
+  }
+
+  toggleSidebar() {
+    this.filterBoolan = false;
+    this.isPinSidebar = false;
+  }
+
+  public callChildToParentSidebar(): void{
+    console.log("Im Working")
+  }
+
+  handleChildEvent(data: any) {
+    this.filterBoolan = data;
+    console.log('Data received from child:', data);
+    // Your logic here
   }
 }

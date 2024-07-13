@@ -35,7 +35,7 @@
         </button>
       </div>
       <div>
-        <button kendoButton class="btn-custom-outline me-2" (click)="shareComponent.toggleSidebar()">
+        <button kendoButton class="btn-custom-outline me-2" (click)="filtercallfunc()">
           <i class="bi bi-funnel"></i>
         </button>
       </div>
@@ -156,20 +156,22 @@
     <ng-template #childTemplate>
       <div class="input-fields">
         <div class="">
-          <label class="labelNormalTxt" for="equipment-name">Equipment Code</label>
+          <kendo-label text="Equipment Type ">
+            <kendo-dropdownlist [data]="areaList"  name="equipmentType"></kendo-dropdownlist>
+          </kendo-label>
+        </div>
+        <div class="">
+          <label class="labelNormalTxt" for="equipment-name">Maker</label>
           <input class="normalInputField"  type="text" >
         </div>
         <div class="">
-          <label class="labelNormalTxt" for="equipment-name">Equipment Name</label>
+          <label class="labelNormalTxt" for="equipment-name">Model</label>
           <input class="normalInputField"  type="text" >
         </div>
         <div class="">
-          <label class="labelNormalTxt" for="equipment-name">Equipment Name</label>
-          <input class="normalInputField"  type="text" >
-        </div>
-        <div class="">
-          <label class="labelNormalTxt" for="equipment-name">Equipment Name</label>
-          <input class="normalInputField"  type="text" >
+          <kendo-label text="Spare Status">
+            <kendo-dropdownlist [data]="areaList"  name="spareStatus"></kendo-dropdownlist>
+          </kendo-label>
         </div>
       </div>
     </ng-template>

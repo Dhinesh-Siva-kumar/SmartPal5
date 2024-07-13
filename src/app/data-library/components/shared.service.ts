@@ -1,33 +1,14 @@
 import { Injectable } from '@angular/core';
+// import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
 
+  // private sidebarState = new BehaviorSubject<boolean>(false);
+  // currentSidebarState = this.sidebarState.asObservable();
+
   constructor() { }
-
-  isSidebarOpen: boolean = false;
-  isPinSidebar: boolean = false;
-  
-  openSidebar() {
-    this.isSidebarOpen = true;
-  }
-
-  closeSidebar() {
-    this.isSidebarOpen = false;
-    this.isPinSidebar = false;
-  }
-
-  pinSidebar() {
-    this.isPinSidebar = !this.isPinSidebar;
-  }
-
-  isActive = false;
-
-  toggleSidebar() {
-    this.isActive = !this.isActive;
-    this.isPinSidebar = false;
-  }
 
 }
