@@ -6,7 +6,7 @@ import { NavigationModule } from "@progress/kendo-angular-navigation";
 import { BreadCrumbItem } from '@progress/kendo-angular-navigation';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { SelectEvent } from "@progress/kendo-angular-layout";
-import { MainControlTabsComponent } from '../main-control-tabs/main-control-tabs.component';
+import { MainControlTabsComponent } from '../../main-control-tabs/main-control-tabs.component';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { ClassComponentComponent } from './class-structure-tabs/class-component/class-component.component';

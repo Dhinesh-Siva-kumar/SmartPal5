@@ -8,9 +8,10 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
 import { SelectEvent } from "@progress/kendo-angular-layout";
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
-import { MainControlTabsComponent } from '../main-control-tabs/main-control-tabs.component';
+import { MainControlTabsComponent } from '../../main-control-tabs/main-control-tabs.component';
 import { ComponentSparePartsComponent } from './components-tabs/component-spare-parts/component-spare-parts.component';
 import { SharedService } from './shared.service';
+import { ComponentMappedVesselComponent } from './components-tabs/component-mapped-vessel/component-mapped-vessel.component';
 
 const defaultItems: BreadCrumbItem[] = [
   {
@@ -40,6 +41,7 @@ const defaultItems: BreadCrumbItem[] = [
     ComponentJobplanComponent,
     DropDownsModule,
     MainControlTabsComponent,
+    ComponentMappedVesselComponent,
     ComponentSparePartsComponent
   ],
   templateUrl: './components.component.html',
@@ -148,7 +150,7 @@ export class ComponentsComponent implements OnInit{
   tabs = [
     { label: 'Equipment', content: 'equipment', number: '00' },
     { label: 'Job Plan', content: 'jobplan', number: '00' },
-    { label: 'Mapped Vessel', content: 'jobplan', number: '00' },
+    { label: 'Mapped Vessel', content: 'mappedVessel', number: '00' },
     { label: 'Spare Parts', content: 'spareParts', number: '00' },
     { label: 'Service Letter', content: 'jobplan', number: '00' },
     { label: 'User Manual', content: 'jobplan', number: '00' }

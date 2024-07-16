@@ -82,6 +82,9 @@
                                   <div *ngSwitchCase="'jobplan'">
                                     <app-component-jobplan></app-component-jobplan>
                                   </div>
+                                  <div *ngSwitchCase="'mappedVessel'">
+                                    <app-component-mapped-vessel></app-component-mapped-vessel>
+                                  </div>
                                   <div *ngSwitchCase="'spareParts'">
                                     <app-component-spare-parts (filterBar)="handleChildEvent($event)"></app-component-spare-parts>
                                   </div>

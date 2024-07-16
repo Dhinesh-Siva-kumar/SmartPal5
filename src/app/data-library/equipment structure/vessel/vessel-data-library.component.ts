@@ -7,7 +7,7 @@ import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { CommonModule } from '@angular/common';
 import { VesselEquipmentComponent } from './vessel-tabs/vessel-equipment/vessel-equipment.component';
-import { MainControlTabsComponent } from '../main-control-tabs/main-control-tabs.component';
+import { MainControlTabsComponent } from '../../main-control-tabs/main-control-tabs.component';
 
 
 @Component({
