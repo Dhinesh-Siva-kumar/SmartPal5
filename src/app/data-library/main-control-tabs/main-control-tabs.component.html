@@ -2,9 +2,9 @@
     <ng-container >
 
       <ul>
-        <li *ngFor="let button of buttons; let i = index; let first = first ;let last = last;" [class]="isActive(button.label) + (first ? ' filter-tab-btn-start' : '') ">
+        <li *ngFor="let button of buttonArray; let i = index; let first = first ;let last = last;" [class]="isActive(button.label) + (first ? ' filter-tab-btn-start' : '') ">
 
-          <a [routerLink]="button.linkTo" kendoButton  class="text-decoration-none" (click)="setActive(button.label)">
+          <a [routerLink]="button.linkTo" kendoButton  class="text-decoration-none">
             {{ button.label }}
             </a>
 

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-main-control-tabs',
@@ -10,43 +10,51 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './main-control-tabs.component.scss'
 })
 export class MainControlTabsComponent implements OnInit {
-  activeTab: string = 'Components';
 
-  buttons = [
+  @Input() pageName: any;
+  @Input() activeClass: any;
+
+  activeTab: string = '';
+
+  buttonArray:any;
+
+  equipmentStructure = [
     { label: 'Components', linkTo: '/data-library'},
     { label: 'Class Structure', linkTo: '/data-library/class-structure'},
     { label: 'Vessel', linkTo: '/data-library/vessel'},
   ];
 
-  constructor(private router: Router) {}
+  JobStructure = [
+    { label: 'Job Master', linkTo: '/data-library/job-master'},
+    { label: 'Job Lake', linkTo: '/data-library/job-structure/job-lake'},
+    { label: 'Archive Job', linkTo: '/data-library/job-structure/archive-job'},
+  ];
+
+  spareStructure = [
+    { label: 'Spare Master', linkTo: '/data-library/spare-structure/spare-master'},
+    { label: 'Spare Lake', linkTo: '/data-library/spare-structure/spare-lake'},
+    { label: 'Archive Spare', linkTo: '/data-library/spare-structure/archive-spare'},
+  ];
+
+  constructor() {}
 
   ngOnInit(): void {
-    this.setActive(this.router.url);
+
+    if(this.pageName === "equipment-structure"){
+      this.buttonArray = this.equipmentStructure;
+    }
+    else if(this.pageName === "job-structure"){
+      this.buttonArray = this.JobStructure;
+    }
+    else if(this.pageName === "spare-structure"){
+      this.buttonArray = this.spareStructure;
+    }
+
+    this.activeTab = this.activeClass;
   }
 
   isActive(tabName: string): string {
     return this.activeTab === tabName ? 'filter-tab-btn-active' : 'filter-tab-btn';
   }
-
-  // need to re-work on this logic
-
-  setActive(url: string): void {
-    const lastSegment = url.split('/').filter(segment => segment).pop();  // Getting the last segment of the URL
-    console.log('Current URL:', url);
-    console.log('Last Segment:', lastSegment);
-    
-    const matchedButton = this.buttons.find(button => {
-      const buttonLastSegment = button.linkTo.split('/').filter(segment => segment).pop();  // Getting the last segment of the button's linkTo
-      return buttonLastSegment === lastSegment;
-    });
-    
-    console.log('Matched Button:', matchedButton);
-    if (matchedButton) {
-      this.activeTab = matchedButton.label;
-    }
-
-
-  }
-
   
 }

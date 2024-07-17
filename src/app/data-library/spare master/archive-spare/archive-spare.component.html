@@ -1,1 +1,463 @@
-<p>archive-spare works!</p>
+<div>
+
+    <div class="header-section">
+        <div>
+            <h4>Spare Structure</h4>
+
+            <ul>
+                <li>
+                    <a href="">Maintenance</a>
+                </li>
+                <li>
+                    <a href="">Spare Structure</a>
+                </li>
+                <li>Archive Spare</li>
+            </ul>
+            <!-- <div>
+                <kendo-breadcrumb [items]="items" (itemClick)="onItemClick($event)"></kendo-breadcrumb>
+             </div> -->
+        </div>
+        <div>
+            <button class="btn-custom-outline">Create Spares in Bulk</button>
+            <button class="btn-custom-outline ms-2">Update</button>
+            <button class="btn-custom-outline ms-2"><i class="bi bi-link-45deg"></i></button>
+
+            <div class="btn-group mx-2" role="group" aria-label="Button group with nested dropdown">
+                <button type="button" class="btn btn-outline-info"><i class="bi bi-file-pdf text-danger"></i></button>
+                <button type="button" class="btn btn-outline-info"><i
+                        class="bi bi-file-earmark-excel text-success"></i></button>
+
+                <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-outline-info dropdown-toggle"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <a class="dropdown-item" href="#">Dropdown link</a>
+                        <a class="dropdown-item" href="#">Dropdown link</a>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-custom-outline mx-2"><i class="bi bi-upload"></i></button>
+            <button class="btn-custom-outline border border-danger me-2"><i
+                    class="bi bi-trash text-danger"></i></button>
+            <button class="btn-custom-outline me-2"><i class="bi bi-pen"></i></button>
+
+        </div>
+    </div>
+
+    <div class="kendo-grid-table-outer">
+
+        <app-main-control-tabs [pageName]="'spare-structure'" [activeClass]="'Archive Spare'"></app-main-control-tabs>
+
+        <!-- Conditionally display the component -->
+
+        <div class="borderMainAll">
+
+
+            <div class="filterborder">
+                <div class="row rowMainAllSpace ">
+                    <div class="col-sm-5">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label class="labelNormalTxt" for="equipment-name">Equipment Code</label>
+                                <input class="normalInputField" type="text">
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="labelNormalTxt" for="equipment-name">Equipment Name</label>
+                                <input class="normalInputField" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 paddingMainLeft">
+                        <div class="displayMainFlex">
+                            <div class="switchingClass">
+                                <h2
+                                    style="max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    Show spares of sub
+                                    level equipment</h2>
+                                <!-- <kendo-switch name="active"></kendo-switch> -->
+                            </div>
+                            <div class="switchingClass">
+                                <h2
+                                    style="max-width: 100px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    Show critical only
+                                </h2>
+                                <!-- <kendo-switch name="active"></kendo-switch> -->
+                            </div>
+                            <div class="switchingClass">
+                                <h2>Active</h2>
+                                <!-- <kendo-switch name="active"></kendo-switch> -->
+                            </div>
+                            <div>
+                                <button kendoButton class="btn-custom mx-2">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                            <div>
+                                <button kendoButton class="btn-custom-outline me-2">
+                                    <i class="bi bi-funnel"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+
+                <kendo-grid [data]="gridData" [height]="370" [reorderable]="true" [rowReorderable]="true" [pageable]="{
+                            info: false,
+                            type: 'input',
+                            pageSizes: true,
+                          }" [pageSize]="10" [sortable]="true" [groupable]="true" [resizable]="true"
+                    [filterable]="true" [navigable]="true" [columnMenu]="menuSettings" class="custom-grid"
+                    (cellClick)="editHandler($event)">
+
+                    <ng-template kendoGridToolbarTemplate>
+                        <div>
+                            Round Found
+                        </div>
+
+                        <kendo-grid-spacer></kendo-grid-spacer>
+
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <rect width="24" height="24" rx="12" fill="url(#paint0_linear_1306_110944)" />
+                                <path
+                                    d="M16.7855 10.6V12C16.7855 14.7062 14.6426 16.9 11.9992 16.9M7.21289 10.6V12C7.21289 14.7062 9.3558 16.9 11.9992 16.9M11.9992 16.9V19M9.26417 19H14.7343M11.9992 14.1C10.8663 14.1 9.94793 13.1598 9.94793 12V7.1C9.94793 5.9402 10.8663 5 11.9992 5C13.1321 5 14.0505 5.9402 14.0505 7.1V12C14.0505 13.1598 13.1321 14.1 11.9992 14.1Z"
+                                    stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_1306_110944" x1="0" y1="12" x2="24" y2="12"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#4568DC" />
+                                        <stop offset="1" stop-color="#B06AB3" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+
+                            <kendo-textbox class="mx-2" [style.width.px]="165" placeholder="Search"></kendo-textbox>
+
+                            <div class="group-btn">
+                                <button class="group-btn-active" kendoButton type="button">
+                                    <i class="bi bi-arrows-fullscreen"></i>
+                                </button>
+                                <button kendoButton class="" type="button">
+                                    <i class="bi bi-upload"></i>
+                                </button>
+                                <button kendoButton class="" type="button">
+                                    <i class="bi bi-list"></i>
+                                </button>
+                                <button kendoButton class="" type="button">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </ng-template>
+
+                    <kendo-grid-column field="ProductID" title="ID" [width]="40" [headerClass]="'headerCustomClass'"
+                        [class]="'cellCustomClass'">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="ProductName" title="Name" [width]="100"
+                        [headerClass]="'headerCustomClass'" [class]="'cellCustomClass'">
+                    </kendo-grid-column>
+
+
+                    <kendo-grid-column field="Category.CategoryName" title="Category" [width]="100"
+                        [headerClass]="'headerCustomClass'" [class]="'cellCustomClass'">
+                        <ng-template kendoGridCellTemplate let-dataItem>
+                            {{ dataItem.Category.CategoryName }}
+                        </ng-template>
+                        <ng-template kendoGridEditTemplate let-dataItem="dataItem" let-formGroup="formGroup">
+                            <kendo-dropdownlist [data]="categories" textField="CategoryName" valueField="CategoryID">
+                            </kendo-dropdownlist>
+                        </ng-template>
+                    </kendo-grid-column>
+
+
+
+                    <kendo-grid-column field="UnitPrice" title="Price" [width]="50" [headerClass]="'headerCustomClass'"
+                        [class]="'cellCustomClass'">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="UnitsInStock" title="In stock" [width]="50"
+                        [headerClass]="'headerCustomClass'" [class]="'cellCustomClass'">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="QuantityPerUnit" title="Quantity Per Unit" [width]="80"
+                        [headerClass]="'headerCustomClass'" [class]="'cellCustomClass'">
+                    </kendo-grid-column>
+                    <!-- <kendo-grid-column field="UnitsOnOrder" title="Units On Order" [width]="50" [headerClass]="'headerCustomClass'" [class]="'cellCustomClass'">
+                              </kendo-grid-column> -->
+                    <kendo-grid-column field="Discontinued" title="Discontinued" [width]="50"
+                        [headerClass]="'headerCustomClass'" [class]="'cellCustomClass'">
+                        <ng-template kendoGridCellTemplate let-dataItem>
+                            <input type="checkbox" [checked]="dataItem.Discontinued" disabled />
+                        </ng-template>
+                    </kendo-grid-column>
+
+
+                    <ng-template kendoPagerTemplate let-totalPages="totalPages" let-currentPage="currentPage">
+                        <span style="color: #444444;">Show row per page</span><kendo-pager-page-sizes
+                            [pageSizes]="sizes" aria-label="false"></kendo-pager-page-sizes>
+                        <kendo-grid-spacer></kendo-grid-spacer>
+                        <kendo-pager-input></kendo-pager-input>
+                        <kendo-pager-prev-buttons></kendo-pager-prev-buttons>
+                        <kendo-pager-next-buttons></kendo-pager-next-buttons>
+                    </ng-template>
+
+                    <kendo-grid-messages groupPanelEmpty="Drag column header here to group"
+                        noRecords="There are no items to display."
+                        pagerLabel="You are currently on page {currentPage} of {totalPages}"
+                        filterMenuTitle="Filter for {columnName}" pagerPage="Page" pagerItemsPerPage="">
+                    </kendo-grid-messages>
+
+                </kendo-grid>
+
+
+            </div>
+
+
+            <div class="filterborder mt-2">
+                <form>
+                    <div class="row rowMainAllSpace">
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="part-number">Part Number</label>
+                            <input class="normalInputField" id="part-number" type="text" name="partNumber" required>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="plateDrawing-number">Plate/Drawing Number</label>
+                            <input class="normalInputField" id="plateDrawing-number" type="text"
+                                name="plateDrawingNumber" required>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="position-number">Position Number</label>
+                            <input class="normalInputField" id="position-number" type="text" name="positionNumber"
+                                required>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="mobile-number">Mobile Number</label>
+                            <input class="normalInputField" id="mobile-number" type="text" name="mobileNumber" required>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="spareItemCode">Spare Item Code</label>
+                            <input class="normalInputField" id="spareItemCode" type="text" name="spareItemCode"
+                                required>
+                        </div>
+
+                        <!-- start dropdown -->
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="uom">UOM</label>
+                            <input class="normalInputField" id="uom" type="text" name="uom" required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="critical">Critical</label>
+                            <input class="normalInputField" id="critical" type="text" name="critical" required>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="active">Active</label>
+                            <input class="normalInputField" id="active" type="text" name="active" required>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="maxStock">Max. Stock</label>
+                            <input class="normalInputField" id="maxStock" type="text" name="maxStock" required>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="minStock">Min. Stock</label>
+                            <input class="normalInputField" id="minStock" type="text" name="minStock" required>
+                        </div>
+
+                        <!-- dropdown -->
+
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="equipmentType">Equipment Type</label>
+                            <input class="normalInputField" id="equipmentType" type="text" name="equipmentType"
+                                required>
+                        </div>
+
+                        <!-- start dropdown -->
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="maker">Maker</label>
+                            <input class="normalInputField" id="maker" type="text" name="maker" required>
+                        </div>
+                        <!-- dropdown -->
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"> <!-- search bar or autocom -->
+                            <label class="labelNormalTxt" for="model">Model</label>
+                            <input class="normalInputField" id="model" type="text" name="maker" required>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="preferredVendor">Preferred Vendor</label>
+                            <input class="normalInputField" id="preferredVendor" type="text" name="maker" required>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                <label class="labelNormalTxt" for="preferredVendor">Preferred Vendor</label>
+                                <textarea class="normalInputField" id="preferredVendor" name="maker"
+                                    rows="4"></textarea>
+                            </div>
+
+                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                <label class="labelNormalTxt" for="preferredVendor">Preferred Vendor</label>
+                                <textarea class="normalInputField" id="preferredVendor" name="maker"
+                                    rows="4"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6"> <!-- auto complete-->
+                            <label class="labelNormalTxt" for="workingQty">Working Qty</label>
+                            <input class="normalInputField" id="workingQty" type="text" name="workingQty" required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="dimensions">Dimensions</label>
+                            <input class="normalInputField" id="dimensions" type="text" name="dimensions" required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="unit">Unit</label>
+                            <input class="normalInputField" id="unit" type="text" name="unit" required>
+                        </div>
+
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="materials">Materials</label>
+                            <input class="normalInputField" id="materials" type="text" name="materials" required>
+                        </div>
+
+                        <!-- start dropdown -->
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="tags">Tags</label>
+                            <input class="normalInputField" id="tags" type="text" name="tags" required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="classEssential">Class Essential</label>
+                            <input class="normalInputField" id="classEssential" type="text" name="classEssential"
+                                required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="hazzardousMaterials">Hazzardous Materials</label>
+                            <input class="normalInputField" id="hazzardousMaterials" type="text"
+                                name="hazzardousMaterials" required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="oemItem">OEM Item</label>
+                            <input class="normalInputField" id="oemItem" type="text" name="oemItem" required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="exportControl">Export Control</label>
+                            <input class="normalInputField" id="exportControl" type="text" name="exportControl"
+                                required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="eccn/ecnCode">ECCN/ECN Code</label>
+                            <input class="normalInputField" id="eccn/ecnCode" type="text" name="eccn/ecnCode" required>
+                        </div>
+                        <!-- dropdown -->
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="spareMaker">Spare Maker</label>
+                            <input class="normalInputField" id="spareMaker" type="text" name="spareMaker" required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="componentCode">Component Code</label>
+                            <input class="normalInputField" id="componentCode" type="text" name="componentCode"
+                                required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="componentName">Component Name</label>
+                            <input class="normalInputField" id="componentName" type="text" name="componentName"
+                                required>
+                        </div>
+
+                        <!-- start dropdown -->
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="serialNoIsRequired">Serial No.is.required</label>
+                            <input class="normalInputField" id="serialNoIsRequired" type="text"
+                                name="serialNoIsRequired" required>
+                        </div>
+                        <!-- dropdown -->
+
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="serialNumber">Serial Number</label>
+                            <input class="normalInputField" id="serialNumber" type="text" name="serialNumber" required>
+                        </div>
+
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="vesselNumber">Vessel Number</label>
+                            <input class="normalInputField" id="vesselNumber" type="text" name="vesselNumber" required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="yardName">Yard Name</label>
+                            <input class="normalInputField" id="yardName" type="text" name="yardName" required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="versionNo">Version No.</label>
+                            <input class="normalInputField" id="versionNo" type="text" name="versionNo" required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="manualReference">Manual Reference.</label>
+                            <input class="normalInputField" id="manualReference" type="text" name="manualReference"
+                                required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="pageNo">Page No.</label>
+                            <input class="normalInputField" id="pageNo" type="text" name="pageNo" required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="yardReference">Yard Reference</label>
+                            <input class="normalInputField" id="yardReference" type="text" name="yardReference"
+                                required>
+                        </div>
+
+                        <!-- start dropdown -->
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="spareClassification">Spare Classification</label>
+                            <input class="normalInputField" id="spareClassification" type="text"
+                                name="spareClassification" required>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="equipmentType">Equipment Type</label>
+                            <input class="normalInputField" id="equipmentType" type="text" name="equipmentType"
+                                required>
+                        </div>
+                        <!-- dropdown -->
+
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                            <label class="labelNormalTxt" for="showCriticalOnly">Show Critical Only</label>
+                            <input class="normalInputField" id="showCriticalOnly" type="text" name="showCriticalOnly"
+                                required>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
