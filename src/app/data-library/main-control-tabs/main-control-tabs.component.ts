@@ -25,7 +25,7 @@ export class MainControlTabsComponent implements OnInit {
   ];
 
   JobStructure = [
-    { label: 'Job Master', linkTo: '/data-library/job-master'},
+    { label: 'Job Master', linkTo: '/data-library/job-structure/job-master'},
     { label: 'Job Lake', linkTo: '/data-library/job-structure/job-lake'},
     { label: 'Archive Job', linkTo: '/data-library/job-structure/archive-job'},
   ];

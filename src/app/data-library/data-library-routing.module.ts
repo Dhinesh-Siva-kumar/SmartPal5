@@ -15,9 +15,9 @@ const routes: Routes = [
   {path:"spare-structure/spare-master", component: SpareMasterComponent},
   {path:"spare-structure/spare-lake", loadComponent: () => import('./spare master/spare-lake/spare-lake.component').then((x) => x.SpareLakeComponent)},
   {path:"spare-structure/archive-spare", loadComponent: () => import('./spare master/archive-spare/archive-spare.component').then((x) => x.ArchiveSpareComponent)},
-  {path:"job-master", component: JobMasterComponent},
-  {path:"job-lake", component: JobLakeComponent},
-  {path:"archive-job", component: ArchiveJobComponent},
+  {path:"job-structure/job-master", component: JobMasterComponent},
+  {path:"job-structure/job-lake", component: JobLakeComponent},
+  {path:"job-structure/archive-job", component: ArchiveJobComponent},
 
 ];
 
