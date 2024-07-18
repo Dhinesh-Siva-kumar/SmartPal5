@@ -1,1 +1,205 @@
-<p>job-master works!</p>
+<div class="header-section">
+    <div>
+        <h4>Job Structure</h4>
+        <ul>
+            <li>
+                <a href="">Maintenance</a>
+            </li>
+            <li>
+                <a href="">Job Structure</a>
+            </li>
+            <li>Job Master</li>
+        </ul>
+        <!-- <div>
+            <kendo-breadcrumb [items]="items" (itemClick)="onItemClick($event)"></kendo-breadcrumb>
+         </div> -->
+    </div>
+    <div>
+        <button class="btn btn-primary">Update</button>
+        <button class="btn btn-primary">up</button>
+        <button class="btn btn-primary">down</button>
+        <button class="btn btn-primary">Map</button>
+    </div>
+</div>
+<app-main-control-tabs></app-main-control-tabs>
+
+<!-- <div class="borderMainAll">
+    <div class="row">
+        <div class="col-7">
+            <form>
+                <div class="row  rowMainAllSpace">
+                    <div class="col">
+                        <label class="labelNormalTxt" for="maker">Maker</label>
+                        <input class="normalInputField" id="maker" type="text" name="maker" required>
+
+                    </div>
+                    <div class="col">
+                        <label class="labelNormalTxt" for="model">Model</label>
+                        <input class="normalInputField" id="model" type="text" name="model" required>
+
+                    </div>
+                    <div class="col">
+                        <kendo-label text="Equipment Type ">
+                            <kendo-dropdownlist [data]="areaList" name="equipmentType"></kendo-dropdownlist>
+                        </kendo-label>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+</div> -->
+
+<div class="borderMainAll">
+
+    <div class="floatDivMain2 ">
+        <div class="row rowMainAllSpace">
+            <div class="col-7">
+                <div class="row rowMainAllSpace">
+                    <div class="col">
+                        <label class="labelNormalTxt" for="maker">Maker</label>
+                        <input class="normalInputField" id="maker" type="text" name="maker" required>
+                    </div>
+                    <div class="col">
+                        <label class="labelNormalTxt" for="model">Model</label>
+                        <input class="normalInputField" id="model" type="text" name="model" required>
+                    </div>
+                    <div class="col">
+                        <kendo-label text="Equipment Type ">
+                            <kendo-dropdownlist [data]="areaList" name="equipmentType"></kendo-dropdownlist>
+                        </kendo-label>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="col-2  switchingClass">
+                    <h2 class="mt-3">Active</h2>
+                    <kendo-switch name="active"></kendo-switch>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="infoDiv">
+        <ul>
+            <li>
+                All
+            </li>
+            <li>
+                Status = Cancel
+            </li>
+            <li>Created Date Valid from 02-April-2024 to 07-April-2024</li>
+        </ul>
+    </div>
+
+    <div class="floatDivMain2">
+        <div class="row">
+            <div class="col-8">
+                <p>20 Records Found</p>
+            </div>
+            <div class="col">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <rect width="24" height="24" rx="12" fill="url(#paint0_linear_1306_110944)" />
+                        <path
+                            d="M16.7855 10.6V12C16.7855 14.7062 14.6426 16.9 11.9992 16.9M7.21289 10.6V12C7.21289 14.7062 9.3558 16.9 11.9992 16.9M11.9992 16.9V19M9.26417 19H14.7343M11.9992 14.1C10.8663 14.1 9.94793 13.1598 9.94793 12V7.1C9.94793 5.9402 10.8663 5 11.9992 5C13.1321 5 14.0505 5.9402 14.0505 7.1V12C14.0505 13.1598 13.1321 14.1 11.9992 14.1Z"
+                            stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+                        <defs>
+                            <linearGradient id="paint0_linear_1306_110944" x1="0" y1="12" x2="24" y2="12"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#4568DC" />
+                                <stop offset="1" stop-color="#B06AB3" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
+                    <kendo-textbox class="mx-2" [style.width.px]="165" placeholder="Search"></kendo-textbox>
+
+                    <div class="group-btn">
+                        <button class="group-btn-active" kendoButton type="button">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </button>
+                        <button kendoButton class="" type="button">
+                            <i class="bi bi-upload"></i>
+                        </button>
+                        <button kendoButton class="" type="button">
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <button kendoButton class="" type="button">
+                            <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <p>Drag column header here to group</p>
+        <p>
+            table here
+        </p>
+
+        <!-- tabs -->
+
+        <div class="w-100 ps-2">
+            <div class="wrapper">
+                <div class="tablist-container">
+                    <div class="tabs">
+                      <div class="tab" *ngFor="let tab of tabs; let i = index"
+                           [class.active]="selectedTab === i"
+                           (click)="selectTab(i)">
+                     <p>  {{ tab.label }} </p> <span>{{tab.number}}</span>
+                      </div>
+                    </div>
+                    <div class="">
+                      <ng-container *ngIf="selectedTab !== null">
+                        <div [ngSwitch]="tabs[selectedTab].content">
+                          <div *ngSwitchCase="'jobPlan'">
+                            <app-job-plan></app-job-plan>
+                          </div>
+                          <div *ngSwitchCase="'task'">
+one                          </div>
+                          <div *ngSwitchCase="'attachments'">
+                           one
+                          </div>
+                          <div *ngSwitchCase="'Excel Forms'">
+                            sparepart
+                          </div>
+                          <div *ngSwitchCase="'User Manual'">
+                            sparepart
+                          </div>
+                          <div *ngSwitchCase="'QDMS'">
+                            sparepart
+                          </div>
+                          <div *ngSwitchCase="'Service Letters'">
+                            sparepart
+                          </div>
+                          <div *ngSwitchCase="'CBO Triggers'">
+                            sparepart
+                          </div>
+                          <div *ngSwitchCase="'Tech Forms'">
+                            sparepart
+                          </div>
+                          <div *ngSwitchCase="'Resources'">
+                            sparepart
+                          </div>                          
+                          <div *ngSwitchDefault>
+                            <app-job-plan></app-job-plan>
+                          </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+              </div>
+        </div>
+    </div>
+
+
+</div>
