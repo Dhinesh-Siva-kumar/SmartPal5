@@ -233,9 +233,64 @@ export class AppComponent implements OnInit{
     },
   ];
 
+  data = [
+    {
+      id: '1',
+      equipmentCode: '101.1',
+      equipmentName: 'Equipment-1',
+      parentEquipment: 'Equipment-1 parent',
+      equipment: '02',
+      jobplan: '03',
+      mappedVessel: '02',
+      spareParts: '05',
+      serviceLetter: '00',
+      userManual: '00'
+    },
+    {
+      id: '2',
+      equipmentCode: '102.2',
+      equipmentName: 'Equipment-2',
+      parentEquipment: 'Equipment-2 parent',
+      equipment: '12',
+      jobplan: '23',
+      mappedVessel: '08',
+      spareParts: '02',
+      serviceLetter: '00',
+      userManual: '00'
+    },
+    {
+      id: '3',
+      equipmentCode: '101.3',
+      equipmentName: 'Equipment-3',
+      parentEquipment: 'Equipment-3 parent',
+      equipment: '04',
+      jobplan: '33',
+      mappedVessel: '05',
+      spareParts: '03',
+      serviceLetter: '00',
+      userManual: '00'
+    },
+    {
+      id: '4',
+      equipmentCode: '101.4',
+      equipmentName: 'Equipment-4',
+      parentEquipment: 'Equipment-4 parent',
+      equipment: '04',
+      jobplan: '14',
+      mappedVessel: '05',
+      spareParts: '03',
+      serviceLetter: '00',
+      userManual: '00'
+    },
+  ]
+
   ngOnInit(): void {
     if (!localStorage.getItem('overallData')) {
       localStorage.setItem('overallData', JSON.stringify(this.initialData));
+    }
+
+    if (!localStorage.getItem('apiData')) {
+      localStorage.setItem('apiData', JSON.stringify(this.data));
     }
   }
   

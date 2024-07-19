@@ -12,6 +12,7 @@ import { MainControlTabsComponent } from '../../main-control-tabs/main-control-t
 import { ComponentSparePartsComponent } from './components-tabs/component-spare-parts/component-spare-parts.component';
 import { SharedService } from './shared.service';
 import { ComponentMappedVesselComponent } from './components-tabs/component-mapped-vessel/component-mapped-vessel.component';
+import { BasicDetailsComponentComponent } from './components-subtabs/basic-details-component/basic-details-component.component';
 
 const defaultItems: BreadCrumbItem[] = [
   {
@@ -51,10 +52,23 @@ const defaultItems: BreadCrumbItem[] = [
 export class ComponentsComponent implements OnInit{
 
   @ViewChild(ComponentEquipmentComponent) equipmentTab!: ComponentEquipmentComponent;
+  @ViewChild(BasicDetailsComponentComponent) basicequipmentTab!: BasicDetailsComponentComponent;
   @Input() childTemplate!: TemplateRef<any>;
 
 
-  treeViewitems: { text: string, id: string }[] = [];
+  treeViewitems: { 
+    text: string, 
+    id: string, 
+    equipmentCode: string, 
+    equipmentName: string, 
+    parentEquipment: string,
+    equipment: string,
+    jobplan: string,
+    mappedVessel: string,
+    serviceLetter: string,
+    spareParts: string,
+    userManual: string,
+   }[] = [];
 
   public expandedKeys: any[] = [];
 
@@ -75,21 +89,30 @@ export class ComponentsComponent implements OnInit{
 
   // Load data from localStorage or set default
   loadData() {
-    const data = localStorage.getItem('overallData');
+    const data = localStorage.getItem('apiData');
     if (data) {
       const overallData = JSON.parse(data);
       this.treeViewitems = overallData.map((equipment: any) => ({
-        text: equipment.equipmentName,
-        id: equipment.id
+        text:  `${equipment.equipmentCode} - ${equipment.equipmentName}`,
+        id: equipment.id,
+        equipmentCode: equipment.equipmentCode,
+        equipmentName: equipment.equipmentName,
+        parentEquipment: equipment.parentEquipment,
+        equipment: equipment.equipment,
+        jobplan: equipment.jobplan,
+        mappedVessel: equipment.mappedVessel,
+        serviceLetter: equipment.serviceLetter,
+        spareParts: equipment.spareParts,
+        userManual: equipment.userManual,
       }));
     } else {
       const hardCodeItems = [
-        { text: "Equipment 1", id: '1' },
-        { text: "Equipment 2", id: '2' },
-        { text: "Equipment 3", id: '3' },
-        { text: "Equipment 4", id: '4' },
-        { text: "Equipment 5", id: '5' },
-        { text: "Equipment 6", id: '6' },
+        { text: "Equipment 1", id: '1', equipmentCode: '', equipmentName: '', parentEquipment: '', equipment: '', jobplan: '', mappedVessel: '', serviceLetter: '', spareParts: '', userManual: '' },
+        { text: "Equipment 2", id: '2', equipmentCode: '', equipmentName: '', parentEquipment: '', equipment: '', jobplan: '', mappedVessel: '', serviceLetter: '', spareParts: '', userManual: '' },
+        { text: "Equipment 3", id: '3', equipmentCode: '', equipmentName: '', parentEquipment: '', equipment: '', jobplan: '', mappedVessel: '', serviceLetter: '', spareParts: '', userManual: '' },
+        { text: "Equipment 4", id: '4', equipmentCode: '', equipmentName: '', parentEquipment: '', equipment: '', jobplan: '', mappedVessel: '', serviceLetter: '', spareParts: '', userManual: '' },
+        { text: "Equipment 5", id: '5', equipmentCode: '', equipmentName: '', parentEquipment: '', equipment: '', jobplan: '', mappedVessel: '', serviceLetter: '', spareParts: '', userManual: '' },
+        { text: "Equipment 6", id: '6', equipmentCode: '', equipmentName: '', parentEquipment: '', equipment: '', jobplan: '', mappedVessel: '', serviceLetter: '', spareParts: '', userManual: '' },
       ];
       this.treeViewitems = hardCodeItems;
     }
@@ -168,19 +191,36 @@ export class ComponentsComponent implements OnInit{
   public selectedNodeId: any = "";
 
   onNodeClick(event: any): void {
-    console.log('Clicked Node ID:', event.item.dataItem.id);
+    console.log('Clicked Node ID:', event.item.dataItem);
     this.selectedNodeId = event.item.dataItem.id;
+    this.tabs = [
+      { label: 'Equipment', content: 'equipment', number: event.item.dataItem.equipment },
+      { label: 'Job Plan', content: 'jobplan', number: event.item.dataItem.jobplan },
+      { label: 'Mapped Vessel', content: 'mappedVessel', number: event.item.dataItem.mappedVessel },
+      { label: 'Spare Parts', content: 'spareParts', number: event.item.dataItem.spareParts },
+      { label: 'Service Letter', content: 'jobplan', number: event.item.dataItem.serviceLetter },
+      { label: 'User Manual', content: 'jobplan', number: event.item.dataItem.userManual }
+    ];
   }
 
   callUpdateFunc(): void {
-    if (this.equipmentTab && this.tabs[this.selectedTab].content === 'equipment') {
+    
+    if (this.equipmentTab) {
       if (this.equipmentTab.validateForm()) {
+        console.log("btn click")
         this.equipmentTab.childUpdateFunc();
         this.loadData();
       } else {
         this.equipmentTab.equipmentForm.ngSubmit.emit(); 
       }
     }
+
+    // dummy updated need to re-work in service
+    if(this.basicequipmentTab){
+      console.log("btn click basic" )
+      this.equipmentTab.childUpdateFunc();
+      this.loadData();
+    } 
   }
 
   isPinSidebar: boolean = false;

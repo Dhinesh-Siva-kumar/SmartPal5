@@ -18,11 +18,12 @@
     </div>
     <div class="col-sm-3">
       <label class="labelNormalTxt" for="marker-equipment">Marker</label>
-      <input class="normalInputField" id="marker-equipment" type="text" [(ngModel)]="equipment.marker" name="marker" required>
+      <input class="normalInputField" id="marker-equipment" type="text" [(ngModel)]="equipment.marker" name="marker">
+      <!-- <div *ngIf="submitted && !equipment.marker" class="error">Marker is required</div> -->
     </div>
     <div class="col-sm-3">
       <label class="labelNormalTxt" for="model-equipment">Model</label>
-      <input class="normalInputField" id="model-equipment" type="text" [(ngModel)]="equipment.model" name="model" required>
+      <input class="normalInputField" id="model-equipment" type="text" [(ngModel)]="equipment.model" name="model">
     </div>
     <div class="col-sm-3">
       <kendo-label text="Equipment Type ">
@@ -31,11 +32,11 @@
     </div>
     <div class="col-sm-3">
       <label class="labelNormalTxt" for="builderLicense-equipment">Builder/License</label>
-      <input class="normalInputField" id="builderLicense-equipment" type="text" [(ngModel)]="equipment.builderLicense" name="builderLicense" required>
+      <input class="normalInputField" id="builderLicense-equipment" type="text" [(ngModel)]="equipment.builderLicense" name="builderLicense">
     </div>
     <div class="col-sm-3">
       <label class="labelNormalTxt" for="department">Department</label>
-      <input class="normalInputField" id="department" type="text" placeholder="" [(ngModel)]="equipment.department" name="department" required>
+      <input class="normalInputField" id="department" type="text" placeholder="" [(ngModel)]="equipment.department" name="department">
     </div>
     <div class="col-sm-3">
       <kendo-label text="Drawing Number">

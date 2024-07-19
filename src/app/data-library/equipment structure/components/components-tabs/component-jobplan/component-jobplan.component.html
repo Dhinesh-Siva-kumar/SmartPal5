@@ -119,7 +119,7 @@
         <ng-container *ngIf="selectedTab !== null">
           <div [ngSwitch]="tabs[selectedTab].content">
             <div *ngSwitchCase="'basicDetails'">
-              <app-basic-details-component></app-basic-details-component>
+              <app-basic-details-component [selectedID]="selectedID"></app-basic-details-component>
             </div>
             <div *ngSwitchCase="'spares'">
               <app-spares-component></app-spares-component>

@@ -2,19 +2,16 @@
     <div class="flexMainallEqu">
     <div class="row rowMainAllSpace">
     <div class="col-sm-3">
-      <kendo-label text="Equipment Code">
-        <kendo-textbox placeholder=""></kendo-textbox>
-      </kendo-label>
+      <label class="labelNormalTxt" for="equipment-code">Equipment Code</label>
+      <input class="normalInputField" id="equipment-code" type="text" [(ngModel)]="equipment.equipmentCode" name="equipmentCode" required>
     </div>
     <div class="col-sm-3">
-      <kendo-label text="Equipment Name">
-        <kendo-textbox placeholder=""></kendo-textbox>
-      </kendo-label>
+      <label class="labelNormalTxt" for="equipment-name">Equipment Name</label>
+      <input class="normalInputField" id="equipment-name" type="text" [(ngModel)]="equipment.equipmentName" name="equipmentName" required>
     </div>
     <div class="col-sm-3">
-      <kendo-label text="Parent Equipment ">
-        <kendo-textbox placeholder=""></kendo-textbox>
-      </kendo-label>
+      <label class="labelNormalTxt" for="parent-equipment">Parent Equipment</label>
+      <input class="normalInputField" id="parent-equipment" type="text" [(ngModel)]="equipment.parentEquipment" name="parentEquipment" required>
     </div>
     <div class="col-sm-3">
       <label class="labelNormalTxt">Model</label>

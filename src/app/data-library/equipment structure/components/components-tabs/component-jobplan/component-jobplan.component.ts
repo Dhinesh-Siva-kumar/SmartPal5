@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   GridModule,
@@ -177,6 +177,20 @@ export const products = [
   }
 ];
 
+export interface Equipment {
+  id: string;
+  equipmentCode: string, 
+    equipmentName: string, 
+    parentEquipment: string,
+    equipment: string,
+    jobplan: string,
+    mappedVessel: string,
+    serviceLetter: string,
+    spareParts: string,
+    userManual: string,
+}
+
+
 
 @Component({
   selector: 'app-component-jobplan',
@@ -202,6 +216,7 @@ export const products = [
 })
 export class ComponentJobplanComponent {
 
+  @Input() selectedID: any;
   inputSize: InputSize = 'medium';
   public sizes = [10, 15, 20];
 
@@ -209,8 +224,14 @@ export class ComponentJobplanComponent {
     return value + ' *';
   }  
 
-  constructor( ) {
-    console.log("Job plan")
+  apiData: any = [];
+  equipment: any = {} as Equipment; // Initialize the equipment model
+
+  constructor() {
+    const data = localStorage.getItem('apiData');
+    if (data) {
+      this.apiData = JSON.parse(data) as Equipment[];
+    }
   }
 
   public gridData: unknown[] = products;
@@ -240,5 +261,19 @@ export class ComponentJobplanComponent {
     this.selectedTab = index;
   }
   // tab code end
+
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['selectedID'] && changes['selectedID'].currentValue) {
+      const matchedObject = this.apiData.find((equipment: Equipment) => equipment.id === this.selectedID);
+      if (matchedObject) {
+        console.log('Matched Equipment:', matchedObject);
+        this.equipment = matchedObject;
+      } else {
+        console.log('No matching equipment for ID:', this.selectedID);
+        this.equipment = {};
+      }
+    }
+  }
 
 }

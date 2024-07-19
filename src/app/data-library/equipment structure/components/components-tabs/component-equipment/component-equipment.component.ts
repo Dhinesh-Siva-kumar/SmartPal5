@@ -177,39 +177,15 @@ export const products = [
 
 export interface Equipment {
   id: string;
-  equipmentCode: string;
-  equipmentName: string;
-  parentEquipment: string;
-  model: string;
-  marker: string;
-  equipmentType: any[];
-  builderLicense: any[];
-  drawingNo: any[];
-  vesselClass: any[];
-  vesselName: string;
-  department: string;
-  type: any[];
-  safetyLevel: any[];
-  applicableVessel: string;
-  maker: string;
-  mariAppsRef: string;
-  builder: any[];
-  partNumber: string;
-  inheritRHrsFrom: string;
-  RHrsSeparately: string;
-  mountAllowed: string;
-  circulating: string;
-  legacyCode: string;
-  active: string;
-  lastModifiedUser: string;
-  lastModifiedDate: string;
-  preferredVendor: string;
-  installationDate: string;
-  equipmentDimension: string;
-  equipmentMaterial: string;
-  maerskArtCode: string;
-  circulatingEquipment: any[];
-  remarks: string;
+  equipmentCode: string, 
+    equipmentName: string, 
+    parentEquipment: string,
+    equipment: string,
+    jobplan: string,
+    mappedVessel: string,
+    serviceLetter: string,
+    spareParts: string,
+    userManual: string,
 }
 
 
@@ -245,18 +221,18 @@ export class ComponentEquipmentComponent implements OnChanges {
 
   equipment: any = {} as Equipment; // Initialize the equipment model
 
-  overallData: any = [];
+  apiData: any = [];
 
   constructor() {
-    const data = localStorage.getItem('overallData');
+    const data = localStorage.getItem('apiData');
     if (data) {
-      this.overallData = JSON.parse(data) as Equipment[];
+      this.apiData = JSON.parse(data) as Equipment[];
     }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['selectedID'] && changes['selectedID'].currentValue) {
-      const matchedObject = this.overallData.find((equipment: Equipment) => equipment.id === this.selectedID);
+      const matchedObject = this.apiData.find((equipment: Equipment) => equipment.id === this.selectedID);
       if (matchedObject) {
         console.log('Matched Equipment:', matchedObject);
         this.equipment = matchedObject;
@@ -290,10 +266,11 @@ export class ComponentEquipmentComponent implements OnChanges {
   ];
 
   public childUpdateFunc(): void {
-    const index = this.overallData.findIndex((e: Equipment) => e.id === this.equipment.id);
+    const index = this.apiData.findIndex((e: Equipment) => e.id === this.equipment.id);
     if (index !== -1) {
-      this.overallData[index] = this.equipment;
-      localStorage.setItem('overallData', JSON.stringify(this.overallData));
+      console.log("working")
+      this.apiData[index] = this.equipment;
+      localStorage.setItem('apiData', JSON.stringify(this.apiData));
     }
   }
 
@@ -301,6 +278,7 @@ export class ComponentEquipmentComponent implements OnChanges {
 
   validateForm() {
     this.submitted = true;
+    console.log('this.equipmentForm.valid;', this.equipmentForm)
     return this.equipmentForm.valid;
   }
 

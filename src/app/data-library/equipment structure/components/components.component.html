@@ -66,34 +66,66 @@
                 <div class="w-75 ps-2">
                     <div class="wrapper">
                         <div class="tablist-container">
-                            <div class="tabs">
-                              <div class="tab" *ngFor="let tab of tabs; let i = index"
-                                   [class.active]="selectedTab === i"
-                                   (click)="selectTab(i)">
-                             <p>  {{ tab.label }} </p> <span>{{tab.number}}</span>
-                              </div>
+                            <div class="tabs" id="myTab" role="tablist">
+                              <a 
+                                class="tab" *ngFor="let tab of tabs; let i = index"
+                                [class.active]="selectedTab === i"
+                                (click)="selectTab(i)"
+                                [id]="tab.content + '-tab'" 
+                                data-bs-toggle="tab" 
+                                [href]="'#' + tab.content" 
+                                role="tab" 
+                                [attr.aria-controls]="tab.content" 
+                                aria-selected="true"
+                              >
+                             <p>  {{ tab.label }} </p> 
+                             
+                              @if(tab.number){
+                                <span [ngStyle]="{ background: tab.number !== '00' && '#42b0d5', color: tab.number !== '00' && 'white' }">{{tab.number}}</span>
+                              } @else{
+                                <span>00</span>
+                              }
+
+                             
+                            </a>
                             </div>
                             <div class="">
-                              <ng-container *ngIf="selectedTab !== null">
-                                <div [ngSwitch]="tabs[selectedTab].content">
-                                  <div *ngSwitchCase="'equipment'">
+                              <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="equipment" role="tabpanel" aria-labelledby="equipment-tab">
+                                  <app-component-equipment [selectedID]="selectedNodeId"></app-component-equipment>
+                                </div>
+                                <div class="tab-pane fade" id="jobplan" role="tabpanel" aria-labelledby="jobplan-tab">
+                                  <app-component-jobplan [selectedID]="selectedNodeId"></app-component-jobplan>
+                                </div>
+                                <div class="tab-pane fade" id="mappedVessel" role="tabpanel" aria-labelledby="vessel-tab">
+                                  <app-component-mapped-vessel></app-component-mapped-vessel>
+                                </div>
+                                <div class="tab-pane fade" id="spareParts" role="tabpanel" aria-labelledby="spareparts-tab">
+                                  <app-component-spare-parts (filterBar)="handleChildEvent($event)"></app-component-spare-parts>
+                                </div>
+                              </div>
+                              
+
+                              <!-- <ng-container *ngIf="selectedTab !== null"> -->
+                                <!-- <div [ngSwitch]="tabs[selectedTab].content"> -->
+                                  <!-- <div>
                                     <app-component-equipment [selectedID]="selectedNodeId" ></app-component-equipment>
                                   </div>
-                                  <div *ngSwitchCase="'jobplan'">
-                                    <app-component-jobplan></app-component-jobplan>
+                                  <div>
+                                    <app-component-jobplan [selectedID]="selectedNodeId"></app-component-jobplan>
                                   </div>
-                                  <div *ngSwitchCase="'mappedVessel'">
+                                  <div>
                                     <app-component-mapped-vessel></app-component-mapped-vessel>
                                   </div>
-                                  <div *ngSwitchCase="'spareParts'">
+                                  <div>
                                     <app-component-spare-parts (filterBar)="handleChildEvent($event)"></app-component-spare-parts>
-                                  </div>
+                                  </div> -->
                                   
-                                  <div *ngSwitchDefault>
+                                  <!-- <div *ngSwitchDefault>
                                     <app-component-equipment></app-component-equipment>
-                                  </div>
-                                </div>
-                              </ng-container>
+                                  </div> -->
+                                <!-- </div> -->
+                              <!-- </ng-container> -->
                             </div>
                           </div>
                       </div>

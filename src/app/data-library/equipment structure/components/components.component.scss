@@ -160,6 +160,8 @@
     justify-content: end;
     font-size: 14px;
     align-items: end;
+    text-decoration: none;
+    color: black;
 
     p{
       margin-bottom: 0px;
@@ -172,7 +174,7 @@
       line-height: 13px;
       padding: 2px 3px;
       color: #333;
-      border-radius: 50%;
+      border-radius: 5px;
       display: flex;
       justify-content: center;
       align-items: center;
