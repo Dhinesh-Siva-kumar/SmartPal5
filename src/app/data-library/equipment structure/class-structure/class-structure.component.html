@@ -64,14 +64,14 @@
                 <div class="w-75 ps-2">
                     <div class="wrapper">
                         <div class="tablist-container">
-                            <div class="tabs">
+                            <!-- <div class="tabs">
                               <div class="tab" *ngFor="let tab of tabs; let i = index" 
                                    [class.active]="selectedTab === i" 
                                    (click)="selectTab(i)">
                                 {{ tab.label }}
                               </div>
-                            </div>
-                            <div class="">
+                            </div> -->
+                            <!-- <div class="">
                               <ng-container *ngIf="selectedTab !== null">
                                 <div [ngSwitch]="tabs[selectedTab].content">
                                   <div *ngSwitchCase="'equipment'">
@@ -85,7 +85,36 @@
                                   </div>
                                 </div>
                               </ng-container>
+                            </div> -->
+
+
+                            <div class="tabs" id="myTab" role="tablist">
+                              <a 
+                                class="tab" *ngFor="let tab of tabs; let i = index"
+                                [class.active]="selectedTab === i"
+                                (click)="selectTab(i)"
+                                [id]="tab.content + '-tab'" 
+                                data-bs-toggle="tab" 
+                                [href]="'#' + tab.content" 
+                                role="tab" 
+                                [attr.aria-controls]="tab.content" 
+                                aria-selected="true"
+                              >
+                             <p>  {{ tab.label }} </p>      
+                            </a>
                             </div>
+                            <div class="">
+                              <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="equipment" role="tabpanel" aria-labelledby="equipment-tab">
+                                  <app-class-equipment [nodeId]="selectedNodeId"></app-class-equipment>
+                                </div>
+                                <div class="tab-pane fade" id="component" role="tabpanel" aria-labelledby="component-tab">
+                                  <app-class-component></app-class-component>
+                                </div>
+                              </div>
+                            
+                            </div>
+
                           </div>          
                       </div>
                 </div>
