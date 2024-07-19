@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ComponentsComponent } from './equipment structure/components/components.component';
+import { EquipmentComponent } from './equipment structure/equipment/equipment.component';
 import { ClassStructureComponent } from './equipment structure/class-structure/class-structure.component';
 import { VesselDataLibraryComponent } from './equipment structure/vessel/vessel-data-library.component';
 import { SpareMasterComponent } from './spare master/spare-master/spare-master.component';
@@ -9,7 +9,7 @@ import { ArchiveJobComponent } from './job master/archive-job/archive-job.compon
 import { JobLakeComponent } from './job master/job-lake/job-lake.component';
 
 const routes: Routes = [
-  {path:"", component: ComponentsComponent},
+  {path:"", component: EquipmentComponent},
   {path:"class-structure", component: ClassStructureComponent},
   {path:"vessel", component: VesselDataLibraryComponent},
   {path:"spare-structure/spare-master", component: SpareMasterComponent},

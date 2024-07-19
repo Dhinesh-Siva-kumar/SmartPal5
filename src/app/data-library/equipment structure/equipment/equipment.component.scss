@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 20px 0px;
+    margin: 10px 20px 30px;
 
     h4{
       font-weight: bold;
@@ -206,12 +206,6 @@
     }
   }
 
-  .tab-content {
-    border: 1px solid #ccc;
-    padding: 20px;
-    background-color: #ffffff;
-  }
-
   .kendo-treeview {
     width: 250px;
   }
@@ -315,13 +309,13 @@
 
     .k-autocomplete{
       border: 1px #ddd solid !important;
-      padding: 3px;
+      padding: 5px !important;;
       border-radius: 5px;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: 10px;
-      background-size: 17px;
-      padding-left: 25px;
+      background-position: 8px;
+      background-size: 15px;
+      padding-left: 28px !important;;
     }
     .k-input-solid:focus{
       box-shadow: none;

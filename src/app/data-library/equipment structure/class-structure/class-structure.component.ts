@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ComponentEquipmentComponent } from '../components/components-tabs/component-equipment/component-equipment.component';
+import { ComponentEquipmentComponent } from '../equipment/equipment-tabs/component-equipment/component-equipment.component';
 import { ClassEquipmentComponent } from './class-structure-tabs/class-equipment/class-equipment.component';
 import { NavigationModule } from "@progress/kendo-angular-navigation";
 import { BreadCrumbItem } from '@progress/kendo-angular-navigation';

@@ -7,17 +7,17 @@ import {
 } from "@progress/kendo-angular-grid";
 import { InputsModule } from "@progress/kendo-angular-inputs";
 import { ColumnMenuSettings } from '@progress/kendo-angular-grid';
-import { BasicDetailsComponentComponent } from '../../components-subtabs/basic-details-component/basic-details-component.component';
-import { AttachmentsComponentComponent } from '../../components-subtabs/attachments-component/attachments-component.component';
-import { ExcelFormsComponentComponent } from '../../components-subtabs/excel-forms-component/excel-forms-component.component';
-import { QdmsComponentComponent } from '../../components-subtabs/qdms-component/qdms-component.component';
-import { ResourcesComponentComponent } from '../../components-subtabs/resources-component/resources-component.component';
-import { SparesComponentComponent } from '../../components-subtabs/spares-component/spares-component.component'; 
-import { TaskComponentComponent } from '../../components-subtabs/task-component/task-component.component';
-import { TechFormsComponentComponent } from '../../components-subtabs/tech-forms-component/tech-forms-component.component';
-import { UserManualComponentComponent } from '../../components-subtabs/user-manual-component/user-manual-component.component';
+import { BasicDetailsComponentComponent } from '../../equipment-subtabs/basic-details-component/basic-details-component.component';
+import { AttachmentsComponentComponent } from '../../equipment-subtabs/attachments-component/attachments-component.component';
+import { ExcelFormsComponentComponent } from '../../equipment-subtabs/excel-forms-component/excel-forms-component.component';
+import { QdmsComponentComponent } from '../../equipment-subtabs/qdms-component/qdms-component.component';
+import { ResourcesComponentComponent } from '../../equipment-subtabs/resources-component/resources-component.component';
+import { SparesComponentComponent } from '../../equipment-subtabs/spares-component/spares-component.component'; 
+import { TaskComponentComponent } from '../../equipment-subtabs/task-component/task-component.component';
+import { TechFormsComponentComponent } from '../../equipment-subtabs/tech-forms-component/tech-forms-component.component';
+import { UserManualComponentComponent } from '../../equipment-subtabs/user-manual-component/user-manual-component.component';
 import { SharedService } from '../../shared.service';
-import { ComponentsComponent } from '../../components.component';
+import { EquipmentComponent } from '../../equipment.component';
 
 import { LabelModule } from '@progress/kendo-angular-label';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
@@ -202,7 +202,7 @@ export const products = [
     TaskComponentComponent,
     TechFormsComponentComponent,
     UserManualComponentComponent,
-    ComponentsComponent,
+    EquipmentComponent,
     LabelModule,
     DropDownsModule,
     IconsModule,
@@ -231,7 +231,7 @@ export class ComponentSparePartsComponent {
     return value + ' *';
   }  
 
-  constructor(public shareComponent: SharedService, private parent: ComponentsComponent) {
+  constructor(public shareComponent: SharedService, private parent: EquipmentComponent) {
     console.log("Job plan")
   }
 

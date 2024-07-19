@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Input, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ComponentEquipmentComponent } from './components-tabs/component-equipment/component-equipment.component';
-import { ComponentJobplanComponent } from './components-tabs/component-jobplan/component-jobplan.component';
+import { ComponentEquipmentComponent } from './equipment-tabs/component-equipment/component-equipment.component';
+import { ComponentJobplanComponent } from './equipment-tabs/component-jobplan/component-jobplan.component';
 import { ClassEquipmentComponent } from '../class-structure/class-structure-tabs/class-equipment/class-equipment.component';
 import { BreadCrumbItem, BreadCrumbModule } from "@progress/kendo-angular-navigation";
 import { LayoutModule } from '@progress/kendo-angular-layout';
@@ -9,10 +9,10 @@ import { SelectEvent } from "@progress/kendo-angular-layout";
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { MainControlTabsComponent } from '../../main-control-tabs/main-control-tabs.component';
-import { ComponentSparePartsComponent } from './components-tabs/component-spare-parts/component-spare-parts.component';
+import { ComponentSparePartsComponent } from './equipment-tabs/component-spare-parts/component-spare-parts.component';
 import { SharedService } from './shared.service';
-import { ComponentMappedVesselComponent } from './components-tabs/component-mapped-vessel/component-mapped-vessel.component';
-import { BasicDetailsComponentComponent } from './components-subtabs/basic-details-component/basic-details-component.component';
+import { ComponentMappedVesselComponent } from './equipment-tabs/component-mapped-vessel/component-mapped-vessel.component';
+import { BasicDetailsComponentComponent } from './equipment-subtabs/basic-details-component/basic-details-component.component';
 
 const defaultItems: BreadCrumbItem[] = [
   {
@@ -30,7 +30,7 @@ const defaultItems: BreadCrumbItem[] = [
 ];
 
 @Component({
-  selector: 'app-components',
+  selector: 'app-equipment',
   standalone: true,
   imports: [
     CommonModule,
@@ -43,13 +43,13 @@ const defaultItems: BreadCrumbItem[] = [
     DropDownsModule,
     MainControlTabsComponent,
     ComponentMappedVesselComponent,
-    ComponentSparePartsComponent
+    ComponentSparePartsComponent,
   ],
-  templateUrl: './components.component.html',
-  styleUrl: './components.component.scss'
+  templateUrl: './equipment.component.html',
+  styleUrl: './equipment.component.scss'
 })
 
-export class ComponentsComponent implements OnInit{
+export class EquipmentComponent implements OnInit {
 
   @ViewChild(ComponentEquipmentComponent) equipmentTab!: ComponentEquipmentComponent;
   @ViewChild(BasicDetailsComponentComponent) basicequipmentTab!: BasicDetailsComponentComponent;

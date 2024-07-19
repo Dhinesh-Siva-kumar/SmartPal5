@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ComponentEquipmentComponent } from '../../../components/components-tabs/component-equipment/component-equipment.component';
-import { ComponentJobplanComponent } from '../../../components/components-tabs/component-jobplan/component-jobplan.component';
+import { ComponentEquipmentComponent } from '../../../equipment/equipment-tabs/component-equipment/component-equipment.component';
+import { ComponentJobplanComponent } from '../../../equipment/equipment-tabs/component-jobplan/component-jobplan.component';
 
 @Component({
   selector: 'app-class-component',
