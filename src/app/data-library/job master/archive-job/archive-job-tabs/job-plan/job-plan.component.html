@@ -1,28 +1,12 @@
 <div class="container-fluid borderMainAll">
     <div class="row ">
         <div class="col-3">
-            <label class="labelNormalTxt" for="maker">Maker</label>
-            <input class="normalInputField" id="maker" type="text" name="maker" required>
-        </div>
-        <div class="col-3">
-            <label class="labelNormalTxt" for="model">Model</label>
-            <input class="normalInputField" id="model" type="text" name="model" required>
-        </div>
-        <div class="col-3">
-            <kendo-label text="Equipment Type ">
-                <kendo-dropdownlist [data]="areaList" name="equipmentType"></kendo-dropdownlist>
-            </kendo-label>
-        </div>
-        <div class="col-3">
             <label class="labelNormalTxt" for="equipment-description">Equipment Description</label>
-            <input class="normalInputField" id="equipment-description" type="text" name="equipment-description"
-                required>
+            <input class="normalInputField" id="equipment-description" type="text" name="equipment-description" required>
         </div>
-
-
         <div class="col-3">
             <kendo-label text="Maintenance Type ">
-                <kendo-dropdownlist [data]="areaList" name="maintenanceType"></kendo-dropdownlist>
+                <kendo-dropdownlist [data]="areaList" name="maintenance-type"></kendo-dropdownlist>
             </kendo-label>
         </div>
         <div class="col-3">
@@ -34,46 +18,49 @@
                 <kendo-dropdownlist [data]="areaList" name="discipline"></kendo-dropdownlist>
             </kendo-label>
         </div>
+
+
         <div class="col-3">
             <kendo-label text="Priority ">
                 <kendo-dropdownlist [data]="areaList" name="priority"></kendo-dropdownlist>
             </kendo-label>
         </div>
-
-
-        <div class="col-2">
+        <div class="col-3">
             <kendo-label text="Scheduled Type ">
                 <kendo-dropdownlist [data]="areaList" name="scheduledType"></kendo-dropdownlist>
             </kendo-label>
         </div>
-        <div class="col-2">
+        <div class="col-3">
             <kendo-label text="Department ">
                 <kendo-dropdownlist [data]="areaList" name="department"></kendo-dropdownlist>
             </kendo-label>
         </div>
-        <div class="col-2">
+        <div class="col-3">
             <label class="labelNormalTxt" for="job-title">Job Title</label>
             <input class="normalInputField" id="job-title" type="text" name="job-title" required>
         </div>
-        <div class="col-2">
+
+
+        <div class="col-3">
             <label class="labelNormalTxt" for="job-code">Job Code</label>
             <input class="normalInputField" id="job-code" type="text" name="job-code" required>
         </div>
-        <div class="col-2">
+        <div class="col-3">
             <kendo-label text="Job Type ">
                 <kendo-dropdownlist [data]="areaList" name="job-type"></kendo-dropdownlist>
             </kendo-label>
         </div>
-        <div class="col-2">
+        <div class="col-3">
             <kendo-label text="Job Assigned To ">
                 <kendo-dropdownlist [data]="areaList" name="job-assigned-to"></kendo-dropdownlist>
             </kendo-label>
         </div>
-
         <div class="col-3">
             <label class="labelNormalTxt" for="maker">Maker</label>
             <input class="normalInputField" id="maker" type="text" name="maker" required>
         </div>
+
+
         <div class="col-3">
             <label class="labelNormalTxt" for="model">Model</label>
             <input class="normalInputField" id="model" type="text" name="model" required>
@@ -84,7 +71,7 @@
             </kendo-label>
         </div>
 
-        <div class="col-6">
+        <div class="col-6 ">
             <label class="labelNormalTxt" for="job-description">Job Description</label>
             <input class="normalTextAreaField" id="job-description" type="text" name="job-description" required>
         </div>
@@ -93,54 +80,58 @@
             <input class="normalTextAreaField" id="special-note" type="text" name="special-note" required>
         </div>
 
-
-        <div class="col-2">
+        <div class="col-3">
             <label class="labelNormalTxt" for="est-duration">Est. Duration Hrs.</label>
             <input class="normalInputField" id="est-duration" type="text" name="est-duration" required>
         </div>
-        <div class="col-2">
+        <div class="col-3">
             <label class="labelNormalTxt" for="minutes">Minutes</label>
             <input class="normalInputField" id="minutes" type="text" name="minutes" required>
         </div>
-        <div class="col-2">
+        <div class="col-3">
             <label class="labelNormalTxt" for="safety-warning">Safety Warning</label>
             <input class="normalInputField" id="safety-warning" type="text" name="safety-warning" required>
         </div>
-        <div class="col-2">
+
+
+        <div class="col-3">
             <label class="labelNormalTxt" for="recorded-parameter">Recorded Parameter</label>
             <input class="normalInputField" id="recorded-parameter" type="text" name="recorded-parameter" required>
         </div>
-        <div class="col-2">
+        <div class="col-3">
             <label class="labelNormalTxt" for="interval-primary">Interval (Primary)</label>
             <input class="normalInputField" id="interval-primary" type="text" name="interval-primary" required>
         </div>
-        <div class="col-2">
+        <div class="col-3">
             <kendo-label text="Primary Frequency ">
                 <kendo-dropdownlist [data]="areaList" name="job-type"></kendo-dropdownlist>
             </kendo-label>
         </div>
 
-        <div class="col-2">
+        <div class="col-3">
             <label class="labelNormalTxt" for="primary-plan-horizon">Primary Plan Horizon</label>
             <input class="normalInputField" id="primary-plan-horizon" type="text" name="primary-plan-horizon" required>
         </div>
-        <div class="col-2">
+
+
+        <div class="col-3">
             <kendo-label text="Frequency (Plan Horizon) ">
                 <kendo-dropdownlist [data]="areaList" name="frequency-plan-horizon"></kendo-dropdownlist>
             </kendo-label>
         </div>
-        <div class="col-2">
+        <div class="col-3">
             <label class="labelNormalTxt" for="primary-tolerance">Primary Tolerance</label>
             <input class="normalInputField" id="primary-tolerance" type="text" name="primary-tolerance" required>
         </div>
-        <div class="col-2">
+        <div class="col-3">
             <kendo-label text="Frequency Tolerance ">
                 <kendo-dropdownlist [data]="areaList" name="frequency-tolerance"></kendo-dropdownlist>
             </kendo-label>
         </div>
+
         <div class="col-2 switchingClass">
             <div class="row mt-3 gx-0">
-                
+
                 <div class="col">
                     <kendo-switch name="active" class="switch"></kendo-switch>
                 </div>
@@ -149,21 +140,21 @@
                 </div>
             </div>
         </div>
-        <div class="col-2 switchingClass">
-            <div class="row mt-3 gx-0">
-                
-                <div class="col">
-                    <kendo-switch name="risk-assistance-required" class="switch"></kendo-switch>
-                </div>
-                <div class="col ">
-                    <h2 class="mt-2 text-start">Risk Assistance Required</h2>
-                </div>
-            </div>
-        </div>
 
         <div class="col-2 switchingClass">
             <div class="row mt-3 gx-0">
-                
+
+                <div class="col">
+                    <kendo-switch name="risk-assessment-required" class="switch"></kendo-switch>
+                </div>
+                <div class="col ">
+                    <h2 class="mt-2 text-start">Risk Assessment Required</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 switchingClass">
+            <div class="row mt-3 gx-0">
+
                 <div class="col">
                     <kendo-switch name="attachment-required" class="switch"></kendo-switch>
                 </div>
@@ -172,9 +163,15 @@
                 </div>
             </div>
         </div>
+        
+       
+
+        
+
+
         <div class="col-2 switchingClass">
             <div class="row mt-3 gx-0">
-                
+
                 <div class="col">
                     <kendo-switch name="group-job" class="switch"></kendo-switch>
                 </div>
@@ -185,7 +182,7 @@
         </div>
         <div class="col-2 switchingClass">
             <div class="row mt-3 gx-0">
-                
+
                 <div class="col">
                     <kendo-switch name="spare-required" class="switch"></kendo-switch>
                 </div>
@@ -194,9 +191,11 @@
                 </div>
             </div>
         </div>
+        
+       
         <div class="col-2 switchingClass">
             <div class="row mt-3 gx-0">
-                
+
                 <div class="col">
                     <kendo-switch name="active" class="switch"></kendo-switch>
                 </div>
@@ -207,7 +206,7 @@
         </div>
         <div class="col-2 switchingClass">
             <div class="row mt-3 gx-0">
-                
+
                 <div class="col">
                     <kendo-switch name="work-permit" class="switch text-end"></kendo-switch>
                 </div>
@@ -216,11 +215,13 @@
                 </div>
             </div>
         </div>
+       
+        <div class="col-12">
+            <kendo-label text="Second Frequency ">
+                <kendo-dropdownlist [data]="areaList" name="second-frequency"></kendo-dropdownlist>
+            </kendo-label>
+        </div>
     </div>
 
-    <div class="col-12">
-        <kendo-label text="Second Frequency ">
-            <kendo-dropdownlist [data]="areaList" name="second-frequency"></kendo-dropdownlist>
-        </kendo-label>
-    </div>
+
 </div>

@@ -1,17 +1,18 @@
-<div class="filter-tab-outer-table">
-    <ng-container >
+<div class="  filter-tab-outer-table">
+  <ng-container>
 
-      <ul>
-        <li *ngFor="let button of buttonArray; let i = index; let first = first ;let last = last;" [class]="isActive(button.label) + (first ? ' filter-tab-btn-start' : '') ">
+    <ul>
+      <li *ngFor="let button of buttonArray; let i = index; let first = first ;let last = last;"
+        [class]="isActive(button.label) + (first ? ' filter-tab-btn-start' : '') ">
 
-          <a [routerLink]="button.linkTo" kendoButton  class="text-decoration-none">
-            {{ button.label }}
-            </a>
+        <a [routerLink]="button.linkTo" kendoButton class="text-decoration-none">
+          {{ button.label }}
+        </a>
 
-        </li>
+      </li>
 
-      </ul>
+    </ul>
 
 
-    </ng-container>
-    </div>
+  </ng-container>
+</div>

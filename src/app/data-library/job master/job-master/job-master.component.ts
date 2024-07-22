@@ -24,6 +24,7 @@ import { JobPlanComponent } from './job-master-tabs/job-plan/job-plan.component'
   styleUrl: './job-master.component.scss'
 })
 export class JobMasterComponent {
+  // areaList for dropdown
   public areaList: Array<string> = [
     "Boston",
     "Chicago",

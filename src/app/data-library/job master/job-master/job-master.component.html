@@ -1,5 +1,6 @@
-<div class="header-section">
-    <div>
+<!-- header section  Job Structure -> Job master -->
+<div class="row header-section pb-5">
+    <div class=" col ">
         <h4>Job Structure</h4>
         <ul>
             <li>
@@ -9,50 +10,23 @@
                 <a href="">Job Structure</a>
             </li>
             <li>Job Master</li>
+            <i class="bi bi-star-fill star"></i>
+            
         </ul>
-        <!-- <div>
-            <kendo-breadcrumb [items]="items" (itemClick)="onItemClick($event)"></kendo-breadcrumb>
-         </div> -->
+
     </div>
-    <div>
-        <button class="btn btn-primary">Update</button>
-        <button class="btn btn-primary">up</button>
-        <button class="btn btn-primary">down</button>
-        <button class="btn btn-primary">Map</button>
+    <div class="col">
+        <button class="btn btn-outline-info btn-custom-outline">Update</button>
     </div>
 </div>
-<app-main-control-tabs [pageName]="'job-structure'" [activeClass]="'Job Master'"></app-main-control-tabs>
 
-<!-- <div class="borderMainAll">
-    <div class="row">
-        <div class="col-7">
-            <form>
-                <div class="row  rowMainAllSpace">
-                    <div class="col">
-                        <label class="labelNormalTxt" for="maker">Maker</label>
-                        <input class="normalInputField" id="maker" type="text" name="maker" required>
+<!-- Main Tabs(Job Master) -->
+<app-main-control-tabs 
+[pageName]="'job-structure'" [activeClass]="'Job Master'"></app-main-control-tabs>
 
-                    </div>
-                    <div class="col">
-                        <label class="labelNormalTxt" for="model">Model</label>
-                        <input class="normalInputField" id="model" type="text" name="model" required>
 
-                    </div>
-                    <div class="col">
-                        <kendo-label text="Equipment Type ">
-                            <kendo-dropdownlist [data]="areaList" name="equipmentType"></kendo-dropdownlist>
-                        </kendo-label>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="col">
-
-        </div>
-    </div>
-</div> -->
-
-<div class="borderMainAll">
+<!-- Job Master Contents -->
+<div class="borderMainAll ">
 
     <div class="floatDivMain2 ">
         <div class="row rowMainAllSpace">
@@ -73,13 +47,44 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="col-2  switchingClass">
-                    <h2 class="mt-3">Active</h2>
-                    <kendo-switch name="active"></kendo-switch>
+            <div class="col ">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="  switchingClass">
+                            <h2 class="mt-3">Active</h2>
+                            <kendo-switch name="active"></kendo-switch>
+                        </div>
+                    </div>
+                    <div class="col-2 text-end ">
+                        <div class="col search_icon_div">
+                            <i class="bi bi-search  search_icon"></i>
+                         </div>
+                    </div>
+                    <div class="col-2 text-start ">
+                        <div class="col filter_icon_div">
+                            <i class="bi bi-funnel filter_icon"></i>
+                         </div>
+                    </div>
+                    <div class="col bg-primary text-end">
+                        <i class="bi bi-pin pin_icon"></i>
+                    </div>
                 </div>
-            </div>
+                
+                <!-- <div class="col bg-light">
+                    <div class="col-2  switchingClass">
+                        <h2 class="mt-3">Active</h2>
+                        <kendo-switch name="active"></kendo-switch>
+                    </div>
+                </div> 
+                 <div class="col bg-dark">
+                <img class="search_icon" src="assets/search.png" alt="search icon">
+             </div>-->
 
+            </div>
+            <!-- <div class="col bg-dark">
+                <img class="search_icon" src="assets/search.png" alt="search icon">
+             </div>
+             -->
         </div>
 
 
@@ -146,58 +151,57 @@
             table here
         </p>
 
-        <!-- tabs -->
+        <!-- Tabs of Job MAster -->
 
         <div class="w-100 ps-2">
             <div class="wrapper">
                 <div class="tablist-container">
                     <div class="tabs">
-                      <div class="tab" *ngFor="let tab of tabs; let i = index"
-                           [class.active]="selectedTab === i"
-                           (click)="selectTab(i)">
-                     <p>  {{ tab.label }} </p> <span>{{tab.number}}</span>
-                      </div>
+                        <div class="tab" *ngFor="let tab of tabs; let i = index" [class.active]="selectedTab === i"
+                            (click)="selectTab(i)">
+                            <p> {{ tab.label }} </p> <span>{{tab.number}}</span>
+                        </div>
                     </div>
                     <div class="">
-                      <ng-container *ngIf="selectedTab !== null">
-                        <div [ngSwitch]="tabs[selectedTab].content">
-                          <div *ngSwitchCase="'jobPlan'">
-                            <app-job-plan></app-job-plan>
-                          </div>
-                          <div *ngSwitchCase="'task'">
-one                          </div>
-                          <div *ngSwitchCase="'attachments'">
-                           one
-                          </div>
-                          <div *ngSwitchCase="'Excel Forms'">
-                            sparepart
-                          </div>
-                          <div *ngSwitchCase="'User Manual'">
-                            sparepart
-                          </div>
-                          <div *ngSwitchCase="'QDMS'">
-                            sparepart
-                          </div>
-                          <div *ngSwitchCase="'Service Letters'">
-                            sparepart
-                          </div>
-                          <div *ngSwitchCase="'CBO Triggers'">
-                            sparepart
-                          </div>
-                          <div *ngSwitchCase="'Tech Forms'">
-                            sparepart
-                          </div>
-                          <div *ngSwitchCase="'Resources'">
-                            sparepart
-                          </div>                          
-                          <div *ngSwitchDefault>
-                            <app-job-plan></app-job-plan>
-                          </div>
-                        </div>
-                      </ng-container>
+                        <ng-container *ngIf="selectedTab !== null">
+                            <div [ngSwitch]="tabs[selectedTab].content">
+                                <div *ngSwitchCase="'jobPlan'">
+                                    <app-job-plan></app-job-plan>
+                                </div>
+                                <div *ngSwitchCase="'task'">
+                                    one </div>
+                                <div *ngSwitchCase="'attachments'">
+                                    one
+                                </div>
+                                <div *ngSwitchCase="'Excel Forms'">
+                                    sparepart
+                                </div>
+                                <div *ngSwitchCase="'User Manual'">
+                                    sparepart
+                                </div>
+                                <div *ngSwitchCase="'QDMS'">
+                                    sparepart
+                                </div>
+                                <div *ngSwitchCase="'Service Letters'">
+                                    sparepart
+                                </div>
+                                <div *ngSwitchCase="'CBO Triggers'">
+                                    sparepart
+                                </div>
+                                <div *ngSwitchCase="'Tech Forms'">
+                                    sparepart
+                                </div>
+                                <div *ngSwitchCase="'Resources'">
+                                    sparepart
+                                </div>
+                                <div *ngSwitchDefault>
+                                    <app-job-plan></app-job-plan>
+                                </div>
+                            </div>
+                        </ng-container>
                     </div>
-                  </div>
-              </div>
+                </div>
+            </div>
         </div>
     </div>
 
