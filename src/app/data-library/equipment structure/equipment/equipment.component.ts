@@ -46,7 +46,7 @@ const defaultItems: BreadCrumbItem[] = [
     ComponentSparePartsComponent,
   ],
   templateUrl: './equipment.component.html',
-  styleUrl: './equipment.component.scss'
+  styleUrls: ['./equipment.component.scss', '../../data-library.component.scss']
 })
 
 export class EquipmentComponent implements OnInit {
@@ -193,6 +193,7 @@ export class EquipmentComponent implements OnInit {
   onNodeClick(event: any): void {
     console.log('Clicked Node ID:', event.item.dataItem);
     this.selectedNodeId = event.item.dataItem.id;
+    this.shareComponent.selectedTreeId = event.item.dataItem.id;
     this.tabs = [
       { label: 'Equipment', content: 'equipment', number: event.item.dataItem.equipment },
       { label: 'Job Plan', content: 'jobplan', number: event.item.dataItem.jobplan },

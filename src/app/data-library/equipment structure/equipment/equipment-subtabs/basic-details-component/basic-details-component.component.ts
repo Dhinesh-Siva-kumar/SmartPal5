@@ -7,19 +7,9 @@ import { FloatingLabelModule } from "@progress/kendo-angular-label";
 import { LabelModule } from "@progress/kendo-angular-label";
 import { DropDownsModule } from "@progress/kendo-angular-dropdowns";
 import { FormsModule } from '@angular/forms';
+import { products } from '../../dataFormat';
+import { Equipment } from '../../dataFormat';
 
-export interface Equipment {
-  id: string;
-  equipmentCode: string, 
-    equipmentName: string, 
-    parentEquipment: string,
-    equipment: string,
-    jobplan: string,
-    mappedVessel: string,
-    serviceLetter: string,
-    spareParts: string,
-    userManual: string,
-}
 
 @Component({
   selector: 'app-basic-details-component',
@@ -76,24 +66,4 @@ export class BasicDetailsComponentComponent {
     "San Francisco",
     "Seattle",
   ];
-
-  public data: any[] = [
-    {
-      text: "Furniture",
-      items: [
-        { text: "Tables & Chairs" },
-        { text: "Sofas" },
-        { text: "Occasional Furniture" },
-      ],
-    },
-    {
-      text: "Decor",
-      items: [
-        { text: "Bed Linen" },
-        { text: "Curtains & Blinds" },
-        { text: "Carpets" },
-      ],
-    },
-  ];
-
 }

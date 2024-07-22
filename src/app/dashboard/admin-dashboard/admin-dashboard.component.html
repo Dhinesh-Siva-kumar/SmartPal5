@@ -1,1 +1,63 @@
-<p>admin-dashboard works!</p>
+<section class="p-3">
+
+    <div class="d-flex justify-content-between">
+        <p>admin-dashboard works!
+            <br>
+            testing grid
+        </p>
+        <div>
+            <button class="btn btn-success">save</button>
+        </div>
+    </div>
+
+<kendo-grid 
+    [kendoGridBinding]="gridView" 
+    kendoGridSelectBy="id" 
+    [(selectedKeys)]="mySelection" 
+    [pageSize]="5"
+    [pageable]="true" 
+    [sortable]="true" 
+    [groupable]="true" 
+    [reorderable]="true" 
+    [resizable]="true" 
+    [height]="400"
+    [columnMenu]="{ filter: true }"
+    >
+    <ng-template kendoGridToolbarTemplate>
+        <kendo-textbox [style.width.px]="165" placeholder="Search in all columns..."
+            (valueChange)="onFilter($event)"></kendo-textbox>
+        <kendo-grid-spacer></kendo-grid-spacer>
+        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-info">Edit</button>
+    </ng-template>
+    <kendo-grid-checkbox-column [width]="45" [headerClass]="{ 'text-center': true }" [class]="{ 'text-center': true }"
+        [resizable]="false" [columnMenu]="false" [showSelectAll]="true"></kendo-grid-checkbox-column>
+    <kendo-grid-column field="full_name" title="Contact Name"> 
+    </kendo-grid-column>
+    <kendo-grid-column field="job_title" title="Job Title">
+    </kendo-grid-column>
+    <kendo-grid-column field="country" title="Country" [class]="{ 'text-center': true }" [resizable]="false"
+        [style]="{'background-repeat': 'no-repeat'}">
+    </kendo-grid-column>
+    <kendo-grid-column field="is_online" title="Status" [class]="{ 'text-center': true }" [resizable]="false" filter="boolean">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <span *ngIf="dataItem.is_online === true" class="badge badge-success text-primary">Online</span>
+            <span *ngIf="dataItem.is_online === false" class="badge badge-danger text-danger">Offline</span>
+        </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="rating" title="Rating" [resizable]="false" filter="numeric">
+    </kendo-grid-column>
+    <kendo-grid-column field="target" title="Engagement" [resizable]="false" filter="numeric">
+    </kendo-grid-column>
+        <kendo-grid-column field="budget" title="Budget" filter="numeric">
+          <ng-template kendoGridCellTemplate let-dataItem>
+            <span [ngClass]="{ 'red text-bold': dataItem.budget < 0 }">{{ dataItem.budget | currency }}</span>
+          </ng-template>
+        </kendo-grid-column>
+    <kendo-grid-column field="phone" title="Phone">
+    </kendo-grid-column>
+    <kendo-grid-column field="address" title="Address">
+    </kendo-grid-column>
+</kendo-grid>
+
+</section>

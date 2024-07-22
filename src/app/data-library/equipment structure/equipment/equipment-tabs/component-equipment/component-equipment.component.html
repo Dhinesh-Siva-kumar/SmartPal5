@@ -1,174 +1,176 @@
-<div class="floatDivMain2">
-  <form #equipmentForm="ngForm">
-  <div class="row rowMainAllSpace">
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="equipment-code">Equipment Code</label>
-      <input class="normalInputField" id="equipment-code" type="text" [(ngModel)]="equipment.equipmentCode" name="equipmentCode" required>
-      <div *ngIf="submitted && !equipment.equipmentCode" class="error">Equipment Code is required</div>
+<section class="flexMainallEqu">
+  <div class="floatDivMain2">
+    <form #equipmentForm="ngForm">
+    <div class="row rowMainAllSpace">
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="equipment-code">Equipment Code</label>
+        <input class="normalInputField" id="equipment-code" type="text" [(ngModel)]="equipment.equipmentCode" name="equipmentCode" required>
+        <div *ngIf="submitted && !equipment.equipmentCode" class="error">Equipment Code is required</div>
+      </div>
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="equipment-name">Equipment Name</label>
+        <input class="normalInputField" id="equipment-name" type="text" [(ngModel)]="equipment.equipmentName" name="equipmentName" required>
+        <div *ngIf="submitted && !equipment.equipmentName" class="error">Equipment Name is required</div>
+      </div>
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="parent-equipment">Parent Equipment</label>
+        <input class="normalInputField" id="parent-equipment" type="text" [(ngModel)]="equipment.parentEquipment" name="parentEquipment" required>
+        <div *ngIf="submitted && !equipment.parentEquipment" class="error">Parent Equipment is required</div>
+      </div>
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="marker-equipment">Marker</label>
+        <input class="normalInputField" id="marker-equipment" type="text" [(ngModel)]="equipment.marker" name="marker">
+        <!-- <div *ngIf="submitted && !equipment.marker" class="error">Marker is required</div> -->
+      </div>
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="model-equipment">Model</label>
+        <input class="normalInputField" id="model-equipment" type="text" [(ngModel)]="equipment.model" name="model">
+      </div>
+      <div class="col-sm-3">
+        <kendo-label text="Equipment Type ">
+          <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.equipmentType" name="equipmentType"></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="builderLicense-equipment">Builder/License</label>
+        <input class="normalInputField" id="builderLicense-equipment" type="text" [(ngModel)]="equipment.builderLicense" name="builderLicense">
+      </div>
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="department">Department</label>
+        <input class="normalInputField" id="department" type="text" placeholder="" [(ngModel)]="equipment.department" name="department">
+      </div>
+      <div class="col-sm-3">
+        <kendo-label text="Drawing Number">
+          <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.drawingNo" name="drawingNo"></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+  
+      <div class="col-sm-3">
+        <kendo-label text="Vessel Class ">
+          <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.vesselClass" name="vesselClass"></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+  
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="vessel-name">Vessel Name</label>
+        <input class="normalInputField" id="vessel-name" type="text" placeholder="" [(ngModel)]="equipment.vesselName" name="vesselName">
+      </div>
+     
+  
+      <div class="col-sm-3">
+        <kendo-label text="Type">
+          <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.type" name="type"></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+  
+      <div class="col-sm-3">
+        <kendo-label text="Safety Level ">
+          <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.safetyLevel" name="safetyLevel"></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="applicableVessel">Applicable Vessel</label>
+        <input class="normalInputField" id="applicableVessel" type="text" placeholder="" [(ngModel)]="equipment.applicableVessel" name="applicableVessel">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="inheritRHrsFrom">Inherit RHrs From</label>
+        <input class="normalInputField" id="inheritRHrsFrom" type="text" placeholder="" [(ngModel)]="equipment.inheritRHrsFrom" name="inheritRHrsFrom">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="RHrsSeparately">RHrs Separately</label>
+        <input class="normalInputField" id="RHrsSeparately" type="text" placeholder="" [(ngModel)]="equipment.RHrsSeparately" name="RHrsSeparately">
+      </div>
+  
+      <div class="col-sm-3">
+  
+        <label class="labelNormalTxt" for="mount-allowed">Mount Allowed</label>
+        <input class="normalInputField" id="mount-allowed" type="text" placeholder="" [(ngModel)]="equipment.mountAllowed" name="mountAllowed">
+  
+      </div>
+  
+      <div class="col-sm-3 ">
+        <label class="labelNormalTxt" for="circulating">Circulating</label>
+        <input class="normalInputField" id="circulating" type="text" placeholder="" [(ngModel)]="equipment.circulating" name="circulating">
+      </div>
+  
+      <div class="col-sm-1 switchingClass">
+        <h2>Active</h2>
+        <kendo-switch [(ngModel)]="equipment.active" name="active"></kendo-switch>
+  
+      </div>
+  
+      <div class="col-sm-5">
+        <label class="labelNormalTxt" for="legacy-code">Legacy Code</label>
+        <input class="normalInputField" id="legacy-code" type="text" placeholder="" [(ngModel)]="equipment.legacyCode" name="legacyCode">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="Last-Modified-User">Last Modified User</label>
+        <input class="normalInputField" id="Last-Modified-User" type="text" placeholder="" [(ngModel)]="equipment.lastModifiedUser" name="lastModifiedUser">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="Last-Modified-Date">Last Modified Date</label>
+        <input class="normalInputField" id="Last-Modified-Date" type="text" placeholder="" [(ngModel)]="equipment.lastModifiedDate" name="lastModifiedDate">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="preferred-vendor">Preferred Vendor</label>
+        <input class="normalInputField" id="preferred-vendor" type="text" placeholder="" [(ngModel)]="equipment.preferredVendor" name="preferredVendor">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt">Installation Date</label>
+        <kendo-datepicker calendarType="infinite" [value]="value" [(ngModel)]="equipment.installationDate" name="installationDate"></kendo-datepicker>
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="equipment-dimension">Equipment Dimension</label>
+        <input class="normalInputField" id="equipment-dimension" type="text" placeholder="" [(ngModel)]="equipment.equipmentDimension" name="equipmentDimension">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="equipment-material">Equipment Material</label>
+        <input class="normalInputField" id="equipment-material" type="text" placeholder="" [(ngModel)]="equipment.equipmentMaterial" name="equipmentMaterial">
+      </div>
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="maersk-art-code">Maersk Art Code</label>
+        <input class="normalInputField" id="maersk-art-code" type="text" placeholder="" [(ngModel)]="equipment.maerskArtCode" name="maerskArtCode">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="model">MariApps Ref</label>
+        <input class="normalInputField" id="mariAppsRef" type="text" placeholder="" [(ngModel)]="equipment.mariAppsRef" name="mariAppsRef">
+      </div>
+  
+      <div class="col-sm-3">
+        <kendo-label text="Circulating Equipment Group ">
+          <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.circulatingEquipment" name="circulatingEquipment"></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+  
+      <div class="col-sm-6">
+        <label class="labelNormalTxt" for="remarks">Remarks</label>
+        <input class="normalInputField" id="remarks" type="text" placeholder="" [(ngModel)]="equipment.remarks" name="remarks">
+      </div>
+  
+      <div class="col-sm-3">
+        <label class="labelNormalTxt" for="equipmentCode">Equipment Code </label>
+        <input class="normalInputField" id="equipmentCode" type="text" placeholder="" [(ngModel)]="equipment.equipmentCode" name="equipmentCode">
+      </div>
+  
+      <div class="col-sm-12">
+        <kendo-label text="Part Number">
+          <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.partNumber" name="partNumber"></kendo-dropdownlist>
+        </kendo-label>
+      </div>
+  
+  
     </div>
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="equipment-name">Equipment Name</label>
-      <input class="normalInputField" id="equipment-name" type="text" [(ngModel)]="equipment.equipmentName" name="equipmentName" required>
-      <div *ngIf="submitted && !equipment.equipmentName" class="error">Equipment Name is required</div>
-    </div>
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="parent-equipment">Parent Equipment</label>
-      <input class="normalInputField" id="parent-equipment" type="text" [(ngModel)]="equipment.parentEquipment" name="parentEquipment" required>
-      <div *ngIf="submitted && !equipment.parentEquipment" class="error">Parent Equipment is required</div>
-    </div>
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="marker-equipment">Marker</label>
-      <input class="normalInputField" id="marker-equipment" type="text" [(ngModel)]="equipment.marker" name="marker">
-      <!-- <div *ngIf="submitted && !equipment.marker" class="error">Marker is required</div> -->
-    </div>
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="model-equipment">Model</label>
-      <input class="normalInputField" id="model-equipment" type="text" [(ngModel)]="equipment.model" name="model">
-    </div>
-    <div class="col-sm-3">
-      <kendo-label text="Equipment Type ">
-        <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.equipmentType" name="equipmentType"></kendo-dropdownlist>
-      </kendo-label>
-    </div>
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="builderLicense-equipment">Builder/License</label>
-      <input class="normalInputField" id="builderLicense-equipment" type="text" [(ngModel)]="equipment.builderLicense" name="builderLicense">
-    </div>
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="department">Department</label>
-      <input class="normalInputField" id="department" type="text" placeholder="" [(ngModel)]="equipment.department" name="department">
-    </div>
-    <div class="col-sm-3">
-      <kendo-label text="Drawing Number">
-        <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.drawingNo" name="drawingNo"></kendo-dropdownlist>
-      </kendo-label>
-    </div>
-
-    <div class="col-sm-3">
-      <kendo-label text="Vessel Class ">
-        <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.vesselClass" name="vesselClass"></kendo-dropdownlist>
-      </kendo-label>
-    </div>
-
-
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="vessel-name">Vessel Name</label>
-      <input class="normalInputField" id="vessel-name" type="text" placeholder="" [(ngModel)]="equipment.vesselName" name="vesselName">
-    </div>
-   
-
-    <div class="col-sm-3">
-      <kendo-label text="Type">
-        <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.type" name="type"></kendo-dropdownlist>
-      </kendo-label>
-    </div>
-
-    <div class="col-sm-3">
-      <kendo-label text="Safety Level ">
-        <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.safetyLevel" name="safetyLevel"></kendo-dropdownlist>
-      </kendo-label>
-    </div>
-
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="applicableVessel">Applicable Vessel</label>
-      <input class="normalInputField" id="applicableVessel" type="text" placeholder="" [(ngModel)]="equipment.applicableVessel" name="applicableVessel">
-    </div>
-
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="inheritRHrsFrom">Inherit RHrs From</label>
-      <input class="normalInputField" id="inheritRHrsFrom" type="text" placeholder="" [(ngModel)]="equipment.inheritRHrsFrom" name="inheritRHrsFrom">
-    </div>
-
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="RHrsSeparately">RHrs Separately</label>
-      <input class="normalInputField" id="RHrsSeparately" type="text" placeholder="" [(ngModel)]="equipment.RHrsSeparately" name="RHrsSeparately">
-    </div>
-
-    <div class="col-sm-3">
-
-      <label class="labelNormalTxt" for="mount-allowed">Mount Allowed</label>
-      <input class="normalInputField" id="mount-allowed" type="text" placeholder="" [(ngModel)]="equipment.mountAllowed" name="mountAllowed">
-
-    </div>
-
-    <div class="col-sm-3 ">
-      <label class="labelNormalTxt" for="circulating">Circulating</label>
-      <input class="normalInputField" id="circulating" type="text" placeholder="" [(ngModel)]="equipment.circulating" name="circulating">
-    </div>
-
-    <div class="col-sm-1 switchingClass">
-      <h2>Active</h2>
-      <kendo-switch [(ngModel)]="equipment.active" name="active"></kendo-switch>
-
-    </div>
-
-    <div class="col-sm-5">
-      <label class="labelNormalTxt" for="legacy-code">Legacy Code</label>
-      <input class="normalInputField" id="legacy-code" type="text" placeholder="" [(ngModel)]="equipment.legacyCode" name="legacyCode">
-    </div>
-
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="Last-Modified-User">Last Modified User</label>
-      <input class="normalInputField" id="Last-Modified-User" type="text" placeholder="" [(ngModel)]="equipment.lastModifiedUser" name="lastModifiedUser">
-    </div>
-
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="Last-Modified-Date">Last Modified Date</label>
-      <input class="normalInputField" id="Last-Modified-Date" type="text" placeholder="" [(ngModel)]="equipment.lastModifiedDate" name="lastModifiedDate">
-    </div>
-
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="preferred-vendor">Preferred Vendor</label>
-      <input class="normalInputField" id="preferred-vendor" type="text" placeholder="" [(ngModel)]="equipment.preferredVendor" name="preferredVendor">
-    </div>
-
-    <div class="col-sm-3">
-      <label class="labelNormalTxt">Installation Date</label>
-      <kendo-datepicker calendarType="infinite" [value]="value" [(ngModel)]="equipment.installationDate" name="installationDate"></kendo-datepicker>
-    </div>
-
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="equipment-dimension">Equipment Dimension</label>
-      <input class="normalInputField" id="equipment-dimension" type="text" placeholder="" [(ngModel)]="equipment.equipmentDimension" name="equipmentDimension">
-    </div>
-
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="equipment-material">Equipment Material</label>
-      <input class="normalInputField" id="equipment-material" type="text" placeholder="" [(ngModel)]="equipment.equipmentMaterial" name="equipmentMaterial">
-    </div>
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="maersk-art-code">Maersk Art Code</label>
-      <input class="normalInputField" id="maersk-art-code" type="text" placeholder="" [(ngModel)]="equipment.maerskArtCode" name="maerskArtCode">
-    </div>
-
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="model">MariApps Ref</label>
-      <input class="normalInputField" id="mariAppsRef" type="text" placeholder="" [(ngModel)]="equipment.mariAppsRef" name="mariAppsRef">
-    </div>
-
-    <div class="col-sm-3">
-      <kendo-label text="Circulating Equipment Group ">
-        <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.circulatingEquipment" name="circulatingEquipment"></kendo-dropdownlist>
-      </kendo-label>
-    </div>
-
-    <div class="col-sm-6">
-      <label class="labelNormalTxt" for="remarks">Remarks</label>
-      <input class="normalInputField" id="remarks" type="text" placeholder="" [(ngModel)]="equipment.remarks" name="remarks">
-    </div>
-
-    <div class="col-sm-3">
-      <label class="labelNormalTxt" for="equipmentCode">Equipment Code </label>
-      <input class="normalInputField" id="equipmentCode" type="text" placeholder="" [(ngModel)]="equipment.equipmentCode" name="equipmentCode">
-    </div>
-
-    <div class="col-sm-12">
-      <kendo-label text="Part Number">
-        <kendo-dropdownlist [data]="areaList" [(ngModel)]="equipment.partNumber" name="partNumber"></kendo-dropdownlist>
-      </kendo-label>
-    </div>
-
-
+    </form>
   </div>
-  </form>
-</div>
+</section>

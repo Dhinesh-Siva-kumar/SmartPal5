@@ -21,7 +21,7 @@ import { DropDownsModule } from "@progress/kendo-angular-dropdowns";
     DropDownsModule,
   ],
   templateUrl: './class-equipment.component.html',
-  styleUrl: './class-equipment.component.scss'
+  styleUrls: ['./class-equipment.component.scss', '../../../../data-library.component.scss']
 })
 
 

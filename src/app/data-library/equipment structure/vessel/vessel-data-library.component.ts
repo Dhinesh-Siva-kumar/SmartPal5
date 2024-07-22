@@ -22,7 +22,7 @@ import { MainControlTabsComponent } from '../../main-control-tabs/main-control-t
     MainControlTabsComponent
   ],
   templateUrl: './vessel-data-library.component.html',
-  styleUrl: './vessel-data-library.component.scss'
+  styleUrls: ['./vessel-data-library.component.scss', '../../data-library.component.scss']
 })
 export class VesselDataLibraryComponent {
 

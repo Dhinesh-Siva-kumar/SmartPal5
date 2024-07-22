@@ -41,7 +41,7 @@ const defaultItems: BreadCrumbItem[] = [
     ClassComponentComponent
   ],
   templateUrl: './class-structure.component.html',
-  styleUrl: './class-structure.component.scss'
+  styleUrls: ['./class-structure.component.scss', '../../data-library.component.scss']
 })
 export class ClassStructureComponent {
 

@@ -12,7 +12,7 @@ import { ComponentJobplanComponent } from '../../../equipment/equipment-tabs/com
     ComponentJobplanComponent
   ],
   templateUrl: './class-component.component.html',
-  styleUrl: './class-component.component.scss'
+  styleUrls: ['../../../../data-library.component.scss', './class-component.component.scss']
 })
 export class ClassComponentComponent {
 
